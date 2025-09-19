@@ -1,0 +1,2488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cherished Capter</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <style>
+      #portfolio, #portfolio .carousel, #portfolio .portfolio-slider-outer, #portfolio .portfolio-slider-row {
+        overflow: visible !important;
+      }
+    /* Compact height for contact form inputs */
+    .contact-form-compact .form-control {
+      height: 2.6rem;
+      min-height: 2.6rem;
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+      font-size: 1.04rem;
+      display: flex;
+      align-items: center;
+    }
+    .contact-form-compact.form-floating > label {
+      top: 50%;
+      transform: translateY(-50%);
+      padding-top: 0;
+      padding-bottom: 0;
+      height: auto;
+      display: flex;
+      align-items: center;
+    }
+    /* Contact info card hover effects */
+    .contact-info-card a {
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .contact-info-card a:hover {
+      color: #ab47bc !important;
+      text-decoration: underline;
+    }
+    .contact-info-card i {
+      transition: color 0.2s, transform 0.2s;
+    }
+    /* Email icon hover */
+    .contact-info-card a[href^="mailto"]:hover i {
+      color: #ab47bc !important;
+      transform: scale(1.18);
+    }
+    /* Phone icon hover */
+    .contact-info-card a[href^="tel"]:hover i {
+      color: #3a5a40 !important;
+      transform: scale(1.18);
+    }
+    /* WhatsApp icon hover */
+    .contact-info-card a[href*="wa.me"]:hover i {
+      color: #25D366 !important;
+      transform: scale(1.18);
+    }
+    /* Instagram icon hover */
+    .contact-info-card a[href*="instagram.com"]:hover i {
+      color: #E1306C !important;
+      transform: scale(1.18);
+    }
+    /* Location icon hover (not a link, so use parent hover) */
+    .contact-info-card p:hover i.bi-geo-alt {
+      color: #fd976d !important;
+      transform: scale(1.18);
+    }
+    /* Only keep hero section enhancements, revert global typography/colors to original */
+    @media (max-width: 991px) {
+      .hero-section .container, .hero-section .row {
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      .hero-content > div {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      .hero-img {
+        display: block;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+    }
+    @media (max-width: 991px) {
+      .navbar .container {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding-left: 0.7rem !important;
+        padding-right: 0.7rem !important;
+      }
+      .navbar-brand {
+        margin-left: 0.2rem !important;
+        margin-right: 0 !important;
+        order: 1;
+      }
+      #hamburger3dBtn {
+        margin-right: 0.2rem !important;
+        margin-left: 0 !important;
+        order: 2;
+      }
+    }
+    /* Modern fade and slide-in animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: none;
+    }
+  /* Removed duplicate .btn, .btn-primary, .btn-outline-primary, .btn-outline-secondary, .btn-success transition-only rule. Kept the full button style block below. */
+    /* Modern pastel/dark pastel backgrounds and heading colors */
+    .section-bg-mint {
+      background: linear-gradient(135deg, #e0f7fa 60%, #b8f2e6 100%) !important;
+      color: #232946 !important;
+    }
+    .section-bg-pink {
+      background: linear-gradient(120deg, #ffe0ef 60%, #f6c6b4 100%) !important;
+      color: #232946 !important;
+    }
+    .section-bg-lavender {
+      background: linear-gradient(120deg, #e6e6fa 60%, #b8c1ec 100%) !important;
+      color: #232946 !important;
+    }
+    .section-bg-peach {
+      background: linear-gradient(120deg, #fff6f0 60%, #f6e7cb 100%) !important;
+      color: #232946 !important;
+    }
+    .section-bg-blue {
+      background: linear-gradient(120deg, #e3f0ff 60%, #b8c1ec 100%) !important;
+      color: #232946 !important;
+    }
+    .section-bg-yellow {
+      background: linear-gradient(120deg, #fffbe6 60%, #fdd46b 100%) !important;
+      color: #232946 !important;
+    }
+    .section, .newsletter-modern-section, .footer-modern {
+      background-blend-mode: lighten;
+    }
+    .section-title, .portfolio-main-heading, .section h2, .section h3, .section h4, .section h5, .section h6 {
+      color: #232946 !important;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 2.2rem;
+      text-align: center;
+      color: #232946 !important;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+  /* Removed duplicate media queries for .section-title. */
+    @media (max-width: 991px) {
+      html, body {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+      }
+      .container, .section, .portfolio-slider-row, .feature-card, .testimonial-carousel-wrapper, .process-flow, .pricing-table, .faq, .contact-info-card, .newsletter, .footer {
+        text-align: center !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .section {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        width: 100vw !important;
+        overflow-x: hidden !important;
+      }
+  /* Removed redundant .container, .row, .footer, .newsletter, .rounded-form, and related layout element CSS. Kept only the most complete, modern version elsewhere in the CSS. */
+      }
+      @media (max-width: 991px) {
+      .portfolio-slider-row {
+        justify-content: center !important;
+        width: 100vw !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      .feature-card, .contact-info-card, .newsletter {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        float: none !important;
+        width: 100% !important;
+      }
+      .footer {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        width: 100vw !important;
+      }
+      .row, .row > * {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+      }
+    }
+    @media (max-width: 575px) {
+      html, body {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+      }
+      .section {
+        padding: 1.2rem 0 0.7rem 0;
+        width: 100vw !important;
+        overflow-x: hidden !important;
+      }
+      .section-title {
+        font-size: 1.1rem;
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+      }
+      .hero-content h1 {
+        font-size: 1.1rem;
+      }
+      .hero-img {
+        max-width: 99vw;
+      }
+      .feature-card, .rounded-form, .newsletter {
+        padding: 0.5rem 0.2rem;
+        width: 100% !important;
+      }
+      .row, .row > * {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+      }
+    }
+    /* Unified, professional mobile hero section styles */
+    @media (max-width: 991px) {
+      .hero-section {
+        flex-direction: column !important;
+        min-height: 340px !important;
+        padding-top: 2.2rem !important;
+        padding-bottom: 1.5rem !important;
+        background: linear-gradient(120deg, var(--dark-navy) 80%, var(--muted-blue) 100%);
+      }
+      .hero-content {
+        width: 100%;
+        text-align: center !important;
+        margin-bottom: 1.2rem !important;
+      }
+      .hero-content h1 {
+        font-size: 2.55rem !important;
+        line-height: 1.18 !important;
+        font-weight: 700;
+        margin-bottom: 1.1rem !important;
+        color: #eebbc3 !important;
+      }
+      .hero-content p {
+        font-size: 1.35rem !important;
+        color: #a7c7b7 !important;
+        margin-bottom: 1.3rem !important;
+      }
+      .hero-img {
+        max-width: 92vw !important;
+        width: 100% !important;
+        height: auto !important;
+        min-width: 0 !important;
+        border-radius: 1.2rem !important;
+        margin: 0 auto 1.5rem auto !important;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+      }
+      .hero-content > div {
+        margin-left: 0 !important;
+        padding: 0 1.2rem;
+      }
+      .hero-content .btn {
+        font-size: 1.13rem !important;
+        padding: 0.85rem 0 !important;
+        margin-bottom: 0.8rem !important;
+        margin-right: 0 !important;
+        display: block;
+        width: 100%;
+        border-radius: 2.5rem !important;
+        min-width: 0;
+        box-shadow: 0 2px 8px rgba(93,205,241,0.08);
+      }
+      .hero-content .btn:last-child {
+        margin-bottom: 0 !important;
+      }
+      .hero-content .btn-group, .hero-content .btn-row {
+        display: block;
+        width: 100%;
+      }
+    }
+    @media (max-width: 575px) {
+      .hero-section {
+        min-height: 200px !important;
+        padding-top: 1.1rem !important;
+        padding-bottom: 0.7rem !important;
+      }
+      .hero-content h1 {
+        font-size: 1.75rem !important;
+        margin-bottom: 0.7rem !important;
+      }
+      .hero-content p {
+        font-size: 1.18rem !important;
+      }
+      .hero-img {
+        max-width: 99vw !important;
+        border-radius: 0.7rem !important;
+      }
+      .hero-content > div {
+        padding: 0 0.3rem;
+      }
+      .hero-content .btn {
+        font-size: 0.98rem !important;
+        padding: 0.7rem 0 !important;
+      }
+    }
+    /* Mobile: Make Hero Section fully responsive */
+    @media (max-width: 991px) {
+      .hero-section {
+        flex-direction: column !important;
+        min-height: 340px !important;
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
+      }
+      .hero-content h1 {
+        font-size: 1.75rem !important;
+        line-height: 1.18 !important;
+      }
+      .hero-content p {
+        font-size: 1.18rem !important;
+      }
+      .hero-img {
+        max-width: 90vw !important;
+        width: 100% !important;
+        height: auto !important;
+        min-width: 0 !important;
+        border-radius: 1.2rem !important;
+        margin: 0 auto 1.2rem auto !important;
+      }
+      .hero-content > div {
+        margin-left: 0 !important;
+      }
+      .hero-content .btn {
+        font-size: 1.08rem !important;
+        padding: 0.7rem 1.5rem !important;
+        margin-bottom: 0.7rem !important;
+        margin-right: 0.7rem !important;
+        display: inline-block;
+        min-width: 140px;
+      }
+      .hero-content .btn:last-child {
+        margin-right: 0 !important;
+      }
+      .hero-content .btn-group, .hero-content .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        justify-content: flex-start;
+        align-items: center;
+      }
+    }
+    @media (max-width: 575px) {
+      .hero-section {
+        min-height: 220px !important;
+        padding-top: 0.7rem !important;
+        padding-bottom: 0.7rem !important;
+      }
+      .hero-content h1 {
+        font-size: 1.28rem !important;
+      }
+      .hero-content p {
+        font-size: 1.08rem !important;
+      }
+      .hero-img {
+        max-width: 98vw !important;
+        border-radius: 0.7rem !important;
+      }
+      .hero-content .btn {
+        font-size: 1rem !important;
+        padding: 0.6rem 1.1rem !important;
+        min-width: 120px;
+      }
+    }
+    /* Mobile: Remove gap between navbar and cover image, make cover image responsive */
+    @media (max-width: 991px) {
+      .cover-image-section {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+      .container-fluid.p-0 {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        min-height: 180px !important;
+      }
+      .cover-image-section img {
+        max-height: 220px !important;
+        width: 100vw !important;
+        object-fit: cover !important;
+        border-radius: 0 !important;
+        display: block;
+      }
+    }
+    /* Remove mobile gap between navbar and cover image */
+    @media (max-width: 991px) {
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .navbar {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      .cover-image-section {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+      .container-fluid.p-0 {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+    }
+    /* Portfolio arrows below cards on mobile */
+    @media (max-width: 767px) {
+      #portfolio .portfolio-slider-row {
+  gap: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  overflow: visible !important;
+      }
+      #portfolio .portfolio-slider-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      #portfolio .portfolio-slider-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      #portfolio .portfolio-slider-row {
+        gap: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        transform: none !important;
+      }
+      /* Portfolio section heading and arrows left-aligned on mobile */
+      #portfolio .portfolio-main-heading {
+        text-align: left !important;
+        margin-left: 0 !important;
+      }
+      #portfolio .portfolio-heading-arrows {
+        justify-content: flex-start !important;
+        margin-left: 0 !important;
+      }
+      #testimonials .section-title {
+        margin-bottom: 1.2rem !important;
+      }
+      #testimonials.section-bg-peach {
+        padding-bottom: 4.5rem !important;
+      }
+      .portfolio-heading-arrows {
+        width: 100%;
+        justify-content: center !important;
+        margin: 1.1rem 0 0 0 !important;
+        order: 2;
+      }
+      .portfolio-heading-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.5rem !important;
+      }
+    }
+    /* Portfolio card subheading clean modern style */
+      .portfolio-slider-card {
+        background: #fff;
+        border-radius: 1.2rem;
+        box-shadow: 0 2px 12px #b8c1ec22;
+        padding: 1.2rem 1.1rem 1.1rem 1.1rem;
+        margin: 0.2rem 0.1rem;
+        min-width: 220px;
+        max-width: 320px;
+        min-height: 390px;
+        height: 390px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        transition: box-shadow 0.2s, transform 0.22s cubic-bezier(.39,.575,.565,1.000), border 0.2s;
+  border: 2.5px solid #e6b800 !important;
+        position: relative;
+        z-index: 1;
+      }
+      .portfolio-slider-card:hover {
+    box-shadow: 0 8px 32px #eebbc344;
+  border: 2.5px solid #FD976D !important;
+    transform: scale(1.09) translateY(-10px);
+    background: #FD976D !important;
+        z-index: 2;
+      }
+    .portfolio-img-square {
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 100% !important;
+  height: 320px !important;
+  max-width: 100% !important;
+  aspect-ratio: 3/4 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+    /* Portfolio image hover effect */
+    .portfolio-img-square img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  aspect-ratio: 3/4 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: cover !important;
+  transition: none !important;
+  border: none !important;
+  box-shadow: none !important;
+    }
+    /* Portfolio Custom Slider Styles */
+    .portfolio-slider-outer {
+  width: 100%;
+  max-width: 1400px;
+  min-height: 620px;
+  height: 620px;
+  overflow: visible;
+  position: relative;
+  margin: 0 auto 2.5rem auto;
+  padding-top: 32px;
+  padding-bottom: 0;
+    }
+    .portfolio-slider-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2.2rem;
+  transition: scroll-behavior 0.3s;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 0.5rem;
+  /* drag-to-scroll and drag-and-drop removed for clean slider */
+    }
+    .portfolio-slider-row::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .portfolio-slider-card {
+  flex: 0 0 25%; /* Show fewer, larger cards */
+  min-width: 320px;
+  max-width: 420px;
+  margin-top: 18px;
+  margin-right: 0;
+  transition: transform 0.2s;
+  background: none;
+  border: none;
+    }
+    @media (max-width: 1200px) {
+      .portfolio-slider-card { flex-basis: 33%; min-width: 200px; }
+    }
+    @media (max-width: 991px) {
+      .portfolio-slider-card { flex-basis: 60%; min-width: 150px; }
+    }
+    @media (max-width: 767px) {
+      .portfolio-slider-card { flex-basis: 90%; min-width: 120px; max-width: 98vw; }
+      .portfolio-slider-row { gap: 0.7rem; padding-left: 0.5rem; padding-right: 0.5rem; }
+      .portfolio-img-square { max-width: 98vw; }
+  .portfolio-desc h6 { font-size: 1.28rem; }
+  .portfolio-desc p { font-size: 1.18rem; }
+    }
+    @media (max-width: 575px) {
+      .portfolio-slider-card { flex-basis: 100%; min-width: 90px; max-width: 99vw; }
+      .portfolio-slider-row { gap: 0.4rem; padding-left: 0.2rem; padding-right: 0.2rem; }
+      .portfolio-img-square { max-width: 99vw; }
+  .portfolio-desc h6 { font-size: 1.08rem; }
+  .portfolio-desc p { font-size: 1.01rem; }
+    }
+    :root {
+      --dark-navy: #232946;
+      --dark-purple: #3d314a;
+      --dark-teal: #22333b;
+      --muted-blue: #4f5d75;
+      --muted-purple: #6c547b;
+      --muted-green: #3a5a40;
+      --soft-pink: #eebbc3;
+      --soft-lavender: #b8c1ec;
+      --soft-mint: #a7c7b7;
+      --soft-peach: #f6c6b4;
+      --headline: 'Playfair Display', serif;
+      --body: 'Inter', sans-serif;
+    }
+    html, body {
+      font-family: var(--body);
+      background: var(--dark-navy);
+      color: #f4f4f4;
+      overflow-x: hidden;
+      width: 100vw;
+      max-width: 100vw;
+      box-sizing: border-box;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--headline);
+      color: #eebbc3;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.13;
+      margin-bottom: 1.1rem;
+    }
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 1.2rem;
+    }
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    h3 {
+      font-size: 1.85rem;
+      margin-bottom: 1rem;
+    }
+    h4 {
+      font-size: 1.45rem;
+      margin-bottom: 0.8rem;
+    }
+    h5 {
+      font-size: 1.18rem;
+      margin-bottom: 0.7rem;
+    }
+    h6 {
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+    }
+    body, p, .section, .portfolio-desc p, .feature-card, .faq-a, .newsletter, .footer, .contact-info-card {
+      font-family: var(--body);
+      font-size: 1.13rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #4f5d75;
+    }
+    @media (max-width: 991px) {
+      h1 {
+        font-size: 2.1rem;
+      }
+      h2 {
+        font-size: 1.55rem;
+      }
+      h3 {
+        font-size: 1.25rem;
+      }
+      h4 {
+        font-size: 1.08rem;
+      }
+      h5 {
+        font-size: 1.01rem;
+      }
+      h6 {
+        font-size: 0.98rem;
+      }
+      body, p, .section, .portfolio-desc p, .feature-card, .faq-a, .newsletter, .footer, .contact-info-card {
+        font-size: 1.01rem;
+      }
+    }
+    @media (max-width: 575px) {
+      h1 {
+        font-size: 1.45rem;
+      }
+      h2 {
+        font-size: 1.13rem;
+      }
+      h3 {
+        font-size: 1.01rem;
+      }
+      h4, h5, h6 {
+        font-size: 0.98rem;
+      }
+      body, p, .section, .portfolio-desc p, .feature-card, .faq-a, .newsletter, .footer, .contact-info-card {
+        font-size: 0.97rem;
+      }
+    }
+    .navbar {
+      background: var(--dark-navy);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100vw;
+      z-index: 1204;
+      transition: box-shadow 0.2s, background 0.2s;
+    }
+    body {
+      padding-top: 64px; /* Adjust if navbar height changes */
+    }
+    .navbar-brand {
+      font-family: var(--headline);
+      font-size: 2rem;
+      color: #eebbc3 !important;
+      letter-spacing: 1px;
+    }
+    .nav-link {
+      color: #b8c1ec !important;
+      font-weight: 500;
+      margin-right: 1rem;
+      transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+      border-radius: 0.7rem;
+      position: relative;
+      padding: 0.35rem 1.1rem !important;
+      z-index: 1;
+    }
+    .nav-link.active, .nav-link:hover, .nav-link:focus {
+      color: #232946 !important;
+      background: #eebbc3 !important;
+      box-shadow: 0 2px 12px rgba(238,187,195,0.13);
+      border-radius: 0.7rem;
+    }
+    .hero-section {
+  background: linear-gradient(120deg, var(--dark-navy) 60%, var(--muted-blue) 100%);
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding-top: 0.7rem;
+  padding-bottom: 2.2rem;
+    }
+    .hero-img {
+      max-width: 420px;
+      border-radius: 2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    }
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+    .hero-content p {
+  font-size: 1.3rem;
+  color: var(--soft-mint);
+    }
+    .section {
+      padding: 5rem 0 4rem 0;
+    }
+  .section-bg-mint { background: var(--muted-green); }
+  .section-bg-pink { background: var(--soft-pink); color: #232946; }
+  .section-bg-lavender { background: var(--soft-lavender); color: #232946; }
+  .section-bg-peach { background: var(--soft-peach); color: #232946; }
+  .section-bg-blue { background: var(--muted-blue); }
+  .section-bg-yellow { background: #f6e7cb; color: #232946; }
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 2.2rem;
+      color: #eebbc3;
+      text-align: left;
+      font-family: var(--headline);
+      letter-spacing: 0.5px;
+      font-weight: 700;
+      animation: fadeInUp 1s cubic-bezier(.39,.575,.565,1.000) both;
+    }
+    .feature-card {
+      background: linear-gradient(135deg, var(--dark-purple) 60%, var(--muted-blue) 100%);
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 24px rgba(60, 40, 80, 0.18);
+      padding: 2.2rem 1.5rem;
+      text-align: left;
+      border: 2px solid var(--soft-lavender);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background 0.2s;
+      min-height: 320px;
+      color: #f4f4f4;
+      font-family: var(--body);
+      animation: fadeInUp 1s cubic-bezier(.39,.575,.565,1.000) both;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px) scale(1.04);
+      box-shadow: 0 16px 48px rgba(60, 40, 80, 0.32);
+      border-color: var(--soft-pink);
+      background: linear-gradient(135deg, var(--muted-blue) 60%, var(--dark-purple) 100%);
+    }
+    .feature-card i {
+      font-size: 2.7rem;
+      color: #eebbc3;
+      margin-bottom: 1.2rem;
+      background: var(--dark-navy);
+      border-radius: 50%;
+      padding: 0.7rem;
+      box-shadow: 0 2px 8px rgba(60, 40, 80, 0.10);
+      transition: background 0.2s, color 0.2s;
+    }
+    .feature-card:hover i {
+      background: var(--soft-pink);
+      color: var(--dark-navy);
+    }
+    .portfolio-img {
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      transition: box-shadow 0.2s;
+    }
+    .portfolio-img:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+    }
+    .process-step {
+  background: #fff;
+  border-radius: 1.2rem;
+  padding: 1.2rem 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 12px rgba(255, 183, 94, 0.07);
+  text-align: center;
+  min-width: 120px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s;
+  cursor: pointer;
+}
+.process-step:hover {
+  box-shadow: 0 8px 32px #eebbc344, 0 2px 12px #fdd46b33;
+  background: #eebbc3;
+  color: #fff;
+  z-index: 2;
+}
+.process-step:hover i {
+  color: #e6b800 !important;
+  transition: color 0.22s;
+    }
+    .process-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+    }
+    .process-arrow {
+      font-size: 2rem;
+      color: #ab47bc;
+      margin: 0 0.5rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .process-step.visible, .process-arrow.visible {
+      opacity: 1;
+      transform: none;
+    }
+    @media (max-width: 991px) {
+      .process-step { min-width: 90px; font-size: 0.95rem; }
+      .process-arrow { font-size: 1.3rem; }
+    }
+    @media (max-width: 575px) {
+      .process-step { min-width: 70px; font-size: 0.85rem; padding: 0.7rem 0.5rem; }
+      .process-arrow { font-size: 1rem; }
+    }
+    .pricing-table th, .pricing-table td {
+      background: linear-gradient(120deg, var(--soft-lavender) 70%, var(--muted-blue) 100%);
+      border-radius: 0.7rem;
+      text-align: center;
+      vertical-align: middle;
+      border: 1.5px solid var(--dark-navy);
+      color: #232946;
+    }
+    .pricing-table th {
+      color: #eebbc3;
+      font-size: 1.1rem;
+      background: linear-gradient(120deg, var(--muted-blue) 60%, var(--soft-lavender) 100%);
+    }
+    .cta-section {
+      background: var(--pastel-yellow);
+      border-radius: 1.2rem;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .faq .accordion-button {
+  background: #C9B1FB !important;
+      font-weight: 600;
+    }
+    .footer {
+      background: #fff;
+      color: #7b5e57;
+      padding: 2rem 0 1rem 0;
+      text-align: center;
+      border-top: 1px solid #eee;
+      font-size: 1rem;
+    }
+    .social-link {
+      color: #ab47bc;
+      margin: 0 0.5rem;
+      font-size: 1.5rem;
+      transition: color 0.2s;
+    }
+    .social-link:hover {
+      color: #7b5e57;
+    }
+    .rounded-form {
+      border-radius: 1.2rem;
+      background: linear-gradient(120deg, var(--dark-teal) 60%, var(--muted-blue) 100%);
+      box-shadow: 0 4px 24px rgba(60, 40, 80, 0.18);
+      padding: 2rem;
+      border: 2px solid var(--soft-lavender);
+      color: #f4f4f4;
+      font-family: var(--body);
+      animation: fadeInUp 1.2s cubic-bezier(.39,.575,.565,1.000) both;
+    }
+    .rounded-form input, .rounded-form textarea {
+      background: var(--soft-lavender);
+      border-radius: 0.7rem;
+      border: 1.5px solid var(--muted-blue);
+      color: #232946;
+    }
+    .rounded-form input:focus, .rounded-form textarea:focus {
+      border-color: #eebbc3;
+      box-shadow: 0 0 0 0.2rem rgba(238,187,195,0.10);
+    }
+    .newsletter {
+      background: linear-gradient(120deg, var(--soft-peach) 60%, var(--soft-lavender) 100%);
+      border-radius: 1.2rem;
+      padding: 2rem 1rem;
+      margin: 2rem 0;
+      text-align: center;
+      border: 2px solid var(--muted-blue);
+      box-shadow: 0 4px 24px rgba(60, 40, 80, 0.18);
+      color: #232946;
+      font-family: var(--body);
+      animation: fadeInUp 1.3s cubic-bezier(.39,.575,.565,1.000) both;
+    }
+    .newsletter input {
+      background: var(--soft-lavender);
+      border-radius: 0.7rem;
+      border: 1.5px solid var(--soft-pink);
+      color: #232946;
+    }
+    .newsletter input:focus {
+      border-color: #eebbc3;
+      box-shadow: 0 0 0 0.2rem rgba(238,187,195,0.10);
+    }
+    /* Custom Button Styles: All buttons use #5dcdf1, hover #1b1624 */
+    .btn, .btn-primary, .btn-outline-primary, .btn-outline-secondary, .btn-success {
+      background: #eebbc3 !important;
+      border: 2px solid #eebbc3 !important;
+      color: #232946 !important;
+      font-weight: 600;
+      border-radius: 2.5rem !important;
+      box-shadow: 0 4px 16px rgba(238,187,195,0.10);
+      padding: 0.7rem 2.2rem !important;
+      font-size: 1.13rem;
+      letter-spacing: 0.01em;
+      transition: background 0.22s, color 0.22s, border 0.22s, box-shadow 0.22s, transform 0.22s;
+    }
+    .btn:hover, .btn:focus,
+    .btn-primary:hover, .btn-primary:focus,
+    .btn-outline-primary:hover, .btn-outline-primary:focus,
+    .btn-outline-secondary:hover, .btn-outline-secondary:focus,
+    .btn-success:hover, .btn-success:focus {
+      background: #232946 !important;
+      border-color: #232946 !important;
+      color: #eebbc3 !important;
+      box-shadow: 0 8px 32px rgba(35,41,70,0.13);
+      transform: translateY(-2px) scale(1.03);
+    }
+    .btn:active {
+      background: #b8c1ec !important;
+      border-color: #b8c1ec !important;
+      color: #232946 !important;
+      box-shadow: 0 2px 8px rgba(184,193,236,0.10);
+      transform: scale(0.98);
+    }
+    /* Card polish: soft shadow, rounded, clean */
+    /* Removed duplicate card style block. Kept the most complete, modern card style elsewhere in the CSS. */
+    /* Modern fadeInUp animation */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  /* End of main style block */
+  .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .sticky-top {
+      z-index: 1030;
+    }
+        /* Pastel style for accordion and toggles */
+    .accordion-item {
+      background: linear-gradient(120deg, var(--pastel-yellow) 60%, var(--pastel-blue) 100%);
+      border: 2px solid var(--pastel-mint);
+      border-radius: 1.2rem !important;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 12px rgba(120, 120, 180, 0.07);
+    }
+    .accordion-button {
+      background: var(--pastel-mint);
+      color: #7b5e57;
+      font-weight: 600;
+      border-radius: 1.2rem !important;
+      border: none;
+      box-shadow: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .accordion-button:not(.collapsed) {
+      background: var(--pastel-pink);
+      color: #ab47bc;
+      box-shadow: 0 2px 8px rgba(171,71,188,0.08);
+    }
+    .accordion-body {
+      background: var(--pastel-yellow);
+      border-radius: 0 0 1.2rem 1.2rem;
+      color: #3e2723;
+    }
+    /* Pastel style for carousel controls */
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+      background-color: var(--pastel-blue);
+      border-radius: 50%;
+      border: 2px solid var(--pastel-pink);
+      box-shadow: 0 2px 8px rgba(171,71,188,0.08);
+    }
+    .carousel-control-prev:hover .carousel-control-prev-icon,
+    .carousel-control-next:hover .carousel-control-next-icon {
+      background-color: var(--pastel-pink);
+      border-color: var(--pastel-blue);
+    }
+    /* Pastel style for form checkboxes and radios */
+    .form-check-input:checked {
+      background-color: var(--pastel-blue);
+      border-color: #ab47bc;
+      box-shadow: 0 0 0 0.2rem rgba(171,71,188,0.10);
+    }
+    .form-check-input {
+      border-radius: 0.5rem;
+      border: 2px solid var(--pastel-pink);
+      background: var(--pastel-yellow);
+    }
+      @media (max-width: 991px) {
+    .section {
+      padding: 3rem 0 2rem 0;
+    }
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+    }
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+    .hero-img {
+      max-width: 90vw;
+    }
+    .feature-card, .rounded-form, .newsletter {
+      min-height: unset;
+      padding: 1.2rem 1rem;
+    }
+  }
+  @media (max-width: 575px) {
+    .section {
+      padding: 2rem 0 1.2rem 0;
+    }
+    .section-title {
+      font-size: 1.3rem;
+    }
+    .hero-content h1 {
+      font-size: 1.3rem;
+    }
+    .hero-img {
+      max-width: 98vw;
+    }
+    .feature-card, .rounded-form, .newsletter {
+      padding: 0.7rem 0.5rem;
+    }
+  }
+   /* Portfolio square image helper */
+    .portfolio-img-square {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  display: block;
+  background: #fff;
+  border-radius: 1.2rem !important;
+  box-shadow: 0 2px 12px rgba(60, 40, 80, 0.10);
+  border: 2.5px solid #fdd46b;
+  padding: 0;
+    }
+    @media (max-width: 991px) {
+      .portfolio-img-square { max-width: 220px; }
+    }
+    @media (max-width: 575px) {
+      .portfolio-img-square { max-width: 90vw; }
+    }
+    /* Custom Carousel Button Styles */
+    .portfolio-carousel-btn {
+      background: #fdd46b;
+      border: 2px solid #fdd46b;
+      color: #181818;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      box-shadow: 0 2px 8px rgba(253,212,107,0.10);
+      transition: background 0.2s, color 0.2s, border 0.2s;
+    }
+    .portfolio-carousel-btn:hover, .portfolio-carousel-btn:focus {
+      background: #2ea2cc !important;
+      border-color: #2ea2cc !important;
+      color: #181818 !important;
+    }
+    .portfolio-carousel-btn i {
+      color: #181818 !important;
+      transition: color 0.2s;
+    }
+    .portfolio-carousel-btn:hover i, .portfolio-carousel-btn:focus i {
+      color: #181818 !important;
+    }
+    .testimonial-carousel-wrapper {
+      width: 100%;
+  position: relative;
+  /* For arrow overlap positioning context */
+  min-height: 240px;
+    }
+    .testimonial-carousel-btn {
+      background: #fff;
+      border: 2px solid #eebbc3;
+      color: #ab47bc;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      box-shadow: 0 2px 8px rgba(171,71,188,0.10);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  /* Overlap the card edge, half on/half off */
+  box-shadow: 0 2px 12px rgba(171,71,188,0.13);
+  /* No change to vertical position */
+      transition: background 0.2s, color 0.2s, border 0.2s;
+    }
+    .testimonial-carousel-btn-left {
+  left: 28px;
+  transform: translateY(-50%);
+    }
+    .testimonial-carousel-btn-right {
+  right: 28px;
+  transform: translateY(-50%);
+    }
+    .testimonial-carousel-btn:hover {
+      background: #eebbc3;
+      color: #232946;
+      border-color: #ab47bc;
+    }
+    @media (max-width: 991px) {
+  .testimonial-carousel-btn-left { left: 14px; transform: translateY(-50%); }
+  .testimonial-carousel-btn-right { right: 14px; transform: translateY(-50%); }
+    }
+    @media (max-width: 767px) {
+      .testimonial-carousel-btn-left, .testimonial-carousel-btn-right {
+        position: absolute !important;
+        left: 50% !important;
+        right: auto !important;
+        top: 100% !important;
+        transform: translate(-120%, 0) !important;
+        display: inline-flex !important;
+        margin-top: 12px;
+      }
+      .testimonial-carousel-btn-right {
+        left: 50% !important;
+        transform: translate(20%, 0) !important;
+      }
+      .portfolio-carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+    }
+    .cta-modern-card {
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .cta-modern-card:hover {
+      box-shadow: 0 8px 32px rgba(171,71,188,0.13);
+      transform: translateY(-4px) scale(1.02);
+    }
+    .cta-quiz-btn {
+      font-size: 1.2rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(238,187,195,0.08);
+      transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .cta-quiz-btn:hover, .cta-quiz-btn:focus {
+      background: linear-gradient(90deg, var(--muted-blue) 60%, var(--soft-pink) 100%);
+      color: #eebbc3;
+      border-color: #eebbc3;
+      box-shadow: 0 4px 16px rgba(171,71,188,0.13);
+      transform: translateY(-2px) scale(1.03);
+    }
+.faq-q {
+      background: linear-gradient(90deg, #fff6f9 60%, #b8c1ec 100%) !important;
+      color: #232946 !important;
+      font-weight: 600;
+      border-radius: 1.2rem 1.2rem 0 0 !important;
+      font-size: 1.1rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .faq-q:not(.collapsed) {
+  background: linear-gradient(90deg, #b8c1ec 60%, #fff6f9 100%) !important;
+  color: #232946 !important; /* dark pastel blue */
+    }
+    .faq-a {
+      background: linear-gradient(90deg, #f6e7cb 60%, #eebbc3 100%);
+      color: #3d314a;
+      border-radius: 0 0 1.2rem 1.2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-top: -2px;
+      padding: 1.2rem 1rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .contact-info-card {
+      min-height: 320px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .contact-info-card:hover {
+      box-shadow: 0 8px 32px rgba(171,71,188,0.13);
+      transform: translateY(-4px) scale(1.02);
+    }
+    .contact-btn {
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(238,187,195,0.08);
+      transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .contact-btn:hover, .contact-btn:focus {
+      background: linear-gradient(90deg, var(--muted-blue) 60%, var(--soft-pink) 100%);
+      color: #eebbc3;
+      border-color: #eebbc3;
+      box-shadow: 0 4px 16px rgba(171,71,188,0.13);
+      transform: translateY(-2px) scale(1.03);
+    }
+     .newsletter-modern-section {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: none;
+    }
+    .newsletter-modern-card {
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .newsletter-modern-card:hover {
+      box-shadow: 0 8px 32px rgba(171,71,188,0.13);
+      transform: translateY(-4px) scale(1.02);
+    }
+    .newsletter-input {
+      font-size: 1.1rem;
+      padding: 0.8rem 1.2rem;
+      border: 2px solid #eebbc3;
+      background: #fff;
+      color: #232946;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+    .newsletter-input:focus {
+      border-color: #ab47bc;
+      box-shadow: 0 0 0 0.2rem rgba(171,71,188,0.10);
+    }
+    .newsletter-btn {
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(238,187,195,0.08);
+      transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .newsletter-btn:hover, .newsletter-btn:focus {
+      background: linear-gradient(90deg, var(--muted-green) 60%, var(--soft-peach) 100%);
+      color: #232946;
+      border-color: #eebbc3;
+      box-shadow: 0 4px 16px rgba(171,71,188,0.13);
+      transform: translateY(-2px) scale(1.03);
+    }
+ .footer-modern {
+      background: linear-gradient(90deg,#fff6f9 60%,#b8c1ec 100%);
+      color: #232946;
+      border-top: 1.5px solid #eebbc3;
+      font-family: var(--body);
+    }
+    .footer-logo-icon {
+      vertical-align: middle;
+    }
+    .footer-social-link {
+      color: #ab47bc;
+      font-size: 1.5rem;
+      transition: color 0.2s;
+      display: inline-block;
+    }
+    .footer-social-link:hover {
+      color: #3a5a40;
+    }
+    .footer-link {
+      color: #4f5d75;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-link:hover {
+      color: #ab47bc;
+      text-decoration: underline;
+    }
+    @media (max-width: 767px) {
+      .footer-modern .row > div { text-align: center !important; margin-bottom: 1.2rem; }
+      .footer-logo-text { font-size: 1.2rem; }
+    }
+/* 3D Hamburger and Mobile Menu */
+    .hamburger3d {
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      z-index: 1202;
+      position: relative;
+      cursor: pointer;
+      perspective: 400px;
+      transition: filter 0.2s;
+    }
+    .hamburger3d .bar {
+      display: block;
+      width: 32px;
+      height: 4px;
+      background: linear-gradient(90deg, #eebbc3 0%, #5dcdf1 100%);
+      border-radius: 2px;
+      box-shadow: 0 2px 8px rgba(93,205,241,0.13);
+  transition: transform 0.38s cubic-bezier(.68,-0.55,.27,1.55), background 0.2s, opacity 0.3s;
+      will-change: transform;
+    }
+    .hamburger3d.active .bar1 {
+  transform: translateY(10px) rotate(45deg);
+  background: linear-gradient(90deg, #ab47bc 0%, #5dcdf1 100%);
+    }
+    .hamburger3d.active .bar2 {
+  opacity: 0;
+  transform: scaleX(0.2);
+    }
+    .hamburger3d.active .bar3 {
+  transform: translateY(-10px) rotate(-45deg);
+  background: linear-gradient(90deg, #ab47bc 0%, #5dcdf1 100%);
+    }
+    @media (min-width: 992px) {
+      .hamburger3d { display: none !important; }
+    }
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(35,41,70,0.98);
+      z-index: 1201;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(1.08) rotateY(30deg);
+      transition: opacity 0.38s cubic-bezier(.68,-0.55,.27,1.55), transform 0.38s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1) rotateY(0deg);
+    }
+    .mobile-menu-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+      align-items: center;
+    }
+    .mobile-menu-link {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      color: #eebbc3;
+      text-decoration: none;
+      letter-spacing: 1px;
+      font-weight: 700;
+      transition: color 0.2s, text-shadow 0.2s;
+      text-shadow: 0 2px 12px #23294644;
+    }
+    .mobile-menu-link:hover, .mobile-menu-link:focus {
+      color: #5dcdf1;
+      text-shadow: 0 4px 24px #5dcdf1aa;
+    }
+    @media (min-width: 992px) {
+      .mobile-menu-overlay { display: none !important; }
+    }
+        @media (max-width: 991px) {
+      .navbar-brand {
+        font-size: 1.25rem !important;
+        padding-right: 0.5rem !important;
+        max-width: 70vw;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .hamburger3d {
+        margin-left: 0.5rem;
+      }
+      .container.position-relative.d-flex {
+        flex-wrap: nowrap !important;
+      }
+    }
+     /* FAQ toggle icon styles */
+    .faq-toggle-icon {
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      transition: color 0.2s;
+    }
+    .faq-toggle-icon .plus { display: inline; }
+    .faq-toggle-icon .minus { display: none; }
+    .accordion-button:not(.collapsed) .faq-toggle-icon .plus { display: none; }
+    .accordion-button:not(.collapsed) .faq-toggle-icon .minus { display: inline; }
+    .accordion-button::after { display: none !important; }
+      .vs-icon-circle {
+  transition: transform 0.35s cubic-bezier(.4,1.6,.6,1), background 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18); /* glassy white */
+  box-shadow: 0 2px 8px #b8c1ec22;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255,255,255,0.32);
+  margin-bottom: 0.4rem;
+  overflow: hidden;
+      }
+      .vs-icon-circle i {
+  transition: color 0.2s, transform 0.35s cubic-bezier(.4,1.6,.6,1);
+      }
+     
+  .vertical-slider .vs-card:hover .vs-icon-circle {
+    transform: scale(1.18);
+  }
+  .vertical-slider .vs-card:hover .vs-icon-circle i {
+    transform: scale(1.18);
+        color: #e6b800;
+      }
+      .vertical-slider .vs-card:hover .vs-icon-circle i.bi-heart {
+        color: #ff4f81;
+      }
+      .vertical-slider .vs-card:hover .vs-icon-circle i.bi-trophy {
+        color: #ffd700;
+      }
+      .vertical-slider .vs-card:hover .vs-icon-circle i.bi-book {
+        color: #3d314a;
+      }
+      .vertical-slider .vs-card:hover .vs-icon-circle i.bi-camera {
+        color: #232946;
+      }
+          /* Increase width of portfolio images */
+    .portfolio-img-square img {
+  width: 100% !important;
+  max-width: 100% !important;
+  left: 0;
+  transform: none;
+  position: static;
+  padding: 0 !important;
+  margin: 0 !important;
+    }
+        .faq .accordion-body {
+  background: linear-gradient(90deg, #FDD6B8 60%, #D8C6FB 100%) !important;
+    }
+    .portfolio-slider-card:hover .portfolio-desc p {
+  color: #181818 !important;
+}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container position-relative d-flex flex-row align-items-center justify-content-between" style="min-height:56px;">
+      <a class="navbar-brand mb-0" href="#" style="z-index:1203;">Cherished Capter</a>
+      <button class="hamburger3d d-lg-none ms-2" id="hamburger3dBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenuOverlay">
+        <span class="bar bar1"></span>
+        <span class="bar bar2"></span>
+        <span class="bar bar3"></span>
+      </button>
+      <!-- Desktop Nav -->
+      <div class="d-none d-lg-flex ms-auto align-items-center">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <!-- Mobile Fullscreen Menu Overlay -->
+      <div class="mobile-menu-overlay" id="mobileMenuOverlay" tabindex="-1" aria-hidden="true">
+        <nav class="mobile-menu-nav">
+          <ul>
+            <li><a href="#home" class="mobile-menu-link">Home</a></li>
+            <li><a href="#features" class="mobile-menu-link">Features</a></li>
+            <li><a href="#portfolio" class="mobile-menu-link">Portfolio</a></li>
+            <li><a href="#faq" class="mobile-menu-link">Services</a></li>
+            <li><a href="#process" class="mobile-menu-link">Process</a></li>
+            <li><a href="#pricing" class="mobile-menu-link">Pricing</a></li>
+            <li><a href="#contact" class="mobile-menu-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    
+  </nav>
+
+  <!-- Cover Image Section -->
+  <section class="cover-image-section">
+    <div class="container-fluid p-0" style="min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Cherished Capter Cover" class="img-fluid w-100" style="max-height:420px;object-fit:cover;">
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="hero-section py-5" id="home" style="background:#f6f8fa;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-xl-11">
+          <div class="card shadow-lg border-0 p-4 p-md-5 flex-md-row align-items-center mx-auto hero-glass" style="border-radius:2.5rem;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);box-shadow:0 8px 48px rgba(230,184,0,0.10),0 1.5px 8px rgba(26,34,56,0.08);max-width:1200px;width:100%;">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-7 d-flex flex-column justify-content-center text-center text-md-start px-3 px-md-4">
+                <h1 class="display-4 fw-bold mb-3" style="color:#232946;font-family:'Playfair Display',serif;text-shadow:0 2px 12px #e6b80022;">Hi, I'm Trish!<br><span style="color:#e6b800;background:linear-gradient(90deg,#e6b800,#b8c1ec);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Let's create a one-of-a-kind, heartfelt gift.</span></h1>
+                <p class="lead mb-4" style="color:#181a1b;font-family:'Inter',sans-serif;font-size:1.35rem;">
+I help you in creating a one-of-a-kind and heartfelt gift to celebrate that truly special and cherished relationship.<br><span style="color:#eebbc3;font-weight:600;">Warm, personal, and crafted with love.</span></p>
+                <div class="d-flex flex-column flex-sm-row gap-3 mb-2">
+                  <a href="#contact" class="btn btn-lg btn-primary rounded-pill px-5" style="background:linear-gradient(90deg,#e6b800,#b8c1ec);border:none;color:#232946;font-weight:700;box-shadow:0 4px 16px #e6b80022;">Start Your Book</a>
+                  <a href="#quiz" class="btn btn-lg btn-outline-secondary rounded-pill px-5" style="border:2px solid #e6b800;color:#e6b800;font-weight:700;background:rgba(255,255,255,0.7);">Take the Quiz</a>
+                </div>
+              </div>
+              <div class="col-md-5 text-center mt-4 mt-md-0 px-3 px-md-4">
+                <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Hero Visual" class="img-fluid rounded-4 shadow hero-img-pro" style="width:340px;height:460px;object-fit:cover;max-width:100%;border-radius:2rem;box-shadow:0 8px 32px #e6b80022;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section section-bg-lavender" id="features">
+    <div class="container">
+      <div class="row align-items-center justify-content-center flex-wrap flex-md-nowrap" style="gap:2rem;">
+        <!-- Left: Vertical Card Slider -->
+        <div class="col-12 col-md-6 d-flex justify-content-center">
+          <div class="vertical-slider" id="verticalSlider" style="margin-left:140px;">
+            <div class="vs-card">
+              <div class="vs-icon"><span class="vs-icon-circle"><i class="bi bi-gift"></i></span></div>
+              <div class="vs-title">Milestone Birthdays</div>
+            </div>
+            <div class="vs-card">
+              <div class="vs-icon"><span class="vs-icon-circle"><i class="bi bi-heart"></i></span></div>
+              <div class="vs-title">Anniversaries</div>
+            </div>
+            <div class="vs-card">
+              <div class="vs-icon"><span class="vs-icon-circle"><i class="bi bi-trophy"></i></span></div>
+              <div class="vs-title">Achievements</div>
+            </div>
+            <div class="vs-card">
+              <div class="vs-icon"><span class="vs-icon-circle"><i class="bi bi-book"></i></span></div>
+              <div class="vs-title">Personal Stories</div>
+            </div>
+            <div class="vs-card">
+              <div class="vs-icon"><span class="vs-icon-circle"><i class="bi bi-camera"></i></span></div>
+      
+              <div class="vs-title">Photo Memories</div>
+            </div>
+          </div>
+        </div>
+        <!-- Right: Heading and Description -->
+        <div class="col-12 col-md-6 d-flex flex-column align-items-center align-items-md-start text-center text-md-start">
+          <h2 class="section-title mb-3" style="color:#232946;font-size:2.7rem;">What do we create?</h2>
+          <div class="vs-desc" style="font-size:1.32rem;color:#232946;max-width:540px;">
+            Beautifully customized books that chronicle the chapters of one’s life through photographs, milestones and various tokens with personal anecdotes.<br><br>
+            It is the best gift for a milestone birthday, anniversary or to celebrate an achievement.<br><br>
+            We will create the book with you and then print, bind, wrap and send it to you.
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      .vertical-slider {
+        width: 370px;
+        min-height: 420px;
+        background: #eebbc3;
+        border-radius: 1.7rem;
+        box-shadow: 0 4px 24px rgba(60, 40, 80, 0.13);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        padding: 0;
+        overflow: visible;
+      }
+      .vertical-slider .vs-card {
+        width: 100%;
+        min-height: 88px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.7rem 1.7rem;
+        font-size: 1.32rem;
+        font-family: var(--body);
+        color: #232946;
+        background: transparent;
+        border-bottom: 1px solid #f6c6b4;
+        border-radius: 1.2rem;
+        transition: background 0.2s, color 0.2s, border-radius 0.2s;
+        cursor: pointer;
+        user-select: none;
+        text-align: center;
+      }
+      .vertical-slider .vs-card:hover {
+        border-radius: 1.2rem;
+      }
+      .vertical-slider .vs-card:last-child {
+        border-bottom: none;
+      }
+      .vertical-slider .vs-card .vs-icon {
+        font-size: 2.1rem;
+        color: #ff6900;
+        flex-shrink: 0;
+      }
+      .vertical-slider .vs-card .vs-title {
+        font-weight: 600;
+        font-size: 1.18rem;
+        letter-spacing: 0.01em;
+      }
+      .vertical-slider .vs-card:hover {
+  background: #C9B1FB !important;
+        color: #181818;
+      }
+      @media (max-width: 767px) {
+        .vertical-slider { width: 100%; max-width: 340px; min-height: 320px; }
+      }
+      @media (max-width: 575px) {
+        .vertical-slider { width: 100%; max-width: 99vw; min-height: 260px; }
+        .vertical-slider .vs-card { font-size: 1.01rem; min-height: 54px; }
+      }
+          /* Force remove border radius from portfolio images and their containers */
+    .portfolio-img-square,
+    .portfolio-img-square img {
+      border-radius: 0 !important;
+    }
+    </style>
+
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="section section-bg-lavender" id="portfolio" style="padding-bottom:0 !important; margin-bottom:0 !important;">
+  <div class="container" style="padding-bottom:0!important;margin-bottom:0!important;background:none!important;box-shadow:none!important;border:none!important;">
+  <div class="d-flex align-items-center justify-content-between flex-wrap flex-md-nowrap portfolio-heading-row" style="gap:0.2rem;margin-bottom:0!important;">
+    <div class="portfolio-heading-left" style="min-width:0;margin-left:4vw;">
+          <h2 class="portfolio-main-heading" style="margin-bottom:0.2rem;font-size:3.2rem;font-family:'Inter',sans-serif;font-weight:500;color:#231f29;line-height:1.05;">
+            Watch <br>
+            <span class="portfolio-main-heading-serif" style="font-family:'Playfair Display',serif;font-weight:700;font-size:4.1rem;letter-spacing:-0.02em;display:inline-block;position:relative;color:#231f29;">
+              Some of our work..
+              <svg class="portfolio-heading-underline" width="320" height="32" viewBox="0 0 320 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;left:0;bottom:-10px;width:100%;height:32px;pointer-events:none;"><path d="M8 24 Q 80 32 160 24 Q 240 16 312 24" stroke="#fdd46b" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M312 24 l-12 -7 m12 7 l-12 7" stroke="#fdd46b" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+            </span>
+          </h2>
+        </div>
+  <div class="portfolio-heading-arrows d-flex align-items-center" style="gap:0.3rem;margin-right:4vw;">
+          <button class="portfolio-carousel-btn" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev" aria-label="Previous" style="background:#fdd46b;width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:background 0.2s;">
+            <i class="bi bi-chevron-left" style="font-size:2rem;color:#181818;"></i>
+          </button>
+          <button class="portfolio-carousel-btn" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next" aria-label="Next" style="background:#fdd46b;width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:background 0.2s;">
+            <i class="bi bi-chevron-right" style="font-size:2rem;color:#181818;"></i>
+          </button>
+        </div>
+      </div>
+      <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="portfolio-slider-outer">
+          <div class="portfolio-slider-row" id="portfolioSliderRow">
+            <div class="portfolio-slider-card">
+              <div class="portfolio-img-square mb-2">
+                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 1" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+              </div>
+              <div class="portfolio-desc text-center mt-2">
+                <h6 class="fw-bold mb-1" style="color:#232946;">Milestone Birthday Book</h6>
+                <p class="mb-0" style="color:#4f5d75;">A custom book for a 50th birthday, filled with memories and love.</p>
+              </div>
+            </div>
+            <div class="portfolio-slider-card">
+              <div class="portfolio-img-square mb-2">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 2" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+              </div>
+              <div class="portfolio-desc text-center mt-2">
+                <h6 class="fw-bold mb-1" style="color:#232946;">Anniversary Storybook</h6>
+                <p class="mb-0" style="color:#4f5d75;">A personalized storybook for a couple's 25th anniversary.</p>
+              </div>
+            </div>
+            <div class="portfolio-slider-card">
+              <div class="portfolio-img-square mb-2">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 3" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+              </div>
+              <div class="portfolio-desc text-center mt-2">
+                <h6 class="fw-bold mb-1" style="color:#232946;">Achievement Keepsake</h6>
+                <p class="mb-0" style="color:#4f5d75;">A keepsake book to celebrate a major career milestone.</p>
+              </div>
+            </div>
+            <div class="portfolio-slider-card">
+              <div class="portfolio-img-square mb-2">
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 4" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+              </div>
+              <div class="portfolio-desc text-center mt-2">
+                <h6 class="fw-bold mb-1" style="color:#232946;">Wedding Memories</h6>
+                <p class="mb-0" style="color:#4f5d75;">A handcrafted album capturing the magic of a wedding day.</p>
+              </div>
+            </div>
+            <div class="portfolio-slider-card">
+              <div class="portfolio-img-square mb-2">
+                <img src="https://images.unsplash.com/photo-1468421870903-4df1664ac249?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 5" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+              </div>
+              <div class="portfolio-desc text-center mt-2">
+                <h6 class="fw-bold mb-1" style="color:#232946;">Travel Adventure Book</h6>
+                <p class="mb-0" style="color:#4f5d75;">A travelogue book filled with stories and photos from around the world.</p>
+              </div>
+            </div>
+            <div class="portfolio-slider-card">
+              <div class="portfolio-img-square mb-2">
+                <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 6" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+              </div>
+              <div class="portfolio-desc text-center mt-2">
+                <h6 class="fw-bold mb-1" style="color:#232946;">Baby's First Year</h6>
+                <p class="mb-0" style="color:#4f5d75;">A keepsake book capturing the milestones of a baby's first year.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+          <!-- Add more carousel-item blocks for more slides if needed -->
+        </div>
+      </div>
+    </div>
+  </section>
+   
+ <!-- Services Section -->
+  <section class="section section-bg-yellow" id="faq" style="margin-top:-48px;padding-bottom:114px;">
+    <div class="container">
+      <div class="row align-items-center justify-content-center g-5 flex-wrap">
+        <!-- Left: Image -->
+        <div class="col-12 col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+          <img src="lookbook-hero.jpg" alt="FAQ Visual" class="img-fluid rounded-4 shadow" style="max-width:420px;width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;border-radius:1.2rem;box-shadow:0 8px 32px #e6b80022;">
+        </div>
+        <!-- Right: Heading, FAQ, Button -->
+        <div class="col-12 col-md-6 d-flex flex-column align-items-start justify-content-center">
+          <h2 class="section-title mb-4" style="color:#232946;font-size:2.3rem;">Learn about our services</h2>
+          <div class="accordion faq w-100 mb-4" id="faqAccordion">
+            <div class="accordion-item fade-in">
+              <h2 class="accordion-header" id="faq1">
+                <button class="accordion-button collapsed faq-q" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1">
+                  Basic
+                  <span class="faq-toggle-icon ms-auto">
+                    <span class="plus"><i class="bi bi-plus-lg"></i></span>
+                    <span class="minus"><i class="bi bi-dash-lg"></i></span>
+                  </span>
+                </button>
+              </h2>
+              <div id="faqCollapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body faq-a">
+                  What should we know about the services you provide? Better descriptions result in more sales.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item fade-in">
+              <h2 class="accordion-header" id="faq2">
+                <button class="accordion-button collapsed faq-q" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
+                  Intermediate
+                  <span class="faq-toggle-icon ms-auto">
+                    <span class="plus"><i class="bi bi-plus-lg"></i></span>
+                    <span class="minus"><i class="bi bi-dash-lg"></i></span>
+                  </span>
+                </button>
+              </h2>
+              <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body faq-a">
+                  What should we know about the services you provide? Better descriptions result in more sales.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item fade-in">
+              <h2 class="accordion-header" id="faq3">
+                <button class="accordion-button collapsed faq-q" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
+                  Advanced
+                  <span class="faq-toggle-icon ms-auto">
+                    <span class="plus"><i class="bi bi-plus-lg"></i></span>
+                    <span class="minus"><i class="bi bi-dash-lg"></i></span>
+                  </span>
+                </button>
+              </h2>
+              <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body faq-a">
+                  What should we know about the services you provide? Better descriptions result in more sales.
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary rounded-pill px-5 mt-2" style="font-size:1.18rem;">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section (Slider) -->
+  <section class="section section-bg-peach" id="testimonials" style="margin-top:-80px;">
+    <div class="container position-relative">
+      <h2 class="section-title text-center mb-5" style="color:#232946;">What Our Clients Say</h2>
+      <div class="testimonial-carousel-wrapper d-flex align-items-center justify-content-center">
+        <button class="testimonial-carousel-btn testimonial-carousel-btn-left d-none d-md-flex" id="testimonialPrevBtn" type="button" aria-label="Previous">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <div class="w-100 overflow-hidden position-relative" style="max-width:1200px;">
+          <div class="d-flex flex-row" id="testimonialSliderRow" style="transition: transform 0.5s cubic-bezier(.39,.575,.565,1.000); will-change: transform;">
+            <!-- Testimonial Card 1 -->
+            <div class="testimonial-slider-card flex-shrink-0 px-2" style="width:33.333%;max-width:400px;">
+              <div class="card border-0 w-100 h-100" style="background:linear-gradient(120deg,#fbf6dc 60%,#e3e8fa 100%);border-radius:1.2rem;box-shadow:none;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                      <img src="https://randomuser.me/api/portraits/women/68.jpg" class="rounded-circle shadow mb-2" style="width:64px;height:64px;object-fit:cover;">
+                      <blockquote class="blockquote mb-1" style="color:#3d314a;font-size:1rem;line-height:1.4;">“The book was absolutely beautiful and made my mom cry happy tears. Thank you for making it so special!”</blockquote>
+                      <figcaption class="blockquote-footer" style="color:#7b5e57;margin-top:0.1rem;font-size:0.95rem;">Priya S., Mumbai</figcaption>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial Card 2 -->
+            <div class="testimonial-slider-card flex-shrink-0 px-2" style="width:33.333%;max-width:400px;">
+              <div class="card border-0 w-100 h-100" style="background:linear-gradient(120deg,#f6e7cb 60%,#b8c1ec 100%);border-radius:1.2rem;box-shadow:none;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                      <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle shadow mb-2" style="width:64px;height:64px;object-fit:cover;">
+                      <blockquote class="blockquote mb-1" style="color:#3d314a;font-size:1rem;line-height:1.4;">“A truly unique gift. The process was smooth and the end result was stunning!”</blockquote>
+                      <figcaption class="blockquote-footer" style="color:#7b5e57;margin-top:0.1rem;font-size:0.95rem;">Rahul M., Delhi</figcaption>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial Card 3 -->
+            <div class="testimonial-slider-card flex-shrink-0 px-2" style="width:33.333%;max-width:400px;">
+              <div class="card border-0 w-100 h-100" style="background:linear-gradient(120deg,#e0f7fa 60%,#a7c7b7 100%);border-radius:1.2rem;box-shadow:none;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                      <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle shadow mb-2" style="width:64px;height:64px;object-fit:cover;">
+                      <blockquote class="blockquote mb-1" style="color:#3d314a;font-size:1rem;line-height:1.4;">“Cherished Capter made our anniversary unforgettable. Highly recommended!”</blockquote>
+                      <figcaption class="blockquote-footer" style="color:#7b5e57;margin-top:0.1rem;font-size:0.95rem;">Anjali & Raj, Bangalore</figcaption>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial Card 4 -->
+            <div class="testimonial-slider-card flex-shrink-0 px-2" style="width:33.333%;max-width:400px;">
+              <div class="card border-0 w-100 h-100" style="background:linear-gradient(120deg,#f6e7cb 60%,#b8c1ec 100%);border-radius:1.2rem;box-shadow:none;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                      <img src="https://randomuser.me/api/portraits/men/45.jpg" class="rounded-circle shadow mb-2" style="width:64px;height:64px;object-fit:cover;">
+                      <blockquote class="blockquote mb-1" style="color:#3d314a;font-size:1rem;line-height:1.4;">“Absolutely loved the attention to detail. The book exceeded my expectations!”</blockquote>
+                      <figcaption class="blockquote-footer" style="color:#7b5e57;margin-top:0.1rem;font-size:0.95rem;">Siddharth K., Pune</figcaption>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial Card 5 -->
+            <div class="testimonial-slider-card flex-shrink-0 px-2" style="width:33.333%;max-width:400px;">
+              <div class="card border-0 w-100 h-100" style="background:linear-gradient(120deg,#fff6f9 60%,#f6c6b4 100%);border-radius:1.2rem;box-shadow:none;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                      <img src="https://randomuser.me/api/portraits/women/55.jpg" class="rounded-circle shadow mb-2" style="width:64px;height:64px;object-fit:cover;">
+                      <blockquote class="blockquote mb-1" style="color:#3d314a;font-size:1rem;line-height:1.4;">“A perfect gift for my parents' anniversary. They were so touched!”</blockquote>
+                      <figcaption class="blockquote-footer" style="color:#7b5e57;margin-top:0.1rem;font-size:0.95rem;">Meera T., Hyderabad</figcaption>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial Card 6 -->
+            <div class="testimonial-slider-card flex-shrink-0 px-2" style="width:33.333%;max-width:400px;">
+              <div class="card border-0 w-100 h-100" style="background:linear-gradient(120deg,#e0f7fa 60%,#a7c7b7 100%);border-radius:1.2rem;box-shadow:none;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                      <img src="https://randomuser.me/api/portraits/men/61.jpg" class="rounded-circle shadow mb-2" style="width:64px;height:64px;object-fit:cover;">
+                      <blockquote class="blockquote mb-1" style="color:#3d314a;font-size:1rem;line-height:1.4;">“The process was so easy and the result was beautiful. Highly recommend!”</blockquote>
+                      <figcaption class="blockquote-footer" style="color:#7b5e57;margin-top:0.1rem;font-size:0.95rem;">Arjun P., Chennai</figcaption>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial Card 7 -->
+            <div class="testimonial-slider-card flex-shrink-0 px-2" style="width:33.333%;max-width:400px;">
+              <div class="card border-0 w-100 h-100" style="background:linear-gradient(120deg,#fff6f9 60%,#f6c6b4 100%);border-radius:1.2rem;box-shadow:none;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                      <img src="https://randomuser.me/api/portraits/women/77.jpg" class="rounded-circle shadow mb-2" style="width:64px;height:64px;object-fit:cover;border:2px solid #eebbc3;">
+                      <blockquote class="blockquote mb-1" style="color:#3d314a;font-size:1rem;line-height:1.4;">“A keepsake we will treasure forever. Thank you for capturing our story!”</blockquote>
+                      <figcaption class="blockquote-footer" style="color:#7b5e57;margin-top:0.1rem;font-size:0.95rem;">Nisha & Amit, Jaipur</figcaption>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial Card 8 -->
+            <div class="testimonial-slider-card flex-shrink-0 px-2" style="width:33.333%;max-width:400px;">
+              <div class="card border-0 w-100 h-100" style="background:linear-gradient(120deg,#f6e7cb 60%,#b8c1ec 100%);border-radius:1.2rem;box-shadow:none;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                      <img src="https://randomuser.me/api/portraits/men/73.jpg" class="rounded-circle shadow mb-2" style="width:64px;height:64px;object-fit:cover;border:2px solid #b8c1ec;">
+                      <blockquote class="blockquote mb-1" style="color:#3d314a;font-size:1rem;line-height:1.4;">“Wonderful service and a beautiful product. Will order again!”</blockquote>
+                      <figcaption class="blockquote-footer" style="color:#7b5e57;margin-top:0.1rem;font-size:0.95rem;">Rohit S., Kolkata</figcaption>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial Card 9 -->
+            <div class="testimonial-slider-card flex-shrink-0 px-2" style="width:33.333%;max-width:400px;">
+              <div class="card border-0 w-100 h-100" style="background:linear-gradient(120deg,#e0f7fa 60%,#a7c7b7 100%);border-radius:1.2rem;box-shadow:none;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                      <img src="https://randomuser.me/api/portraits/women/85.jpg" class="rounded-circle shadow mb-2" style="width:64px;height:64px;object-fit:cover;border:2px solid #a7c7b7;">
+                      <blockquote class="blockquote mb-1" style="color:#3d314a;font-size:1rem;line-height:1.4;">“The best personalized gift experience I’ve had. Thank you!”</blockquote>
+                      <figcaption class="blockquote-footer" style="color:#7b5e57;margin-top:0.1rem;font-size:0.95rem;">Simran D., Goa</figcaption>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+        <button class="testimonial-carousel-btn testimonial-carousel-btn-right d-none d-md-flex" id="testimonialNextBtn" type="button" aria-label="Next">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+    <script>
+    // Fade-in and slide-in animation on scroll
+    document.addEventListener("DOMContentLoaded", function() {
+      function reveal() {
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(function(el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 60) {
+            el.classList.add('visible');
+          }
+        });
+      }
+      window.addEventListener('scroll', reveal);
+      reveal();
+    });
+      // Custom JS for multi-item slider (slides 1 card at a time on mobile, 3 on desktop)
+      (function() {
+        const row = document.getElementById('testimonialSliderRow');
+        const cards = row.querySelectorAll('.testimonial-slider-card');
+        const prevBtn = document.getElementById('testimonialPrevBtn');
+        const nextBtn = document.getElementById('testimonialNextBtn');
+        let current = 0;
+        let visible = 3;
+        const total = cards.length;
+        function updateSlider() {
+          const percent = -(100/visible) * current;
+          row.style.transform = `translateX(${percent}%)`;
+        }
+        function goPrev() {
+          if (current > 0) {
+            current--;
+            updateSlider();
+          }
+        }
+        function goNext() {
+          if (current < total - visible) {
+            current++;
+            updateSlider();
+          }
+        }
+        prevBtn && prevBtn.addEventListener('click', goPrev);
+        nextBtn && nextBtn.addEventListener('click', goNext);
+        // Responsive: show 1 card on mobile, 3 on desktop
+        function handleResize() {
+          if (window.innerWidth < 768) {
+            visible = 1;
+            row.querySelectorAll('.testimonial-slider-card').forEach(card => card.style.width = '100%');
+            if (current > total - visible) current = total - visible;
+          } else {
+            visible = 3;
+            row.querySelectorAll('.testimonial-slider-card').forEach(card => card.style.width = '33.333%');
+            if (current > total - visible) current = total - visible;
+          }
+          updateSlider();
+        }
+        window.addEventListener('resize', handleResize);
+        handleResize();
+      })();
+    </script>
+  <script>
+    // Improved nav-link active state handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+      const sections = Array.from(navLinks).map(link => {
+        const id = link.getAttribute('href');
+        return document.querySelector(id);
+      });
+
+      // On click: set active and scroll to section
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          // Remove active from all
+          navLinks.forEach(l => l.classList.remove('active'));
+          // Add to clicked
+          this.classList.add('active');
+        });
+      });
+
+      // On scroll: set active based on section in view
+      function onScroll() {
+        let scrollPos = window.scrollY + 100; // Offset for fixed navbar
+        let found = false;
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = sections[i];
+          if (section && section.offsetTop <= scrollPos) {
+            navLinks.forEach(l => l.classList.remove('active'));
+            navLinks[i].classList.add('active');
+            found = true;
+            break;
+          }
+        }
+        // If at top, highlight first nav
+        if (!found) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          navLinks[0].classList.add('active');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    });
+  </script>
+  </section>
+    
+
+  <!-- Process Section -->
+  <section class="section" id="process" style="background:#ebe8e4;">
+    <div class="container">
+      <h2 class="section-title text-center mb-5" style="color:#232946;">How Do We Create It?</h2>
+      <div class="process-flow" id="processFlow">
+  <div class="process-step" style="color:#181818;"><i class="bi bi-chat-dots" style="color:#181818;"></i><br>Consultation</div>
+        <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
+  <div class="process-step" style="color:#181818;"><i class="bi bi-lightbulb" style="color:#181818;"></i><br>Curation</div>
+        <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
+  <div class="process-step" style="color:#181818;"><i class="bi bi-journal-text" style="color:#181818;"></i><br>Storyboarding</div>
+        <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
+  <div class="process-step" style="color:#181818;"><i class="bi bi-brush" style="color:#181818;"></i><br>Design</div>
+        <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
+  <div class="process-step" style="color:#181818;"><i class="bi bi-check2-circle" style="color:#181818;"></i><br>Approval</div>
+        <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
+  <div class="process-step" style="color:#181818;"><i class="bi bi-printer" style="color:#181818;"></i><br>Printing</div>
+        <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
+  <div class="process-step" style="color:#181818;"><i class="bi bi-box" style="color:#181818;"></i><br>Packaging</div>
+        <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
+  <div class="process-step" style="color:#181818;"><i class="bi bi-emoji-smile" style="color:#181818;"></i><br>After-Sales</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section" id="pricing" style="background:#ffba00;">
+    <div class="container">
+  <h2 class="section-title text-center mb-5" style="color:#1d1c1c;">Plans & Pricing</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+        <div class="col d-flex align-items-stretch">
+          <div class="card pricing-card shadow border-0 w-100 h-100" style="background:linear-gradient(120deg,#fff6f9 60%,#b8c1ec 100%);border-radius:1.2rem;">
+            <div class="card-body d-flex flex-column align-items-center text-center p-4">
+              <div class="mb-3" style="font-size:2.5rem;color:#ab47bc;"><i class="bi bi-star"></i></div>
+              <h5 class="fw-bold mb-2" style="color:#232946;">Plan A</h5>
+              <ul class="list-unstyled mb-3" style="color:#4f5d75;">
+                <li>20 Pages</li>
+                <li>Custom Illustrations <i class="bi bi-check-lg text-success"></i></li>
+                <li>Personal Consultation <i class="bi bi-check-lg text-success"></i></li>
+                <li class="text-muted">Gift Packaging</li>
+              </ul>
+              <div class="h4 mb-3" style="color:#ab47bc;">₹4,999</div>
+              <a href="#contact" class="btn btn-primary rounded-pill px-4">Select</a>
+            </div>
+          </div>
+        </div>
+        <div class="col d-flex align-items-stretch">
+          <div class="card pricing-card shadow border-0 w-100 h-100" style="background:linear-gradient(120deg,#f6e7cb 60%,#eebbc3 100%);border-radius:1.2rem;">
+            <div class="card-body d-flex flex-column align-items-center text-center p-4">
+              <div class="mb-3" style="font-size:2.5rem;color:#3a5a40;"><i class="bi bi-gem"></i></div>
+              <h5 class="fw-bold mb-2" style="color:#232946;">Plan B</h5>
+              <ul class="list-unstyled mb-3" style="color:#4f5d75;">
+                <li>40 Pages</li>
+                <li>Custom Illustrations <i class="bi bi-check-lg text-success"></i></li>
+                <li>Personal Consultation <i class="bi bi-check-lg text-success"></i></li>
+                <li>Gift Packaging <i class="bi bi-check-lg text-success"></i></li>
+              </ul>
+              <div class="h4 mb-3" style="color:#3a5a40;">₹7,999</div>
+              <a href="#contact" class="btn btn-success rounded-pill px-4">Select</a>
+            </div>
+          </div>
+        </div>
+        <div class="col d-flex align-items-stretch">
+          <div class="card pricing-card shadow border-0 w-100 h-100" style="background:linear-gradient(120deg,#e0f7fa 60%,#a7c7b7 100%);border-radius:1.2rem;">
+            <div class="card-body d-flex flex-column align-items-center text-center p-4">
+              <div class="mb-3" style="font-size:2.5rem;color:#4f5d75;"><i class="bi bi-trophy"></i></div>
+              <h5 class="fw-bold mb-2" style="color:#232946;">Plan C</h5>
+              <ul class="list-unstyled mb-3" style="color:#4f5d75;">
+                <li>60 Pages</li>
+                <li>Custom Illustrations <i class="bi bi-check-lg text-success"></i></li>
+                <li>Personal Consultation <i class="bi bi-check-lg text-success"></i></li>
+                <li>Gift Packaging <i class="bi bi-check-lg text-success"></i></li>
+              </ul>
+              <div class="h4 mb-3" style="color:#4f5d75;">₹11,999</div>
+              <a href="#contact" class="btn btn-outline-primary rounded-pill px-4">Select</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="container my-5 fade-in" id="quiz">
+    <div class="cta-modern-card mx-auto text-center p-5" style="max-width:520px;background:linear-gradient(120deg,#fff6f9 60%,#f6e7cb 100%);border-radius:1.2rem;box-shadow:0 4px 24px rgba(60,40,80,0.10);">
+      <h3 class="mb-3" style="color:#ab47bc;font-family:var(--headline);font-weight:700;">Still not sure?</h3>
+      <p class="mb-4" style="color:#4f5d75;">Take our quick quiz to find your perfect gift!</p>
+      <a href="#" class="btn btn-lg btn-primary rounded-pill px-5 cta-quiz-btn">Take the Quiz</a>
+    </div>
+  </section>
+    
+ 
+
+  <!-- Contact Us Form -->
+  <section class="section section-bg-peach" id="contact" style="background:linear-gradient(135deg,#faf7f4 60%,#f6f1ea 100%);">
+    <div class="container">
+      <h2 class="section-title text-center mb-5" style="color: #232946;">Contact Us</h2>
+      <div class="row justify-content-center align-items-stretch g-4">
+        <div class="col-12 col-md-5 d-flex align-items-stretch">
+          <div class="contact-info-card w-100 h-100 p-4 d-flex flex-column justify-content-center text-center" style="background:linear-gradient(120deg,#e0f7fa 60%,#b8c1ec 100%);border-radius:1.2rem;box-shadow:0 4px 24px rgba(60,40,80,0.10);">
+            <div class="mb-3" style="font-size:2.5rem;color:#3a5a40;"><i class="bi bi-envelope-paper"></i></div>
+            <h5 class="fw-bold mb-2" style="color:#232946;">Let's Connect</h5>
+            <p class="mb-2" style="color:#4f5d75;">
+              <a href="mailto:hello@cherishedcapter.com" style="color:#4f5d75;text-decoration:none;"><i class="bi bi-envelope me-2" style="color:#ab47bc;"></i>hello@cherishedcapter.com</a>
+            </p>
+            <p class="mb-2" style="color:#4f5d75;">
+              <a href="tel:+911234567890" style="color:#4f5d75;text-decoration:none;"><i class="bi bi-telephone me-2" style="color:#3a5a40;"></i>+91 12345 67890</a>
+            </p>
+            <p class="mb-2" style="color:#4f5d75;">
+              <a href="https://wa.me/911234567890" target="_blank" style="color:#4f5d75;text-decoration:none;"><i class="bi bi-whatsapp me-2" style="color:#25D366;"></i>+91 12345 67890</a>
+            </p>
+            <p class="mb-2" style="color:#4f5d75;">
+              <a href="https://instagram.com/cherishedcapter" target="_blank" style="color:#4f5d75;text-decoration:none;display:inline-flex;align-items:center;">
+                <i class="bi bi-instagram me-2" style="color:#E1306C;"></i>@cherishedcapter
+              </a>
+            </p>
+            <p class="mb-0" style="color:#4f5d75;"><i class="bi bi-geo-alt me-2" style="color:#fd976d;"></i>Mumbai, India</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-7 d-flex align-items-stretch">
+          <form class="rounded-form w-100" style="background:#fff;border-radius:1.2rem;box-shadow:0 4px 24px rgba(60,40,80,0.10);padding:2.2rem 2rem;">
+            <div class="row gx-2 gy-2">
+              <div class="col-12 col-md-6">
+                <div class="mb-3 form-floating contact-form-compact">
+                  <input type="text" class="form-control w-100" id="name" placeholder="Name*" required>
+                  <label for="name">Name*</label>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="mb-3 form-floating contact-form-compact">
+                  <input type="email" class="form-control w-100" id="email" placeholder="Email*" required>
+                  <label for="email">Email*</label>
+                </div>
+              </div>
+            </div>
+            <div class="row gx-2 gy-2">
+              <div class="col-12 col-md-6">
+                <div class="mb-3 form-floating contact-form-compact">
+                  <input type="tel" class="form-control w-100" id="mobile" placeholder="Mobile No" pattern="[0-9]{10}" maxlength="10">
+                  <label for="mobile">Mobile No</label>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="mb-3 form-floating contact-form-compact">
+                  <input type="text" class="form-control w-100" id="location" placeholder="Location">
+                  <label for="location">Location</label>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3 form-floating">
+              <textarea class="form-control" id="query" placeholder="Your Query*" style="height: 100px; min-height: 60px;" required></textarea>
+              <label for="query">Your Query*</label>
+            </div>
+            <button type="submit" class="btn btn-primary rounded-pill w-100 contact-btn">Send Message</button>
+  <style>
+    /* Fix for floating label on textarea */
+    .form-floating > textarea.form-control ~ label {
+      padding-top: 1.2rem;
+      padding-bottom: 0.5rem;
+    }
+    .form-floating > .form-control:focus ~ label,
+    .form-floating > .form-control:not(:placeholder-shown) ~ label {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+    }
+    .form-floating > .form-control ~ label {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.2s, visibility 0.2s;
+    }
+  </style>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="newsletter-signup-section" style="background:linear-gradient(135deg,#faf7f4 60%,#f6f1ea 100%);padding:60px 0 40px 0;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-11">
+          <div style="background:#fff;border-radius:2.2rem;box-shadow:0 8px 48px #e6b80011,0 1.5px 8px #1a223811;padding:48px 40px 36px 40px;position:relative;overflow:hidden;min-height:340px;display:flex;align-items:center;">
+            <span style="position:absolute;top:32px;right:32px;z-index:2;pointer-events:none;">
+              <svg width="64" height="127" viewBox="0 0 64 127" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.65948 5.63422C42.5025 -13.5856 49.4233 57.1188 27.5936 51.2416C5.76382 45.3645 41.779 6.91799 57.8628 46.7242C74.1998 87.1572 22.0498 123.344 22.0498 123.344M22.0498 123.344C22.0498 123.344 36.5784 126.54 43.3704 122.174M22.0498 123.344C22.0498 123.344 19.093 111.965 24.187 102.99" stroke="#FD976D" stroke-width="4"/>
+              </svg>
+            </span>
+            <div class="row w-100 align-items-center gx-5 gy-4">
+              <div class="col-lg-6 d-flex flex-column align-items-start justify-content-center" style="min-width:320px;">
+                <h2 style="font-family:'Inter',sans-serif;font-size:2.8rem;font-weight:400;line-height:1.1;color:#232946;margin-bottom:0.5rem;">Subscribe to<br><span style="font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:900;letter-spacing:-0.03em;display:inline-flex;align-items:center;gap:0.3em;">LifeNotes <img src="icon-plane.png" alt="Paper Plane" style="height:1.1em;width:auto;display:inline-block;vertical-align:middle;"></span></h2>
+                <p style="font-size:1.15rem;color:#232946;margin-bottom:1.1rem;">Join a growing community of more than <br><span style="font-weight:700;font-size:1.08rem;">330,000 friendly readers.</span></p>
+                <div class="d-flex align-items-center mb-2">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" style="width:44px;height:44px;border-radius:50%;object-fit:cover;margin-right:-12px;border:3px solid #fff;box-shadow:0 2px 8px #0001;">
+                  <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="" style="width:44px;height:44px;border-radius:50%;object-fit:cover;margin-right:-12px;border:3px solid #fff;box-shadow:0 2px 8px #0001;">
+                  <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="" style="width:44px;height:44px;border-radius:50%;object-fit:cover;margin-right:16px;border:3px solid #fff;box-shadow:0 2px 8px #0001;">
+                  <span style="font-size:1.3rem;color:#ffc107;margin-right:0.5rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                  <span style="color:#7b7b93;font-size:1rem;">200+ reviews</span>
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex flex-column justify-content-center" style="min-width:320px;">
+                <div style="margin-left:0;">
+                  <p style="font-size:1.18rem;color:#232946;font-weight:600;line-height:1.4;margin-bottom:2.1rem;">Each week, I share actionable productivity tips, practical life advice, and highlights from my favourite books, directly to your inbox. It’s free to join, and always will be.</p>
+                  <form style="background:#faf7f4;border-radius:2.5rem;padding:1.5rem 1.5rem 1.5rem 1.5rem;display:flex;align-items:center;max-width:600px;box-shadow:0 2px 16px #0001;gap:0.5rem;">
+                    <input type="email" placeholder="Your email" style="flex:1;border:none;background:transparent;font-size:1.1rem;padding:0.7rem 1.1rem;border-radius:2rem;outline:none;color:#7b7b93;min-width:120px;">
+                    <button type="submit" style="background:#6ed6fb;color:#232946;font-size:1.15rem;font-weight:700;border:none;border-radius:2.5rem;padding:0.9rem 2.2rem;box-shadow:0 2px 8px #6ed6fb44;">Subscribe</button>
+                  </form>
+                  <p style="font-size:0.98rem;color:#7b7b93;margin-top:1.1rem;max-width:600px;">By submitting this form, you’ll be signed up to my free newsletter, which sometimes includes mentions of my books, apps and courses. You can opt-out at any time with no hard feelings 😉 Here’s our <a href="#" style="color:#232946;text-decoration:underline;">privacy policy</a> if you like reading.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="footer-modern mt-0 pt-4 pb-3" style="background:#e9e6f7 !important;">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-12 col-md-4 text-center text-md-start mb-3 mb-md-0">
+          <div class="footer-logo d-inline-flex align-items-center mb-2">
+            <span class="footer-logo-icon me-2" style="font-size:2.2rem;color:#ab47bc;"><i class="bi bi-journal-bookmark-fill"></i></span>
+            <span class="footer-logo-text fw-bold" style="font-family:var(--headline);font-size:1.5rem;color:#232946;">Cherished Capter</span>
+          </div>
+          <div class="footer-desc" style="color:#4f5d75;font-size:1rem;max-width:260px;">Where memories become gifts. Custom books, crafted with love in Mumbai.</div>
+        </div>
+        <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
+          <div class="footer-social mb-2">
+            <a href="#" class="footer-social-link mx-2" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="footer-social-link mx-2" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="mailto:hello@cherishedcapter.com" class="footer-social-link mx-2" aria-label="Email"><i class="bi bi-envelope"></i></a>
+          </div>
+          <div class="footer-contact" style="color:#4f5d75;font-size:1rem;">
+            <i class="bi bi-geo-alt me-1"></i> Mumbai, India
+          </div>
+        </div>
+        <div class="col-12 col-md-4 text-center text-md-end">
+          <div class="footer-links mb-2">
+            <a href="#features" class="footer-link mx-2">Features</a>
+            <a href="#portfolio" class="footer-link mx-2">Portfolio</a>
+            <a href="#pricing" class="footer-link mx-2">Pricing</a>
+            <a href="#faq" class="footer-link mx-2">FAQ</a>
+            <a href="#contact" class="footer-link mx-2">Contact</a>
+          </div>
+          <div class="footer-copyright" style="color:#b8c1ec;font-size:0.95rem;">
+            &copy; 2025 Cherished Capter. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+   
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // 3D Hamburger and Mobile Menu Toggle
+    const hamburgerBtn = document.getElementById('hamburger3dBtn');
+    const mobileMenu = document.getElementById('mobileMenuOverlay');
+    if (hamburgerBtn && mobileMenu) {
+      hamburgerBtn.addEventListener('click', function() {
+        hamburgerBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        hamburgerBtn.setAttribute('aria-expanded', hamburgerBtn.classList.contains('active'));
+        mobileMenu.setAttribute('aria-hidden', !hamburgerBtn.classList.contains('active'));
+        if (hamburgerBtn.classList.contains('active')) {
+          mobileMenu.focus();
+        }
+      });
+      // Close menu on link click
+      mobileMenu.querySelectorAll('.mobile-menu-link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburgerBtn.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+        });
+      });
+      // Close menu on Escape
+      mobileMenu.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          hamburgerBtn.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+          hamburgerBtn.focus();
+        }
+      });
+    }
+  </script>
+  <script>
+    // Portfolio slider using transform: translateX (robust for flex layouts)
+    document.addEventListener('DOMContentLoaded', function() {
+      const sliderRow = document.getElementById('portfolioSliderRow');
+      if (!sliderRow) return;
+      const cards = sliderRow.querySelectorAll('.portfolio-slider-card');
+      const prevBtn = document.querySelector('.portfolio-heading-arrows button[data-bs-slide="prev"]');
+      const nextBtn = document.querySelector('.portfolio-heading-arrows button[data-bs-slide="next"]');
+      let visible = 3;
+      let current = 0;
+      let cardWidth = 0;
+
+      function updateCardWidth() {
+        if (window.innerWidth < 768) {
+          visible = 1;
+        } else {
+          visible = 3;
+        }
+        cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(sliderRow).gap || 22);
+      }
+
+
+      // For true infinite loop, always allow next/prev and wrap using modulus
+      function updateSlider() {
+        // Use translateX to shift the row
+        const percent = -(100 / visible) * current;
+        sliderRow.style.transition = 'transform 0.5s cubic-bezier(.39,.575,.565,1.000)';
+        sliderRow.style.transform = `translateX(${percent}%)`;
+      }
+
+      function goPrev(e) {
+        if (e) e.preventDefault();
+        updateCardWidth();
+        current = (current - 1 + cards.length) % cards.length;
+        // Clamp so we never show empty space
+        if (current > cards.length - visible) current = cards.length - visible;
+        updateSlider();
+      }
+      function goNext(e) {
+        if (e) e.preventDefault();
+        updateCardWidth();
+        current = (current + 1) % cards.length;
+        // Clamp so we never show empty space
+        if (current > cards.length - visible) current = 0;
+        updateSlider();
+      }
+
+      prevBtn.addEventListener('click', goPrev);
+      nextBtn.addEventListener('click', goNext);
+
+      window.addEventListener('resize', function() {
+        updateCardWidth();
+        if (current > cards.length - visible) current = Math.max(0, cards.length - visible);
+        updateSlider();
+      });
+
+      // Initialize
+      updateCardWidth();
+      updateSlider();
+    });
+  </script>
+  <!-- Fade-in Animation Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Fade-in for .fade-in
+      function reveal() {
+        document.querySelectorAll('.fade-in').forEach(function(el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 60) {
+            el.classList.add('visible');
+          }
+        });
+      }
+      window.addEventListener('scroll', reveal);
+      reveal();
+
+      // Step-by-step animation for process section
+      function animateProcessSteps() {
+        var steps = document.querySelectorAll('#processFlow .process-step, #processFlow .process-arrow');
+        let delay = 0;
+        steps.forEach(function(step, idx) {
+          setTimeout(function() {
+            step.classList.add('visible');
+          }, delay);
+          delay += 180;
+        });
+      }
+      if (document.getElementById('processFlow')) {
+        let processSection = document.getElementById('processFlow').closest('section');
+        function onScrollProcess() {
+          var rect = processSection.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 80) {
+            animateProcessSteps();
+            window.removeEventListener('scroll', onScrollProcess);
+          }
+        }
+        window.addEventListener('scroll', onScrollProcess);
+        onScrollProcess();
+      }
+    });
+  </script>
+</body>
+</html>
