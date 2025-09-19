@@ -1453,13 +1453,13 @@
   cursor: pointer;
 }
 .process-step:hover {
-  box-shadow: 0 8px 32px #eebbc344, 0 2px 12px #fdd46b33;
-  background: #eebbc3;
+  box-shadow: 0 8px 32px #7bdcb544, 0 2px 12px #7bdcb533;
+  background: #7bdcb5;
   color: #fff;
   z-index: 2;
 }
 .process-step:hover i {
-  color: #e6b800 !important;
+  color: #2c3e50 !important;
   transition: color 0.22s;
     }
     .process-flow {
@@ -1488,6 +1488,156 @@
     @media (max-width: 575px) {
       .process-step { min-width: 70px; font-size: 0.85rem; padding: 0.7rem 0.5rem; }
       .process-arrow { font-size: 1rem; }
+    }
+    
+    /* Process Popup Styles */
+    .process-popup {
+      position: absolute;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+      padding: 20px;
+      min-width: 280px;
+      max-width: 320px;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+      border: 2px solid #7bdcb5;
+    }
+    
+    .process-popup.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .process-popup h4 {
+      color: #2c3e50;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .process-popup p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+    
+    .process-popup::before {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #7bdcb5;
+    }
+    
+    /* Mobile popup - center on page */
+    @media screen and (max-width: 768px) {
+      .process-flow .process-step .process-popup,
+      .process-step .process-popup,
+      .process-popup {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        background: white !important;
+        background-color: white !important;
+        background-image: none !important;
+        min-width: 300px !important;
+        max-width: 90vw !important;
+        width: auto !important;
+        padding: 25px !important;
+        z-index: 99999 !important;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3) !important;
+        border-radius: 12px !important;
+        border: 2px solid #7bdcb5 !important;
+        color: #333 !important;
+      }
+      
+      .process-flow .process-step .process-popup.show,
+      .process-step .process-popup.show,
+      .process-popup.show {
+        background: white !important;
+        background-color: white !important;
+        background-image: none !important;
+      }
+      
+      /* Force white background on all child elements */
+      .process-popup * {
+        background: inherit !important;
+      }
+      
+      /* Additional mobile popup overrides */
+      @media screen and (max-width: 767px) {
+        .process-popup {
+          background: #fff !important;
+          background-color: #fff !important;
+        }
+      }
+      
+      .process-popup.show {
+        transform: translate(-50%, -50%);
+      }
+      
+      .process-popup h4 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+      }
+      
+      .process-popup p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .process-popup::before {
+        display: none;
+      }
+      
+      /* Remove backdrop that might be causing grey appearance */
+      .process-popup::after {
+        display: none !important;
+      }
+      
+      /* Force pure white background with extreme specificity */
+      html body .process-step .process-popup {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        background-image: none !important;
+        backdrop-filter: none !important;
+        filter: none !important;
+      }
+      
+      /* Mobile-specific override with maximum specificity */
+      @media screen and (max-width: 768px) {
+        html body div.process-flow div.process-step div.process-popup {
+          background: #ffffff !important;
+          background-color: #ffffff !important;
+          background-image: none !important;
+        }
+        
+        /* Ensure cards remain visible with white background */
+        .process-step {
+          background: #fff !important;
+          background-color: #fff !important;
+        }
+      }
+    }
+    
+    .process-step {
+      position: relative;
     }
     .pricing-table th, .pricing-table td {
       background: linear-gradient(120deg, var(--soft-lavender) 70%, var(--muted-blue) 100%);
@@ -3067,21 +3217,69 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
         <hr style="flex: 1; max-width: 120px; border: none; border-top: 2px solid #7b5e7b; margin: 0;">
       </div>
       <div class="process-flow" id="processFlow">
-  <div class="process-step" style="color:#181818;"><i class="bi bi-chat-dots" style="color:#181818;"></i><br>Consultation</div>
+  <div class="process-step" style="color:#181818;" data-title="Consultation" data-description="We start with a detailed consultation to understand your story, preferences, and the special moments you want to capture in your personalized book.">
+    <i class="bi bi-chat-dots" style="color:#181818;"></i><br>Consultation
+    <div class="process-popup">
+      <h4><i class="bi bi-chat-dots"></i> Consultation</h4>
+      <p>We start with a detailed consultation to understand your story, preferences, and the special moments you want to capture in your personalized book.</p>
+    </div>
+  </div>
         <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;"><i class="bi bi-lightbulb" style="color:#181818;"></i><br>Curation</div>
+  <div class="process-step" style="color:#181818;" data-title="Curation" data-description="Our team carefully curates content, selecting the most meaningful memories and organizing them into a coherent and beautiful narrative structure.">
+    <i class="bi bi-lightbulb" style="color:#181818;"></i><br>Curation
+    <div class="process-popup">
+      <h4><i class="bi bi-lightbulb"></i> Curation</h4>
+      <p>Our team carefully curates content, selecting the most meaningful memories and organizing them into a coherent and beautiful narrative structure.</p>
+    </div>
+  </div>
         <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;"><i class="bi bi-journal-text" style="color:#181818;"></i><br>Storyboarding</div>
+  <div class="process-step" style="color:#181818;" data-title="Storyboarding" data-description="We create a detailed storyboard that maps out the flow of your book, ensuring every page tells your story in the most impactful way.">
+    <i class="bi bi-journal-text" style="color:#181818;"></i><br>Storyboarding
+    <div class="process-popup">
+      <h4><i class="bi bi-journal-text"></i> Storyboarding</h4>
+      <p>We create a detailed storyboard that maps out the flow of your book, ensuring every page tells your story in the most impactful way.</p>
+    </div>
+  </div>
         <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;"><i class="bi bi-brush" style="color:#181818;"></i><br>Design</div>
+  <div class="process-step" style="color:#181818;" data-title="Design" data-description="Our talented designers bring your story to life with beautiful layouts, typography, and visual elements that perfectly complement your narrative.">
+    <i class="bi bi-brush" style="color:#181818;"></i><br>Design
+    <div class="process-popup">
+      <h4><i class="bi bi-brush"></i> Design</h4>
+      <p>Our talented designers bring your story to life with beautiful layouts, typography, and visual elements that perfectly complement your narrative.</p>
+    </div>
+  </div>
         <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;"><i class="bi bi-check2-circle" style="color:#181818;"></i><br>Approval</div>
+  <div class="process-step" style="color:#181818;" data-title="Approval" data-description="You review the complete design and provide feedback. We make any necessary revisions until you're completely satisfied with your book.">
+    <i class="bi bi-check2-circle" style="color:#181818;"></i><br>Approval
+    <div class="process-popup">
+      <h4><i class="bi bi-check2-circle"></i> Approval</h4>
+      <p>You review the complete design and provide feedback. We make any necessary revisions until you're completely satisfied with your book.</p>
+    </div>
+  </div>
         <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;"><i class="bi bi-printer" style="color:#181818;"></i><br>Printing</div>
+  <div class="process-step" style="color:#181818;" data-title="Printing" data-description="Using premium materials and professional printing techniques, we bring your book to life with exceptional quality and attention to detail.">
+    <i class="bi bi-printer" style="color:#181818;"></i><br>Printing
+    <div class="process-popup">
+      <h4><i class="bi bi-printer"></i> Printing</h4>
+      <p>Using premium materials and professional printing techniques, we bring your book to life with exceptional quality and attention to detail.</p>
+    </div>
+  </div>
         <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;"><i class="bi bi-box" style="color:#181818;"></i><br>Packaging</div>
+  <div class="process-step" style="color:#181818;" data-title="Packaging" data-description="Your finished book is carefully packaged in beautiful, protective packaging that makes it perfect for gifting or keeping as a treasured keepsake.">
+    <i class="bi bi-box" style="color:#181818;"></i><br>Packaging
+    <div class="process-popup">
+      <h4><i class="bi bi-box"></i> Packaging</h4>
+      <p>Your finished book is carefully packaged in beautiful, protective packaging that makes it perfect for gifting or keeping as a treasured keepsake.</p>
+    </div>
+  </div>
         <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;"><i class="bi bi-emoji-smile" style="color:#181818;"></i><br>After-Sales</div>
+  <div class="process-step" style="color:#181818;" data-title="After-Sales" data-description="Our commitment doesn't end at delivery. We provide ongoing support and are always here to help with any questions or additional services you might need.">
+    <i class="bi bi-emoji-smile" style="color:#181818;"></i><br>After-Sales
+    <div class="process-popup">
+      <h4><i class="bi bi-emoji-smile"></i> After-Sales</h4>
+      <p>Our commitment doesn't end at delivery. We provide ongoing support and are always here to help with any questions or additional services you might need.</p>
+    </div>
+  </div>
       </div>
     </div>
   </section>
@@ -3560,6 +3758,86 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
         window.addEventListener('scroll', onScrollProcess);
         onScrollProcess();
       }
+    });
+
+    // Process Step Popup Functionality
+    document.addEventListener("DOMContentLoaded", function() {
+      const processSteps = document.querySelectorAll('.process-step');
+      let activePopup = null;
+      
+      processSteps.forEach(step => {
+        const popup = step.querySelector('.process-popup');
+        
+        // Show popup on hover
+        step.addEventListener('mouseenter', function() {
+          // Hide any active popup
+          if (activePopup && activePopup !== popup) {
+            activePopup.classList.remove('show');
+          }
+          
+          // Position popup above the step
+          const stepRect = step.getBoundingClientRect();
+          const popupHeight = popup.offsetHeight;
+          
+          popup.style.bottom = (step.offsetHeight + 15) + 'px';
+          popup.style.left = '50%';
+          popup.style.transform = 'translateX(-50%)';
+          
+          // Show popup
+          popup.classList.add('show');
+          activePopup = popup;
+        });
+        
+        // Hide popup on mouse leave
+        step.addEventListener('mouseleave', function() {
+          setTimeout(() => {
+            if (!popup.matches(':hover') && !step.matches(':hover')) {
+              popup.classList.remove('show');
+              if (activePopup === popup) {
+                activePopup = null;
+              }
+            }
+          }, 100);
+        });
+        
+        // Keep popup visible when hovering over it
+        popup.addEventListener('mouseenter', function() {
+          popup.classList.add('show');
+        });
+        
+        popup.addEventListener('mouseleave', function() {
+          popup.classList.remove('show');
+          if (activePopup === popup) {
+            activePopup = null;
+          }
+        });
+        
+        // Toggle popup on click for mobile
+        step.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          if (popup.classList.contains('show')) {
+            popup.classList.remove('show');
+            activePopup = null;
+          } else {
+            // Hide any active popup
+            if (activePopup) {
+              activePopup.classList.remove('show');
+            }
+            
+            popup.classList.add('show');
+            activePopup = popup;
+          }
+        });
+      });
+      
+      // Close popup when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.process-step') && activePopup) {
+          activePopup.classList.remove('show');
+          activePopup = null;
+        }
+      });
     });
   </script>
 </body>
