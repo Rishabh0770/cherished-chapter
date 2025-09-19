@@ -1633,6 +1633,30 @@
           background: #fff !important;
           background-color: #fff !important;
         }
+        
+        /* Mobile active card state - same as hover color */
+        html body .process-flow .process-step.active,
+        .process-step.active {
+          background: #7bdcb5 !important;
+          background-color: #7bdcb5 !important;
+          color: #fff !important;
+          box-shadow: 0 8px 32px #7bdcb544, 0 2px 12px #7bdcb533 !important;
+          z-index: 2 !important;
+        }
+        
+        html body .process-flow .process-step.active i,
+        .process-step.active i {
+          color: #2c3e50 !important;
+        }
+        
+        /* Extra specificity for mobile active state */
+        @media screen and (max-width: 768px) {
+          .process-flow .process-step.active {
+            background: #7bdcb5 !important;
+            background-color: #7bdcb5 !important;
+            color: white !important;
+          }
+        }
       }
     }
     
@@ -3818,16 +3842,47 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
           
           if (popup.classList.contains('show')) {
             popup.classList.remove('show');
+            step.classList.remove('active'); // Remove active card color
+            // Reset inline styles
+            step.style.backgroundColor = '';
+            step.style.color = '';
+            step.style.boxShadow = '';
             activePopup = null;
           } else {
-            // Hide any active popup
+            // Hide any active popup and remove active state from all cards
             if (activePopup) {
               activePopup.classList.remove('show');
+              // Remove active class from all steps
+              processSteps.forEach(s => {
+                s.classList.remove('active');
+                s.style.backgroundColor = '';
+                s.style.color = '';
+                s.style.boxShadow = '';
+              });
+            }
+            
+            // Add active color to clicked card
+            step.classList.add('active');
+            // Force inline styles for mobile
+            step.style.backgroundColor = '#7bdcb5';
+            step.style.color = '#fff';
+            step.style.boxShadow = '0 8px 32px #7bdcb544, 0 2px 12px #7bdcb533';
+            
+            // Also change icon color
+            const icon = step.querySelector('i');
+            if (icon) {
+              icon.style.color = '#2c3e50';
             }
             
             popup.classList.add('show');
             activePopup = popup;
           }
+        });
+        
+        // Add touch support for mobile
+        step.addEventListener('touchend', function(e) {
+          e.preventDefault();
+          step.click();
         });
       });
       
