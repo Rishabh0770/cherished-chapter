@@ -1930,23 +1930,97 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
       }
     /* MOBILE PORTFOLIO NUCLEAR OPTION - MOBILE ONLY */
     @media screen and (max-width: 767px) {
+      body.mobile-portfolio-override #portfolio .portfolio-slider-outer {
+        min-height: 700px !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 2rem 0 !important;
+      }
       body.mobile-portfolio-override #portfolio .portfolio-slider-card {
         display: none !important;
       }
       body.mobile-portfolio-override #portfolio .portfolio-slider-card.active-mobile-card {
-        display: block !important;
-        width: 100vw !important;
-        min-width: 100vw !important;
-        max-width: 100vw !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 80vw !important;
+        min-width: 80vw !important;
+        max-width: 80vw !important;
+        height: 600px !important;
+        min-height: 600px !important;
         flex: none !important;
         position: relative !important;
-        padding: 0 1rem !important;
+        padding: 1.5rem 1rem !important;
         box-sizing: border-box !important;
+        text-align: center !important;
+        margin: 0 auto !important;
       }
       body.mobile-portfolio-override #portfolio .portfolio-slider-row {
-        display: block !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
         width: 100vw !important;
         transform: none !important;
+        min-height: 650px !important;
+        overflow: visible !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-img-square {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0 auto 1.5rem auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 400px !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-desc {
+        text-align: center !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        margin-top: 1rem !important;
+      }
+    }
+    
+    /* MOBILE CENTERING FOR SMALLER PHONES */
+    @media screen and (max-width: 575px) {
+      body.mobile-portfolio-override #portfolio .portfolio-slider-outer {
+        min-height: 650px !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 1.5rem 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-card.active-mobile-card {
+        width: 85vw !important;
+        min-width: 85vw !important;
+        max-width: 85vw !important;
+        height: 550px !important;
+        min-height: 550px !important;
+        padding: 1.2rem 0.8rem !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-row {
+        min-height: 600px !important;
+        overflow: visible !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-img-square {
+        height: 350px !important;
+        max-width: 100% !important;
+        margin: 0 auto 1.2rem auto !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-desc {
+        max-width: 100% !important;
+        margin: 0.8rem auto 0 auto !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-desc h6 {
+        font-size: 1.2rem !important;
+        margin-bottom: 0.8rem !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-desc p {
+        font-size: 1.1rem !important;
+        line-height: 1.4 !important;
       }
     }
     
