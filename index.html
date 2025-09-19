@@ -665,13 +665,14 @@
         line-height: 1.4 !important;
       }
       .portfolio-heading-arrows {
-        margin: 2rem auto 0 auto !important;
+        margin: 1.5rem auto 1rem auto !important;
         display: flex !important;
         justify-content: center !important;
         width: 100% !important;
         padding: 0 !important;
         position: relative !important;
         z-index: 10 !important;
+        order: 2 !important;
       }
       #portfolio .portfolio-slider-outer {
         position: relative !important;
@@ -1980,16 +1981,42 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
       }
       body.mobile-portfolio-override .portfolio-heading-arrows {
         justify-content: center !important;
-        margin: 2rem auto 0 auto !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 1rem 0 !important;
+        width: 120px !important;
+        display: flex !important;
+        position: absolute !important;
+        bottom: -600px !important;
+        left: calc(50vw - 60px) !important;
+        z-index: 10 !important;
+        text-align: center !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-outer {
+        position: relative !important;
+        padding-bottom: 620px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding-top: 0 !important;
+      }
+      body.mobile-portfolio-override .portfolio-heading-arrows {
+        justify-content: center !important;
+        margin: 0 auto !important;
         padding: 0 !important;
         width: 100% !important;
         display: flex !important;
         position: relative !important;
         z-index: 10 !important;
+        order: 10 !important;
       }
-      body.mobile-portfolio-override #portfolio .portfolio-slider-outer {
-        position: relative !important;
-        padding-bottom: 2rem !important;
+      body.mobile-portfolio-override .portfolio-heading-row {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      body.mobile-portfolio-override .portfolio-main-heading {
+        margin-bottom: 0 !important;
       }
       body.mobile-portfolio-override #portfolio .portfolio-slider-card {
         display: none !important;
@@ -2010,19 +2037,20 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
         right: 12vw !important;
         margin: 0 auto !important;
         transform: none !important;
-        padding: 0.5rem 1rem 1.5rem 1rem !important;
+        padding: 0 1rem 1.5rem 1rem !important;
         box-sizing: border-box !important;
         text-align: center !important;
+        order: 1 !important;
       }
       body.mobile-portfolio-override #portfolio .portfolio-slider-row {
         display: flex !important;
         justify-content: center !important;
-        align-items: center !important;
+        align-items: flex-start !important;
         width: 100vw !important;
         transform: none !important;
         min-height: 700px !important;
         overflow: visible !important;
-        padding: 2rem 0 !important;
+        padding: 0 !important;
         position: relative !important;
         left: 0 !important;
         right: 0 !important;
@@ -2031,7 +2059,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
         display: flex !important;
         justify-content: center !important;
         align-items: flex-start !important;
-        margin: 0 auto 1rem auto !important;
+        margin: 0 auto 0.5rem auto !important;
         width: 100% !important;
         max-width: 100% !important;
         height: 400px !important;
@@ -2047,7 +2075,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
         flex-direction: column !important;
         align-items: center !important;
         justify-content: flex-start !important;
-        margin-top: 0.5rem !important;
+        margin-top: 0 !important;
       }
     }
     
