@@ -14,6 +14,14 @@
       #portfolio, #portfolio .carousel, #portfolio .portfolio-slider-outer, #portfolio .portfolio-slider-row {
         overflow: visible !important;
       }
+      #portfolio.section {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      #faq.section {
+        margin-top: -150px !important;
+        padding-top: 0 !important;
+      }
     /* Compact height for contact form inputs */
     .contact-form-compact .form-control {
       height: 2.6rem;
@@ -513,6 +521,255 @@
         align-items: stretch !important;
         gap: 0.5rem !important;
       }
+      /* Fix testimonial section mobile scroll issue */
+      #testimonials {
+        padding-top: 1rem !important;
+        padding-bottom: 1.5rem !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+      #testimonials .section-title {
+        margin-bottom: 0.8rem !important;
+      }
+      .testimonial-carousel-wrapper {
+        height: auto !important;
+        overflow: visible !important;
+        margin-bottom: 2.5rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+      #testimonialSliderRow {
+        overflow: visible !important;
+        height: auto !important;
+      }
+      .testimonial-slider-card {
+        height: auto !important;
+        min-height: auto !important;
+      }
+      /* Contact form mobile responsive */
+      #contact .row.justify-content-center {
+        flex-direction: column !important;
+      }
+      #contact .col-md-5, #contact .col-md-7 {
+        max-width: 100% !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .contact-info-card {
+        margin-bottom: 1rem !important;
+        padding: 1.5rem !important;
+      }
+      .contact-info-card h5 {
+        font-size: 1.2rem !important;
+      }
+      .contact-info-card p {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.8rem !important;
+      }
+      .rounded-form {
+        padding: 1.5rem 1rem !important;
+      }
+      /* Form row and column adjustments for mobile */
+      .rounded-form .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+      }
+      .rounded-form .col-12, .rounded-form .col-md-6 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-bottom: 0 !important;
+      }
+      .rounded-form .gx-2 {
+        --bs-gutter-x: 0 !important;
+      }
+      .rounded-form .gy-2 {
+        --bs-gutter-y: 0 !important;
+      }
+      /* Proper form field alignment and spacing */
+      .contact-form-compact {
+        margin-bottom: 0.5rem !important;
+        width: 100% !important;
+      }
+      .form-floating {
+        width: 100% !important;
+        margin-bottom: 0.5rem !important;
+      }
+      .mb-3 {
+        margin-bottom: 0.5rem !important;
+      }
+      /* Remove any extra spacing from Bootstrap rows */
+      .rounded-form .row {
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+      }
+      .rounded-form .row + .row {
+        margin-top: 0 !important;
+      }
+      /* Ensure consistent spacing for all form elements */
+      .rounded-form .form-floating,
+      .rounded-form .mb-3,
+      .rounded-form .contact-form-compact {
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+      }
+      /* Specific fix for location field - REMOVE ALL EXTRA SPACING */
+      #location {
+        margin: 0 !important;
+        padding: 0.8rem 0.75rem !important;
+      }
+      input[id="location"] {
+        margin: 0 !important;
+      }
+      /* Target location field container with maximum specificity */
+      .rounded-form .row .col-12:has(input[id="location"]),
+      .rounded-form .row .col-md-6:has(input[id="location"]),
+      .rounded-form .form-floating:has(input[id="location"]),
+      .rounded-form .mb-3:has(input[id="location"]),
+      .rounded-form .contact-form-compact:has(input[id="location"]) {
+        margin: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      /* Force location field to match other fields exactly */
+      .rounded-form div:has(#location) {
+        margin-bottom: 0.5rem !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      /* Target the container of location field specifically */
+      .form-floating:has(input[id="location"]),
+      .mb-3:has(input[id="location"]),
+      .contact-form-compact:has(input[id="location"]) {
+        margin-bottom: 0.5rem !important;
+        margin-top: 0 !important;
+      }
+      /* Force consistent spacing on all form field containers */
+      .rounded-form div[class*="form-floating"],
+      .rounded-form div[class*="mb-3"],
+      .rounded-form div[class*="contact-form-compact"] {
+        margin-bottom: 0.5rem !important;
+        margin-top: 0 !important;
+      }
+      /* Target textarea specifically */
+      .rounded-form textarea.form-control {
+        margin-bottom: 0.5rem !important;
+      }
+      /* Ensure all form fields are properly aligned */
+      .rounded-form .form-control {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      /* Form field order for mobile - Name first, Email second */
+      .rounded-form .row:first-of-type .col-12:nth-child(1),
+      .rounded-form .row:first-of-type .col-md-6:nth-child(1) {
+        order: 1 !important;
+      }
+      .rounded-form .row:first-of-type .col-12:nth-child(2),
+      .rounded-form .row:first-of-type .col-md-6:nth-child(2) {
+        order: 2 !important;
+      }
+      .contact-form-compact .form-control {
+        font-size: 1rem !important;
+        padding: 0.8rem 0.75rem !important;
+        width: 100% !important;
+      }
+      .contact-form-compact.form-floating > label {
+        font-size: 0.9rem !important;
+        padding-left: 0.75rem !important;
+      }
+      .form-floating {
+        width: 100% !important;
+      }
+      #contact .btn.contact-btn {
+        padding: 0.8rem 1.5rem !important;
+        font-size: 1rem !important;
+        margin-top: 1rem !important;
+      }
+      /* Ensure proper form field order on mobile - Name first, Email second */
+      .rounded-form .row:first-of-type .col-12:nth-child(1),
+      .rounded-form .row:first-of-type .col-md-6:nth-child(1) {
+        order: 1 !important;
+      }
+      .rounded-form .row:first-of-type .col-12:nth-child(2),
+      .rounded-form .row:first-of-type .col-md-6:nth-child(2) {
+        order: 2 !important;
+      }
+      /* FORCE equal spacing - nuclear approach for all form fields */
+      .rounded-form > div,
+      .rounded-form .row > div,
+      .rounded-form .col-12,
+      .rounded-form .col-md-6,
+      .rounded-form .mb-3,
+      .rounded-form .form-floating,
+      .rounded-form .contact-form-compact {
+        margin-bottom: 0.2rem !important;
+        margin-top: 0 !important;
+      }
+      /* Override ALL Bootstrap margin classes */
+      .rounded-form [class*="mb-"] {
+        margin-bottom: 0.2rem !important;
+      }
+      /* Extra tight spacing for all form containers */
+      .rounded-form * {
+        margin-bottom: 0.2rem !important;
+        margin-top: 0 !important;
+      }
+      /* Exception for the button */
+      .rounded-form .btn {
+        margin-bottom: 0 !important;
+        margin-top: 0.8rem !important;
+      }
+      /* Subtle negative margin to tighten spacing just a little */
+      .rounded-form .form-floating,
+      .rounded-form .mb-3,
+      .rounded-form .contact-form-compact {
+        margin-top: -0.2rem !important;
+        margin-bottom: 0.1rem !important;
+      }
+      /* Specific fix for gap between email and location boxes */
+      .rounded-form .row:nth-child(2) {
+        margin-top: -0.4rem !important;
+      }
+      /* Target location field container specifically */
+      .rounded-form .row:nth-child(2) .form-floating,
+      .rounded-form .row:nth-child(2) .mb-3,
+      .rounded-form .row:nth-child(2) .contact-form-compact {
+        margin-top: -0.3rem !important;
+      }
+      /* Specific fix for gap between email and mobile no box */
+      .rounded-form .row:nth-child(2) .col-12:has(#mobile),
+      .rounded-form .row:nth-child(2) .col-md-6:has(#mobile),
+      .rounded-form .form-floating:has(#mobile),
+      .rounded-form .mb-3:has(#mobile),
+      .rounded-form .contact-form-compact:has(#mobile) {
+        margin-top: -0.5rem !important;
+      }
+      /* Also target mobile field input directly */
+      #mobile {
+        margin-top: 0 !important;
+      }
+      /* Force specific field order on mobile: Name, Email, Mobile, Location, Query */
+      .rounded-form .row:first-of-type .col-12:has(#name),
+      .rounded-form .row:first-of-type .col-md-6:has(#name) {
+        order: 1 !important;
+      }
+      .rounded-form .row:first-of-type .col-12:has(#email),
+      .rounded-form .row:first-of-type .col-md-6:has(#email) {
+        order: 2 !important;
+      }
+      .rounded-form .row:nth-child(2) .col-12:has(#mobile),
+      .rounded-form .row:nth-child(2) .col-md-6:has(#mobile) {
+        order: 3 !important;
+      }
+      .rounded-form .row:nth-child(2) .col-12:has(#location),
+      .rounded-form .row:nth-child(2) .col-md-6:has(#location) {
+        order: 4 !important;
+      }
+      /* Query field should be last */
+      .rounded-form .form-floating:has(#query) {
+        order: 5 !important;
+      }
     }
     /* Portfolio card subheading clean modern style */
       .portfolio-slider-card {
@@ -606,26 +863,353 @@
   background: none;
   border: none;
     }
-    @media (max-width: 1200px) {
+    @media (max-width: 1200px) and (min-width: 768px) {
       .portfolio-slider-card { flex-basis: 33%; min-width: 200px; }
     }
-    @media (max-width: 991px) {
+    @media (max-width: 991px) and (min-width: 768px) {
       .portfolio-slider-card { flex-basis: 60%; min-width: 150px; }
     }
     @media (max-width: 767px) {
-      .portfolio-slider-card { flex-basis: 90%; min-width: 120px; max-width: 98vw; }
-      .portfolio-slider-row { gap: 0.7rem; padding-left: 0.5rem; padding-right: 0.5rem; }
-      .portfolio-img-square { max-width: 98vw; }
-  .portfolio-desc h6 { font-size: 1.28rem; }
-  .portfolio-desc p { font-size: 1.18rem; }
+      #portfolio .portfolio-slider-outer {
+        min-height: 500px !important;
+        height: 500px !important;
+        padding-top: 16px !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        overflow: hidden !important;
+      }
+      #portfolio .portfolio-slider-row { 
+        gap: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        scroll-snap-type: x mandatory !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: hidden !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        flex-wrap: nowrap !important;
+      }
+      #portfolio .portfolio-slider-card { 
+        flex: 0 0 100vw !important;
+        flex-basis: 100vw !important; 
+        min-width: 100vw !important; 
+        max-width: 100vw !important;
+        width: 100vw !important;
+        scroll-snap-align: start !important;
+        padding: 0 1rem !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        flex-shrink: 0 !important;
+        flex-grow: 0 !important;
+      }
+      #portfolio .portfolio-img-square { 
+        max-width: 100% !important;
+        height: 300px !important;
+        margin-bottom: 1rem !important;
+      }
+      #portfolio .portfolio-img-square img {
+        height: 100% !important;
+        object-fit: cover !important;
+      }
+      #portfolio .portfolio-desc h6 { 
+        font-size: 1.4rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+      #portfolio .portfolio-desc p { 
+        font-size: 1.2rem !important;
+        line-height: 1.4 !important;
+      }
+      .portfolio-heading-arrows {
+        margin: 1.5rem auto 1rem auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+        padding: 0 !important;
+        position: relative !important;
+        z-index: 10 !important;
+        order: 2 !important;
+      }
+      #portfolio .portfolio-slider-outer {
+        position: relative !important;
+        padding-bottom: 2rem !important;
+      }
+      .portfolio-carousel-btn {
+        width: 50px !important;
+        height: 50px !important;
+      }
+      .portfolio-carousel-btn i {
+        font-size: 1.5rem !important;
+      }
     }
     @media (max-width: 575px) {
-      .portfolio-slider-card { flex-basis: 100%; min-width: 90px; max-width: 99vw; }
-      .portfolio-slider-row { gap: 0.4rem; padding-left: 0.2rem; padding-right: 0.2rem; }
-      .portfolio-img-square { max-width: 99vw; }
-  .portfolio-desc h6 { font-size: 1.08rem; }
-  .portfolio-desc p { font-size: 1.01rem; }
+      #portfolio .portfolio-slider-outer {
+        min-height: 450px !important;
+        height: 450px !important;
+        padding-top: 12px !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        overflow: hidden !important;
+      }
+      #portfolio .portfolio-slider-row { 
+        gap: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        scroll-snap-type: x mandatory !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: hidden !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        flex-wrap: nowrap !important;
+      }
+      #portfolio .portfolio-slider-card { 
+        flex: 0 0 100vw !important;
+        flex-basis: 100vw !important; 
+        min-width: 100vw !important; 
+        max-width: 100vw !important;
+        width: 100vw !important;
+        scroll-snap-align: start !important;
+        padding: 0 0.8rem !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        flex-shrink: 0 !important;
+        flex-grow: 0 !important;
+      }
+      #portfolio .portfolio-img-square { 
+        max-width: 100% !important;
+        height: 250px !important;
+        margin-bottom: 0.8rem !important;
+      }
+      #portfolio .portfolio-img-square img {
+        height: 100% !important;
+        object-fit: cover !important;
+      }
+      #portfolio .portfolio-desc h6 { 
+        font-size: 1.2rem !important;
+        margin-bottom: 0.4rem !important;
+      }
+      #portfolio .portfolio-desc p { 
+        font-size: 1.1rem !important;
+        line-height: 1.3 !important;
+      }
+      .portfolio-heading-arrows {
+        margin-right: 1vw !important;
+      }
+      .portfolio-carousel-btn {
+        width: 45px !important;
+        height: 45px !important;
+      }
+      .portfolio-carousel-btn i {
+        font-size: 1.3rem !important;
+      }
+      .portfolio-main-heading {
+        font-size: 2.4rem !important;
+      }
+      .portfolio-main-heading-serif {
+        font-size: 3rem !important;
+      }
     }
+    
+    /* Final Mobile Portfolio Override - Highest Priority */
+    @media (max-width: 767px) {
+      body #portfolio .portfolio-slider-card {
+        flex: 0 0 100vw !important;
+        flex-basis: 100vw !important;
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+      }
+      body #portfolio .portfolio-slider-row {
+        width: 100vw !important;
+        overflow: hidden !important;
+      }
+      body #portfolio .portfolio-slider-outer {
+        width: 100vw !important;
+        overflow: hidden !important;
+      }
+    }
+    
+    @media (max-width: 575px) {
+      body #portfolio .portfolio-slider-card {
+        flex: 0 0 100vw !important;
+        flex-basis: 100vw !important;
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+      }
+    }
+    
+    /* Newsletter Section Mobile Responsive */
+    @media (max-width: 767px) {
+      .newsletter-signup-section {
+        padding: 40px 0 30px 0 !important;
+      }
+      .newsletter-signup-section .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+      .newsletter-signup-section .row .col-lg-11 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      .newsletter-signup-section > .container > .row > .col-12.col-lg-11 > div {
+        padding: 24px 20px 20px 20px !important;
+        min-height: auto !important;
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+      .newsletter-signup-section .row.w-100.align-items-center {
+        flex-direction: column !important;
+        gap: 0 !important;
+      }
+      .newsletter-signup-section .col-lg-6 {
+        min-width: auto !important;
+        width: 100% !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .newsletter-signup-section .col-lg-6:last-child {
+        margin-bottom: 0 !important;
+      }
+      .newsletter-signup-section h2 {
+        font-size: 2.2rem !important;
+        text-align: center !important;
+        margin-bottom: 1rem !important;
+      }
+      .newsletter-signup-section h2 span {
+        font-size: 2.8rem !important;
+      }
+      .newsletter-signup-section p {
+        font-size: 1rem !important;
+        text-align: center !important;
+        margin-bottom: 1rem !important;
+      }
+      .newsletter-signup-section .d-flex.align-items-center.mb-2 {
+        justify-content: center !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .newsletter-signup-section form {
+        max-width: 100% !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        padding: 1.2rem !important;
+        align-items: stretch !important;
+      }
+      .newsletter-signup-section form input {
+        width: 100% !important;
+        min-width: auto !important;
+        font-size: 1rem !important;
+        padding: 1rem 1.2rem !important;
+        text-align: center !important;
+      }
+      .newsletter-signup-section form button {
+        width: 100% !important;
+        font-size: 1.1rem !important;
+        padding: 1rem 2rem !important;
+        margin-top: 0.5rem !important;
+      }
+      .newsletter-signup-section .col-lg-6:last-child p:last-child {
+        font-size: 0.9rem !important;
+        text-align: center !important;
+        margin-top: 1rem !important;
+      }
+      /* Hide decorative SVG on mobile */
+      .newsletter-signup-section span svg {
+        display: none !important;
+      }
+    }
+    
+    /* Footer Section Mobile Responsive */
+    @media (max-width: 767px) {
+      .footer-modern {
+        padding-top: 2rem !important;
+        padding-bottom: 1.5rem !important;
+      }
+      .footer-modern .container {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+      }
+      .footer-modern .row {
+        text-align: center !important;
+      }
+      .footer-modern .col-12.col-md-4 {
+        text-align: center !important;
+        margin-bottom: 2rem !important;
+      }
+      .footer-modern .col-12.col-md-4:last-child {
+        margin-bottom: 1rem !important;
+      }
+      .footer-logo {
+        justify-content: center !important;
+        margin-bottom: 1rem !important;
+      }
+      .footer-logo-icon {
+        font-size: 2rem !important;
+      }
+      .footer-logo-text {
+        font-size: 1.3rem !important;
+      }
+      .footer-desc {
+        max-width: 100% !important;
+        font-size: 0.95rem !important;
+        line-height: 1.4 !important;
+        margin: 0 auto 1.5rem auto !important;
+        padding: 0 1rem !important;
+      }
+      .footer-social {
+        margin-bottom: 1rem !important;
+      }
+      .footer-social-link {
+        margin: 0 1rem !important;
+        font-size: 1.5rem !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 45px !important;
+        height: 45px !important;
+        border-radius: 50% !important;
+        background: rgba(171, 71, 188, 0.1) !important;
+        color: #ab47bc !important;
+        transition: all 0.3s ease !important;
+      }
+      .footer-social-link:hover {
+        background: #ab47bc !important;
+        color: #fff !important;
+        transform: translateY(-2px) !important;
+      }
+      .footer-contact {
+        font-size: 0.95rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .footer-links {
+        margin-bottom: 1rem !important;
+      }
+      .footer-link {
+        display: inline-block !important;
+        margin: 0.3rem 0.8rem !important;
+        font-size: 0.95rem !important;
+        color: #4f5d75 !important;
+        text-decoration: none !important;
+        padding: 0.5rem !important;
+        border-radius: 0.5rem !important;
+        transition: all 0.3s ease !important;
+      }
+      .footer-link:hover {
+        color: #ab47bc !important;
+        background: rgba(171, 71, 188, 0.1) !important;
+        transform: translateY(-1px) !important;
+      }
+      .footer-copyright {
+        font-size: 0.85rem !important;
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+        border-top: 1px solid rgba(184, 193, 236, 0.2) !important;
+        color: #000000 !important;
+      }
+    }
+    
     :root {
       --dark-navy: #232946;
       --dark-purple: #3d314a;
@@ -859,7 +1443,18 @@
   font-weight: 500;
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.7s, transform 0.7s;
+  transition: opacity 0.7s;
+  cursor: pointer;
+}
+.process-step:hover {
+  box-shadow: 0 8px 32px #eebbc344, 0 2px 12px #fdd46b33;
+  background: #eebbc3;
+  color: #fff;
+  z-index: 2;
+}
+.process-step:hover i {
+  color: #e6b800 !important;
+  transition: color 0.22s;
     }
     .process-flow {
   display: flex;
@@ -1447,6 +2042,14 @@
     @media (min-width: 992px) {
       .mobile-menu-overlay { display: none !important; }
     }
+    
+    /* Testimonial section desktop margin */
+    @media (min-width: 768px) {
+      #testimonials {
+        margin-top: -80px !important;
+      }
+    }
+    
         @media (max-width: 991px) {
       .navbar-brand {
         font-size: 1.25rem !important;
@@ -1533,11 +2136,11 @@
 }
   </style>
 </head>
-<body>
+  <body style="background: linear-gradient(120deg, #e6e6fa 60%, #b8c1ec 100%) !important;">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container position-relative d-flex flex-row align-items-center justify-content-between" style="min-height:56px;">
-      <a class="navbar-brand mb-0" href="#" style="z-index:1203;">Cherished Capter</a>
+      <a class="navbar-brand mb-0" href="#" style="z-index:1203;">Cherished Chapters</a>
       <button class="hamburger3d d-lg-none ms-2" id="hamburger3dBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenuOverlay">
         <span class="bar bar1"></span>
         <span class="bar bar2"></span>
@@ -1549,9 +2152,9 @@
           <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
           <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
           <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -1562,9 +2165,9 @@
             <li><a href="#home" class="mobile-menu-link">Home</a></li>
             <li><a href="#features" class="mobile-menu-link">Features</a></li>
             <li><a href="#portfolio" class="mobile-menu-link">Portfolio</a></li>
+            <li><a href="#faq" class="mobile-menu-link">Services</a></li>
             <li><a href="#process" class="mobile-menu-link">Process</a></li>
             <li><a href="#pricing" class="mobile-menu-link">Pricing</a></li>
-            <li><a href="#faq" class="mobile-menu-link">FAQ</a></li>
             <li><a href="#contact" class="mobile-menu-link">Contact</a></li>
           </ul>
         </nav>
@@ -1581,7 +2184,7 @@
   </section>
 
   <!-- Hero Section -->
-  <section class="hero-section py-5" id="home" style="background:#f6f8fa;">
+  <section class="hero-section py-5" id="home" style="background: none !important;">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-xl-11">
@@ -1607,7 +2210,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
   </section>
 
   <!-- Features Section -->
-  <section class="section section-bg-lavender" id="features">
+  <section class="section" id="features">
     <div class="container">
       <div class="row align-items-center justify-content-center flex-wrap flex-md-nowrap" style="gap:2rem;">
         <!-- Left: Vertical Card Slider -->
@@ -1702,23 +2305,376 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
         color: #181818;
       }
       @media (max-width: 767px) {
-        .vertical-slider { width: 100%; max-width: 340px; min-height: 320px; }
+        .vertical-slider { 
+          width: 100%; 
+          max-width: 340px; 
+          min-height: 320px; 
+        }
+        .vertical-slider[style*="margin-left:140px"] {
+          margin-left: 0 !important;
+        }
+        .row[style*="gap:2rem"] {
+          gap: 1rem !important;
+        }
+        .col-12.col-md-6 {
+          display: flex !important;
+          justify-content: center !important;
+        }
+        .col-12.col-md-6:first-child {
+          order: 2 !important;
+        }
+        .col-12.col-md-6:last-child {
+          order: 1 !important;
+        }
       }
       @media (max-width: 575px) {
-        .vertical-slider { width: 100%; max-width: 99vw; min-height: 260px; }
-        .vertical-slider .vs-card { font-size: 1.01rem; min-height: 54px; }
+        .vertical-slider { 
+          width: 100%; 
+          max-width: 95vw; 
+          min-height: 280px; 
+          margin: 0 auto !important;
+        }
+        .vertical-slider[style*="margin-left:140px"] {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+        .vertical-slider .vs-card { 
+          font-size: 1.01rem; 
+          min-height: 54px; 
+          padding: 0.6rem 1.2rem;
+        }
+        .row[style*="gap:2rem"] {
+          gap: 0.5rem !important;
+        }
+        .section-title {
+          font-size: 1.9rem !important;
+        }
+        .vs-desc {
+          font-size: 1.1rem !important;
+          line-height: 1.5 !important;
+        }
+        #features {
+          padding: 2rem 0 !important;
+        }
+        #features .container {
+          padding: 0 1rem !important;
+        }
+        .col-12.col-md-6 {
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+        }
+        .col-12.col-md-6:first-child {
+          order: 2 !important;
+        }
+        .col-12.col-md-6:last-child {
+          order: 1 !important;
+          margin-bottom: 1.5rem !important;
+        }
       }
-          /* Force remove border radius from portfolio images and their containers */
-    .portfolio-img-square,
-    .portfolio-img-square img {
-      border-radius: 0 !important;
+    /* MOBILE PORTFOLIO NUCLEAR OPTION - MOBILE ONLY */
+    @media screen and (max-width: 767px) {
+      body.mobile-portfolio-override #portfolio .container {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+      body.mobile-portfolio-override #portfolio .row {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .col-12 {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-outer {
+        min-height: 700px !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        margin-top: -1rem !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+        width: 100vw !important;
+        position: relative !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+      }
+      body.mobile-portfolio-override .portfolio-heading-arrows {
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 1rem 0 !important;
+        width: 120px !important;
+        display: flex !important;
+        position: absolute !important;
+        bottom: -570px !important;
+        left: calc(50vw - 50px) !important;
+        z-index: 10 !important;
+        text-align: center !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-outer {
+        position: relative !important;
+        padding-bottom: 620px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding-top: 0 !important;
+        margin-top: -2rem !important;
+      }
+      body.mobile-portfolio-override .portfolio-heading-arrows {
+        justify-content: center !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        position: relative !important;
+        z-index: 10 !important;
+        order: 10 !important;
+      }
+      body.mobile-portfolio-override .portfolio-heading-row {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        align-items: center !important;
+        width: 100% !important;
+      }
+      body.mobile-portfolio-override .portfolio-heading-left {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: center !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+      body.mobile-portfolio-override .portfolio-main-heading {
+        margin-bottom: 0 !important;
+        text-align: center !important;
+        width: 100% !important;
+        display: block !important;
+      }
+      body.mobile-portfolio-override .portfolio-heading-underline {
+        display: none !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-heading-row {
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-heading-left {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: center !important;
+        width: 100% !important;
+        display: block !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-card {
+        display: none !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-card.active-mobile-card {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        width: 80vw !important;
+        min-width: 80vw !important;
+        max-width: 80vw !important;
+        height: 600px !important;
+        min-height: 600px !important;
+        flex: none !important;
+        position: absolute !important;
+        left: 8vw !important;
+        right: 12vw !important;
+        top: -50px !important;
+        margin: 0 auto !important;
+        transform: none !important;
+        padding: 0 1rem 1.5rem 1rem !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        order: 1 !important;
+        background: #FD976D !important;
+        border: 2.5px solid #FD976D !important;
+        box-shadow: 0 8px 32px #eebbc344 !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-row {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+        width: 100vw !important;
+        transform: none !important;
+        min-height: 700px !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-img-square {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+        margin: 0 auto 0.5rem auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 400px !important;
+        border-radius: 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-img-square img {
+        border-radius: 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-desc {
+        text-align: center !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        margin-top: 0 !important;
+      }
+    }
+    
+    /* MOBILE CENTERING FOR SMALLER PHONES */
+    @media screen and (max-width: 575px) {
+      body.mobile-portfolio-override #portfolio .container {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .row {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .col-12 {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-outer {
+        min-height: 700px !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        margin-top: -1rem !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+        width: 100vw !important;
+        position: relative !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-card.active-mobile-card {
+        width: 85vw !important;
+        min-width: 85vw !important;
+        max-width: 85vw !important;
+        height: 550px !important;
+        min-height: 550px !important;
+        padding: 0.4rem 0.8rem 1.2rem 0.8rem !important;
+        position: absolute !important;
+        left: 6vw !important;
+        right: 9vw !important;
+        margin: 0 auto !important;
+        transform: none !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-row {
+        min-height: 650px !important;
+        overflow: visible !important;
+        padding: 2rem 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-img-square {
+        height: 350px !important;
+        max-width: 100% !important;
+        margin: 0 auto 0.8rem auto !important;
+        border-radius: 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-img-square img {
+        border-radius: 0 !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-desc {
+        max-width: 100% !important;
+        margin: 0.4rem auto 0 auto !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-desc h6 {
+        font-size: 1.2rem !important;
+        margin-bottom: 0.8rem !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-desc p {
+        font-size: 1.1rem !important;
+        line-height: 1.4 !important;
+      }
+      /* Services section mobile margin */
+      #faq.section {
+        margin-top: -5rem !important;
+      }
+    }
+    
+    /* ENSURE DESKTOP REMAINS UNCHANGED */
+    @media screen and (min-width: 768px) {
+      body.mobile-portfolio-override #portfolio .portfolio-slider-card {
+        display: block !important;
+        flex: 0 0 25% !important;
+        min-width: 320px !important;
+        max-width: 420px !important;
+        width: auto !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-card.active-mobile-card {
+        display: block !important;
+        flex: 0 0 25% !important;
+        min-width: 320px !important;
+        max-width: 420px !important;
+        width: auto !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-row {
+        display: flex !important;
+        width: auto !important;
+      }
     }
     </style>
 
   </section>
 
   <!-- Portfolio Section -->
-  <section class="section section-bg-lavender" id="portfolio" style="padding-bottom:0 !important; margin-bottom:0 !important;">
+  <section class="section" id="portfolio" style="padding-bottom:0 !important; margin-bottom:0 !important;">
   <div class="container" style="padding-bottom:0!important;margin-bottom:0!important;background:none!important;box-shadow:none!important;border:none!important;">
   <div class="d-flex align-items-center justify-content-between flex-wrap flex-md-nowrap portfolio-heading-row" style="gap:0.2rem;margin-bottom:0!important;">
     <div class="portfolio-heading-left" style="min-width:0;margin-left:4vw;">
@@ -1805,8 +2761,79 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
     </div>
   </section>
    
+ <!-- Services Section -->
+  <section class="section" id="faq" style="margin-top:-150px;padding-top:0;padding-bottom:114px;">
+    <div class="container">
+      <div class="row align-items-center justify-content-center g-5 flex-wrap">
+        <!-- Left: Image -->
+        <div class="col-md-6 d-none d-md-flex justify-content-center mb-4 mb-md-0">
+          <img src="lookbook-hero.jpg" alt="FAQ Visual" class="img-fluid rounded-4 shadow" style="max-width:420px;width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;border-radius:1.2rem;box-shadow:0 8px 32px #e6b80022;">
+        </div>
+        <!-- Right: Heading, FAQ, Button -->
+        <div class="col-12 col-md-6 d-flex flex-column align-items-start justify-content-center">
+          <h2 class="section-title mb-4" style="color:#232946;font-size:2.3rem;">Learn about our services</h2>
+          <!-- Mobile-only image after heading -->
+          <div class="d-md-none mb-4 align-self-center">
+            <img src="lookbook-hero.jpg" alt="Services Visual" class="img-fluid rounded-4 shadow" style="max-width:300px;width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;border-radius:1.2rem;box-shadow:0 8px 32px #e6b80022;">
+          </div>
+          <div class="accordion faq w-100 mb-4" id="faqAccordion">
+            <div class="accordion-item fade-in">
+              <h2 class="accordion-header" id="faq1">
+                <button class="accordion-button collapsed faq-q" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1">
+                  Basic
+                  <span class="faq-toggle-icon ms-auto">
+                    <span class="plus"><i class="bi bi-plus-lg"></i></span>
+                    <span class="minus"><i class="bi bi-dash-lg"></i></span>
+                  </span>
+                </button>
+              </h2>
+              <div id="faqCollapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body faq-a">
+                  What should we know about the services you provide? Better descriptions result in more sales.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item fade-in">
+              <h2 class="accordion-header" id="faq2">
+                <button class="accordion-button collapsed faq-q" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
+                  Intermediate
+                  <span class="faq-toggle-icon ms-auto">
+                    <span class="plus"><i class="bi bi-plus-lg"></i></span>
+                    <span class="minus"><i class="bi bi-dash-lg"></i></span>
+                  </span>
+                </button>
+              </h2>
+              <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body faq-a">
+                  What should we know about the services you provide? Better descriptions result in more sales.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item fade-in">
+              <h2 class="accordion-header" id="faq3">
+                <button class="accordion-button collapsed faq-q" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
+                  Advanced
+                  <span class="faq-toggle-icon ms-auto">
+                    <span class="plus"><i class="bi bi-plus-lg"></i></span>
+                    <span class="minus"><i class="bi bi-dash-lg"></i></span>
+                  </span>
+                </button>
+              </h2>
+              <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body faq-a">
+                  What should we know about the services you provide? Better descriptions result in more sales.
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary rounded-pill px-5 mt-1" style="font-size:1.18rem;">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Testimonials Section (Slider) -->
-  <section class="section section-bg-peach" id="testimonials" style="margin-top:-80px;">
+  <section class="section" id="testimonials" style="margin-top:-114px;">
     <div class="container position-relative">
       <h2 class="section-title text-center mb-5" style="color:#232946;">What Our Clients Say</h2>
       <div class="testimonial-carousel-wrapper d-flex align-items-center justify-content-center">
@@ -1971,23 +2998,27 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
       })();
     </script>
   <script>
-    // Highlight nav-link on click and on scroll (section in view)
+    // Improved nav-link active state handling
     document.addEventListener('DOMContentLoaded', function() {
       const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
       const sections = Array.from(navLinks).map(link => {
         const id = link.getAttribute('href');
         return document.querySelector(id);
       });
-      // On click: set active
+
+      // On click: set active and scroll to section
       navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+          // Remove active from all
           navLinks.forEach(l => l.classList.remove('active'));
+          // Add to clicked
           this.classList.add('active');
         });
       });
+
       // On scroll: set active based on section in view
       function onScroll() {
-        let scrollPos = window.scrollY + 80; // Offset for fixed navbar
+        let scrollPos = window.scrollY + 100; // Offset for fixed navbar
         let found = false;
         for (let i = sections.length - 1; i >= 0; i--) {
           const section = sections[i];
@@ -2004,7 +3035,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
           navLinks[0].classList.add('active');
         }
       }
-      window.addEventListener('scroll', onScroll);
+      window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
     });
   </script>
@@ -2012,7 +3043,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
     
 
   <!-- Process Section -->
-  <section class="section" id="process" style="background:#ebe8e4;">
+  <section class="section" id="process">
     <div class="container">
       <h2 class="section-title text-center mb-5" style="color:#232946;">How Do We Create It?</h2>
       <div class="process-flow" id="processFlow">
@@ -2036,7 +3067,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
   </section>
 
   <!-- Pricing Section -->
-  <section class="section" id="pricing" style="background:#ffba00;">
+  <section class="section" id="pricing">
     <div class="container">
   <h2 class="section-title text-center mb-5" style="color:#1d1c1c;">Plans & Pricing</h2>
       <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
@@ -2052,7 +3083,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
                 <li class="text-muted">Gift Packaging</li>
               </ul>
               <div class="h4 mb-3" style="color:#ab47bc;">₹4,999</div>
-              <a href="#contact" class="btn btn-primary rounded-pill px-4">Select</a>
+              <a href="#contact" class="btn btn-primary rounded-pill px-4">Explore</a>
             </div>
           </div>
         </div>
@@ -2068,7 +3099,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
                 <li>Gift Packaging <i class="bi bi-check-lg text-success"></i></li>
               </ul>
               <div class="h4 mb-3" style="color:#3a5a40;">₹7,999</div>
-              <a href="#contact" class="btn btn-success rounded-pill px-4">Select</a>
+              <a href="#contact" class="btn btn-success rounded-pill px-4">Explore</a>
             </div>
           </div>
         </div>
@@ -2084,7 +3115,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
                 <li>Gift Packaging <i class="bi bi-check-lg text-success"></i></li>
               </ul>
               <div class="h4 mb-3" style="color:#4f5d75;">₹11,999</div>
-              <a href="#contact" class="btn btn-outline-primary rounded-pill px-4">Select</a>
+              <a href="#contact" class="btn btn-outline-primary rounded-pill px-4">Explore</a>
             </div>
           </div>
         </div>
@@ -2101,66 +3132,10 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
     </div>
   </section>
     
-  <!-- FAQ Section -->
-  <section class="section section-bg-yellow" id="faq">
-    <div class="container">
-      <h2 class="section-title text-center mb-5" style="color: #232946;">FAQ</h2>
-      <div class="accordion faq" id="faqAccordion">
-        <div class="accordion-item fade-in">
-          <h2 class="accordion-header" id="faq1">
-            <button class="accordion-button collapsed faq-q" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1">
-              How long does it take to create a book?
-              <span class="faq-toggle-icon ms-auto">
-                <span class="plus"><i class="bi bi-plus-lg"></i></span>
-                <span class="minus"><i class="bi bi-dash-lg"></i></span>
-              </span>
-            </button>
-          </h2>
-          <div id="faqCollapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body faq-a">
-              Typically, 2-4 weeks depending on complexity and feedback cycles.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item fade-in">
-          <h2 class="accordion-header" id="faq2">
-            <button class="accordion-button collapsed faq-q" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
-              Can I include my own photos and stories?
-              <span class="faq-toggle-icon ms-auto">
-                <span class="plus"><i class="bi bi-plus-lg"></i></span>
-                <span class="minus"><i class="bi bi-dash-lg"></i></span>
-              </span>
-            </button>
-          </h2>
-          <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body faq-a">
-              Absolutely! We encourage you to share your favorite memories and images.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item fade-in">
-          <h2 class="accordion-header" id="faq3">
-            <button class="accordion-button collapsed faq-q" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
-              Do you ship internationally?
-              <span class="faq-toggle-icon ms-auto">
-                <span class="plus"><i class="bi bi-plus-lg"></i></span>
-                <span class="minus"><i class="bi bi-dash-lg"></i></span>
-              </span>
-            </button>
-          </h2>
-          <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body faq-a">
-              Yes, we offer international shipping for an additional fee.
-            </div>
-          </div>
-        </div>
-   
-      </div>
-    </div>
-  </section>
+ 
 
   <!-- Contact Us Form -->
-  <section class="section section-bg-peach" id="contact" style="background:linear-gradient(135deg,#faf7f4 60%,#f6f1ea 100%);">
+  <section class="section" id="contact">
     <div class="container">
       <h2 class="section-title text-center mb-5" style="color: #232946;">Contact Us</h2>
       <div class="row justify-content-center align-items-stretch g-4">
@@ -2245,7 +3220,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
   </section>
 
   <!-- Newsletter Signup -->
-  <section class="newsletter-signup-section" style="background:linear-gradient(135deg,#faf7f4 60%,#f6f1ea 100%);padding:60px 0 40px 0;">
+  <section class="newsletter-signup-section" style="padding:60px 0 40px 0;">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-lg-11">
@@ -2283,6 +3258,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
       </div>
     </div>
   </section>
+
   <!-- Footer -->
   <footer class="footer-modern mt-0 pt-4 pb-3" style="background:#e9e6f7 !important;">
     <div class="container">
@@ -2312,7 +3288,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
             <a href="#faq" class="footer-link mx-2">FAQ</a>
             <a href="#contact" class="footer-link mx-2">Contact</a>
           </div>
-          <div class="footer-copyright" style="color:#b8c1ec;font-size:0.95rem;">
+          <div class="footer-copyright" style="color:#000000;font-size:0.95rem;">
             &copy; 2025 Cherished Capter. All rights reserved.
           </div>
         </div>
@@ -2322,6 +3298,96 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
    
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Mobile Portfolio Override - Mobile Only, Desktop Unchanged
+    document.addEventListener('DOMContentLoaded', function() {
+      let mobilePortfolioCurrent = 0;
+      let mobileEventListeners = [];
+      let isMobileMode = false;
+      
+      function setupMobilePortfolio() {
+        const cards = document.querySelectorAll('#portfolio .portfolio-slider-card');
+        const prevBtn = document.querySelector('.portfolio-heading-arrows button[data-bs-slide="prev"]');
+        const nextBtn = document.querySelector('.portfolio-heading-arrows button[data-bs-slide="next"]');
+        
+        if (window.innerWidth < 768 && !isMobileMode) {
+          // SWITCHING TO MOBILE MODE
+          isMobileMode = true;
+          document.body.classList.add('mobile-portfolio-override');
+          
+          if (cards.length === 0) return;
+          
+          // Show only the current card
+          function showMobileCard(index) {
+            cards.forEach((card, i) => {
+              card.classList.remove('active-mobile-card');
+              if (i === index) {
+                card.classList.add('active-mobile-card');
+              }
+            });
+          }
+          
+          // Navigation functions
+          function goMobilePrev(e) {
+            if (window.innerWidth >= 768) return; // Safety check
+            e.preventDefault();
+            e.stopPropagation();
+            mobilePortfolioCurrent = (mobilePortfolioCurrent - 1 + cards.length) % cards.length;
+            showMobileCard(mobilePortfolioCurrent);
+            console.log('Mobile Prev: Showing card', mobilePortfolioCurrent);
+          }
+          
+          function goMobileNext(e) {
+            if (window.innerWidth >= 768) return; // Safety check
+            e.preventDefault();
+            e.stopPropagation();
+            mobilePortfolioCurrent = (mobilePortfolioCurrent + 1) % cards.length;
+            showMobileCard(mobilePortfolioCurrent);
+            console.log('Mobile Next: Showing card', mobilePortfolioCurrent);
+          }
+          
+          // Store handlers for cleanup
+          mobileEventListeners.push({element: prevBtn, type: 'click', handler: goMobilePrev});
+          mobileEventListeners.push({element: nextBtn, type: 'click', handler: goMobileNext});
+          
+          // Bind mobile events with high priority
+          if (prevBtn) prevBtn.addEventListener('click', goMobilePrev, true);
+          if (nextBtn) nextBtn.addEventListener('click', goMobileNext, true);
+          
+          // Initialize - show first card
+          showMobileCard(0);
+          
+        } else if (window.innerWidth >= 768 && isMobileMode) {
+          // SWITCHING TO DESKTOP MODE
+          isMobileMode = false;
+          document.body.classList.remove('mobile-portfolio-override');
+          
+          // Clean up mobile listeners
+          mobileEventListeners.forEach(listener => {
+            if (listener.element) {
+              listener.element.removeEventListener(listener.type, listener.handler, true);
+            }
+          });
+          mobileEventListeners = [];
+          
+          // Remove mobile classes from all cards
+          cards.forEach(card => {
+            card.classList.remove('active-mobile-card');
+          });
+          
+          console.log('Switched to desktop mode - original portfolio JS should work');
+        }
+      }
+      
+      // Setup on load and resize
+      setupMobilePortfolio();
+      window.addEventListener('resize', function() {
+        setTimeout(setupMobilePortfolio, 100); // Small delay to ensure resize is complete
+      });
+    });
+  </script>
+  
   <script>
     // 3D Hamburger and Mobile Menu Toggle
     const hamburgerBtn = document.getElementById('hamburger3dBtn');
@@ -2372,36 +3438,44 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
       function updateCardWidth() {
         if (window.innerWidth < 768) {
           visible = 1;
+          cardWidth = window.innerWidth; // Full width for mobile
         } else {
           visible = 3;
+          cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(sliderRow).gap || 22);
         }
-        cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(sliderRow).gap || 22);
       }
 
 
       // For true infinite loop, always allow next/prev and wrap using modulus
       function updateSlider() {
-        // Use translateX to shift the row
-        const percent = -(100 / visible) * current;
-        sliderRow.style.transition = 'transform 0.5s cubic-bezier(.39,.575,.565,1.000)';
-        sliderRow.style.transform = `translateX(${percent}%)`;
+        if (window.innerWidth < 768) {
+          // For mobile, use transform instead of scroll since we have 100vw cards
+          const percent = -current * 100;
+          sliderRow.style.transition = 'transform 0.5s cubic-bezier(.39,.575,.565,1.000)';
+          sliderRow.style.transform = `translateX(${percent}%)`;
+        } else {
+          // Use translateX to shift the row for desktop
+          const percent = -(100 / visible) * current;
+          sliderRow.style.transition = 'transform 0.5s cubic-bezier(.39,.575,.565,1.000)';
+          sliderRow.style.transform = `translateX(${percent}%)`;
+        }
       }
 
       function goPrev(e) {
         if (e) e.preventDefault();
         updateCardWidth();
-        current = (current - 1 + cards.length) % cards.length;
-        // Clamp so we never show empty space
-        if (current > cards.length - visible) current = cards.length - visible;
+        current = current - 1;
+        if (current < 0) current = cards.length - 1;
         updateSlider();
+        console.log('Prev clicked, current:', current);
       }
       function goNext(e) {
         if (e) e.preventDefault();
         updateCardWidth();
-        current = (current + 1) % cards.length;
-        // Clamp so we never show empty space
-        if (current > cards.length - visible) current = 0;
+        current = current + 1;
+        if (current >= cards.length) current = 0;
         updateSlider();
+        console.log('Next clicked, current:', current);
       }
 
       prevBtn.addEventListener('click', goPrev);
