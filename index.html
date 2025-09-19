@@ -2341,12 +2341,16 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
     <div class="container">
       <div class="row align-items-center justify-content-center g-5 flex-wrap">
         <!-- Left: Image -->
-        <div class="col-12 col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+        <div class="col-md-6 d-none d-md-flex justify-content-center mb-4 mb-md-0">
           <img src="lookbook-hero.jpg" alt="FAQ Visual" class="img-fluid rounded-4 shadow" style="max-width:420px;width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;border-radius:1.2rem;box-shadow:0 8px 32px #e6b80022;">
         </div>
         <!-- Right: Heading, FAQ, Button -->
         <div class="col-12 col-md-6 d-flex flex-column align-items-start justify-content-center">
           <h2 class="section-title mb-4" style="color:#232946;font-size:2.3rem;">Learn about our services</h2>
+          <!-- Mobile-only image after heading -->
+          <div class="d-md-none mb-4 align-self-center">
+            <img src="lookbook-hero.jpg" alt="Services Visual" class="img-fluid rounded-4 shadow" style="max-width:300px;width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;border-radius:1.2rem;box-shadow:0 8px 32px #e6b80022;">
+          </div>
           <div class="accordion faq w-100 mb-4" id="faqAccordion">
             <div class="accordion-item fade-in">
               <h2 class="accordion-header" id="faq1">
@@ -2397,7 +2401,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
               </div>
             </div>
           </div>
-          <a href="#contact" class="btn btn-primary rounded-pill px-5 mt-2" style="font-size:1.18rem;">Shop Now</a>
+          <a href="#contact" class="btn btn-primary rounded-pill px-5 mt-1" style="font-size:1.18rem;">Shop Now</a>
         </div>
       </div>
     </div>
