@@ -546,6 +546,230 @@
         height: auto !important;
         min-height: auto !important;
       }
+      /* Contact form mobile responsive */
+      #contact .row.justify-content-center {
+        flex-direction: column !important;
+      }
+      #contact .col-md-5, #contact .col-md-7 {
+        max-width: 100% !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .contact-info-card {
+        margin-bottom: 1rem !important;
+        padding: 1.5rem !important;
+      }
+      .contact-info-card h5 {
+        font-size: 1.2rem !important;
+      }
+      .contact-info-card p {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.8rem !important;
+      }
+      .rounded-form {
+        padding: 1.5rem 1rem !important;
+      }
+      /* Form row and column adjustments for mobile */
+      .rounded-form .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+      }
+      .rounded-form .col-12, .rounded-form .col-md-6 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-bottom: 0 !important;
+      }
+      .rounded-form .gx-2 {
+        --bs-gutter-x: 0 !important;
+      }
+      .rounded-form .gy-2 {
+        --bs-gutter-y: 0 !important;
+      }
+      /* Proper form field alignment and spacing */
+      .contact-form-compact {
+        margin-bottom: 0.5rem !important;
+        width: 100% !important;
+      }
+      .form-floating {
+        width: 100% !important;
+        margin-bottom: 0.5rem !important;
+      }
+      .mb-3 {
+        margin-bottom: 0.5rem !important;
+      }
+      /* Remove any extra spacing from Bootstrap rows */
+      .rounded-form .row {
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+      }
+      .rounded-form .row + .row {
+        margin-top: 0 !important;
+      }
+      /* Ensure consistent spacing for all form elements */
+      .rounded-form .form-floating,
+      .rounded-form .mb-3,
+      .rounded-form .contact-form-compact {
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+      }
+      /* Specific fix for location field - REMOVE ALL EXTRA SPACING */
+      #location {
+        margin: 0 !important;
+        padding: 0.8rem 0.75rem !important;
+      }
+      input[id="location"] {
+        margin: 0 !important;
+      }
+      /* Target location field container with maximum specificity */
+      .rounded-form .row .col-12:has(input[id="location"]),
+      .rounded-form .row .col-md-6:has(input[id="location"]),
+      .rounded-form .form-floating:has(input[id="location"]),
+      .rounded-form .mb-3:has(input[id="location"]),
+      .rounded-form .contact-form-compact:has(input[id="location"]) {
+        margin: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      /* Force location field to match other fields exactly */
+      .rounded-form div:has(#location) {
+        margin-bottom: 0.5rem !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      /* Target the container of location field specifically */
+      .form-floating:has(input[id="location"]),
+      .mb-3:has(input[id="location"]),
+      .contact-form-compact:has(input[id="location"]) {
+        margin-bottom: 0.5rem !important;
+        margin-top: 0 !important;
+      }
+      /* Force consistent spacing on all form field containers */
+      .rounded-form div[class*="form-floating"],
+      .rounded-form div[class*="mb-3"],
+      .rounded-form div[class*="contact-form-compact"] {
+        margin-bottom: 0.5rem !important;
+        margin-top: 0 !important;
+      }
+      /* Target textarea specifically */
+      .rounded-form textarea.form-control {
+        margin-bottom: 0.5rem !important;
+      }
+      /* Ensure all form fields are properly aligned */
+      .rounded-form .form-control {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      /* Form field order for mobile - Name first, Email second */
+      .rounded-form .row:first-of-type .col-12:nth-child(1),
+      .rounded-form .row:first-of-type .col-md-6:nth-child(1) {
+        order: 1 !important;
+      }
+      .rounded-form .row:first-of-type .col-12:nth-child(2),
+      .rounded-form .row:first-of-type .col-md-6:nth-child(2) {
+        order: 2 !important;
+      }
+      .contact-form-compact .form-control {
+        font-size: 1rem !important;
+        padding: 0.8rem 0.75rem !important;
+        width: 100% !important;
+      }
+      .contact-form-compact.form-floating > label {
+        font-size: 0.9rem !important;
+        padding-left: 0.75rem !important;
+      }
+      .form-floating {
+        width: 100% !important;
+      }
+      #contact .btn.contact-btn {
+        padding: 0.8rem 1.5rem !important;
+        font-size: 1rem !important;
+        margin-top: 1rem !important;
+      }
+      /* Ensure proper form field order on mobile - Name first, Email second */
+      .rounded-form .row:first-of-type .col-12:nth-child(1),
+      .rounded-form .row:first-of-type .col-md-6:nth-child(1) {
+        order: 1 !important;
+      }
+      .rounded-form .row:first-of-type .col-12:nth-child(2),
+      .rounded-form .row:first-of-type .col-md-6:nth-child(2) {
+        order: 2 !important;
+      }
+      /* FORCE equal spacing - nuclear approach for all form fields */
+      .rounded-form > div,
+      .rounded-form .row > div,
+      .rounded-form .col-12,
+      .rounded-form .col-md-6,
+      .rounded-form .mb-3,
+      .rounded-form .form-floating,
+      .rounded-form .contact-form-compact {
+        margin-bottom: 0.2rem !important;
+        margin-top: 0 !important;
+      }
+      /* Override ALL Bootstrap margin classes */
+      .rounded-form [class*="mb-"] {
+        margin-bottom: 0.2rem !important;
+      }
+      /* Extra tight spacing for all form containers */
+      .rounded-form * {
+        margin-bottom: 0.2rem !important;
+        margin-top: 0 !important;
+      }
+      /* Exception for the button */
+      .rounded-form .btn {
+        margin-bottom: 0 !important;
+        margin-top: 0.8rem !important;
+      }
+      /* Subtle negative margin to tighten spacing just a little */
+      .rounded-form .form-floating,
+      .rounded-form .mb-3,
+      .rounded-form .contact-form-compact {
+        margin-top: -0.2rem !important;
+        margin-bottom: 0.1rem !important;
+      }
+      /* Specific fix for gap between email and location boxes */
+      .rounded-form .row:nth-child(2) {
+        margin-top: -0.4rem !important;
+      }
+      /* Target location field container specifically */
+      .rounded-form .row:nth-child(2) .form-floating,
+      .rounded-form .row:nth-child(2) .mb-3,
+      .rounded-form .row:nth-child(2) .contact-form-compact {
+        margin-top: -0.3rem !important;
+      }
+      /* Specific fix for gap between email and mobile no box */
+      .rounded-form .row:nth-child(2) .col-12:has(#mobile),
+      .rounded-form .row:nth-child(2) .col-md-6:has(#mobile),
+      .rounded-form .form-floating:has(#mobile),
+      .rounded-form .mb-3:has(#mobile),
+      .rounded-form .contact-form-compact:has(#mobile) {
+        margin-top: -0.5rem !important;
+      }
+      /* Also target mobile field input directly */
+      #mobile {
+        margin-top: 0 !important;
+      }
+      /* Force specific field order on mobile: Name, Email, Mobile, Location, Query */
+      .rounded-form .row:first-of-type .col-12:has(#name),
+      .rounded-form .row:first-of-type .col-md-6:has(#name) {
+        order: 1 !important;
+      }
+      .rounded-form .row:first-of-type .col-12:has(#email),
+      .rounded-form .row:first-of-type .col-md-6:has(#email) {
+        order: 2 !important;
+      }
+      .rounded-form .row:nth-child(2) .col-12:has(#mobile),
+      .rounded-form .row:nth-child(2) .col-md-6:has(#mobile) {
+        order: 3 !important;
+      }
+      .rounded-form .row:nth-child(2) .col-12:has(#location),
+      .rounded-form .row:nth-child(2) .col-md-6:has(#location) {
+        order: 4 !important;
+      }
+      /* Query field should be last */
+      .rounded-form .form-floating:has(#query) {
+        order: 5 !important;
+      }
     }
     /* Portfolio card subheading clean modern style */
       .portfolio-slider-card {
@@ -2691,7 +2915,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
                 <li class="text-muted">Gift Packaging</li>
               </ul>
               <div class="h4 mb-3" style="color:#ab47bc;">₹4,999</div>
-              <a href="#contact" class="btn btn-primary rounded-pill px-4">Select</a>
+              <a href="#contact" class="btn btn-primary rounded-pill px-4">Explore</a>
             </div>
           </div>
         </div>
@@ -2707,7 +2931,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
                 <li>Gift Packaging <i class="bi bi-check-lg text-success"></i></li>
               </ul>
               <div class="h4 mb-3" style="color:#3a5a40;">₹7,999</div>
-              <a href="#contact" class="btn btn-success rounded-pill px-4">Select</a>
+              <a href="#contact" class="btn btn-success rounded-pill px-4">Explore</a>
             </div>
           </div>
         </div>
@@ -2723,7 +2947,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
                 <li>Gift Packaging <i class="bi bi-check-lg text-success"></i></li>
               </ul>
               <div class="h4 mb-3" style="color:#4f5d75;">₹11,999</div>
-              <a href="#contact" class="btn btn-outline-primary rounded-pill px-4">Select</a>
+              <a href="#contact" class="btn btn-outline-primary rounded-pill px-4">Explore</a>
             </div>
           </div>
         </div>
