@@ -606,26 +606,174 @@
   background: none;
   border: none;
     }
-    @media (max-width: 1200px) {
+    @media (max-width: 1200px) and (min-width: 768px) {
       .portfolio-slider-card { flex-basis: 33%; min-width: 200px; }
     }
-    @media (max-width: 991px) {
+    @media (max-width: 991px) and (min-width: 768px) {
       .portfolio-slider-card { flex-basis: 60%; min-width: 150px; }
     }
     @media (max-width: 767px) {
-      .portfolio-slider-card { flex-basis: 90%; min-width: 120px; max-width: 98vw; }
-      .portfolio-slider-row { gap: 0.7rem; padding-left: 0.5rem; padding-right: 0.5rem; }
-      .portfolio-img-square { max-width: 98vw; }
-  .portfolio-desc h6 { font-size: 1.28rem; }
-  .portfolio-desc p { font-size: 1.18rem; }
+      #portfolio .portfolio-slider-outer {
+        min-height: 500px !important;
+        height: 500px !important;
+        padding-top: 16px !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        overflow: hidden !important;
+      }
+      #portfolio .portfolio-slider-row { 
+        gap: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        scroll-snap-type: x mandatory !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: hidden !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        flex-wrap: nowrap !important;
+      }
+      #portfolio .portfolio-slider-card { 
+        flex: 0 0 100vw !important;
+        flex-basis: 100vw !important; 
+        min-width: 100vw !important; 
+        max-width: 100vw !important;
+        width: 100vw !important;
+        scroll-snap-align: start !important;
+        padding: 0 1rem !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        flex-shrink: 0 !important;
+        flex-grow: 0 !important;
+      }
+      #portfolio .portfolio-img-square { 
+        max-width: 100% !important;
+        height: 300px !important;
+        margin-bottom: 1rem !important;
+      }
+      #portfolio .portfolio-img-square img {
+        height: 100% !important;
+        object-fit: cover !important;
+      }
+      #portfolio .portfolio-desc h6 { 
+        font-size: 1.4rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+      #portfolio .portfolio-desc p { 
+        font-size: 1.2rem !important;
+        line-height: 1.4 !important;
+      }
+      .portfolio-heading-arrows {
+        margin-right: 2vw !important;
+      }
+      .portfolio-carousel-btn {
+        width: 50px !important;
+        height: 50px !important;
+      }
+      .portfolio-carousel-btn i {
+        font-size: 1.5rem !important;
+      }
     }
     @media (max-width: 575px) {
-      .portfolio-slider-card { flex-basis: 100%; min-width: 90px; max-width: 99vw; }
-      .portfolio-slider-row { gap: 0.4rem; padding-left: 0.2rem; padding-right: 0.2rem; }
-      .portfolio-img-square { max-width: 99vw; }
-  .portfolio-desc h6 { font-size: 1.08rem; }
-  .portfolio-desc p { font-size: 1.01rem; }
+      #portfolio .portfolio-slider-outer {
+        min-height: 450px !important;
+        height: 450px !important;
+        padding-top: 12px !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        overflow: hidden !important;
+      }
+      #portfolio .portfolio-slider-row { 
+        gap: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        scroll-snap-type: x mandatory !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: hidden !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        flex-wrap: nowrap !important;
+      }
+      #portfolio .portfolio-slider-card { 
+        flex: 0 0 100vw !important;
+        flex-basis: 100vw !important; 
+        min-width: 100vw !important; 
+        max-width: 100vw !important;
+        width: 100vw !important;
+        scroll-snap-align: start !important;
+        padding: 0 0.8rem !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        flex-shrink: 0 !important;
+        flex-grow: 0 !important;
+      }
+      #portfolio .portfolio-img-square { 
+        max-width: 100% !important;
+        height: 250px !important;
+        margin-bottom: 0.8rem !important;
+      }
+      #portfolio .portfolio-img-square img {
+        height: 100% !important;
+        object-fit: cover !important;
+      }
+      #portfolio .portfolio-desc h6 { 
+        font-size: 1.2rem !important;
+        margin-bottom: 0.4rem !important;
+      }
+      #portfolio .portfolio-desc p { 
+        font-size: 1.1rem !important;
+        line-height: 1.3 !important;
+      }
+      .portfolio-heading-arrows {
+        margin-right: 1vw !important;
+      }
+      .portfolio-carousel-btn {
+        width: 45px !important;
+        height: 45px !important;
+      }
+      .portfolio-carousel-btn i {
+        font-size: 1.3rem !important;
+      }
+      .portfolio-main-heading {
+        font-size: 2.4rem !important;
+      }
+      .portfolio-main-heading-serif {
+        font-size: 3rem !important;
+      }
     }
+    
+    /* Final Mobile Portfolio Override - Highest Priority */
+    @media (max-width: 767px) {
+      body #portfolio .portfolio-slider-card {
+        flex: 0 0 100vw !important;
+        flex-basis: 100vw !important;
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+      }
+      body #portfolio .portfolio-slider-row {
+        width: 100vw !important;
+        overflow: hidden !important;
+      }
+      body #portfolio .portfolio-slider-outer {
+        width: 100vw !important;
+        overflow: hidden !important;
+      }
+    }
+    
+    @media (max-width: 575px) {
+      body #portfolio .portfolio-slider-card {
+        flex: 0 0 100vw !important;
+        flex-basis: 100vw !important;
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+      }
+    }
+    
     :root {
       --dark-navy: #232946;
       --dark-purple: #3d314a;
@@ -1780,10 +1928,48 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
           margin-bottom: 1.5rem !important;
         }
       }
-          /* Force remove border radius from portfolio images and their containers */
-    .portfolio-img-square,
-    .portfolio-img-square img {
-      border-radius: 0 !important;
+    /* MOBILE PORTFOLIO NUCLEAR OPTION - MOBILE ONLY */
+    @media screen and (max-width: 767px) {
+      body.mobile-portfolio-override #portfolio .portfolio-slider-card {
+        display: none !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-card.active-mobile-card {
+        display: block !important;
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        flex: none !important;
+        position: relative !important;
+        padding: 0 1rem !important;
+        box-sizing: border-box !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-row {
+        display: block !important;
+        width: 100vw !important;
+        transform: none !important;
+      }
+    }
+    
+    /* ENSURE DESKTOP REMAINS UNCHANGED */
+    @media screen and (min-width: 768px) {
+      body.mobile-portfolio-override #portfolio .portfolio-slider-card {
+        display: block !important;
+        flex: 0 0 25% !important;
+        min-width: 320px !important;
+        max-width: 420px !important;
+        width: auto !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-card.active-mobile-card {
+        display: block !important;
+        flex: 0 0 25% !important;
+        min-width: 320px !important;
+        max-width: 420px !important;
+        width: auto !important;
+      }
+      body.mobile-portfolio-override #portfolio .portfolio-slider-row {
+        display: flex !important;
+        width: auto !important;
+      }
     }
     </style>
 
@@ -2409,6 +2595,96 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
    
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Mobile Portfolio Override - Mobile Only, Desktop Unchanged
+    document.addEventListener('DOMContentLoaded', function() {
+      let mobilePortfolioCurrent = 0;
+      let mobileEventListeners = [];
+      let isMobileMode = false;
+      
+      function setupMobilePortfolio() {
+        const cards = document.querySelectorAll('#portfolio .portfolio-slider-card');
+        const prevBtn = document.querySelector('.portfolio-heading-arrows button[data-bs-slide="prev"]');
+        const nextBtn = document.querySelector('.portfolio-heading-arrows button[data-bs-slide="next"]');
+        
+        if (window.innerWidth < 768 && !isMobileMode) {
+          // SWITCHING TO MOBILE MODE
+          isMobileMode = true;
+          document.body.classList.add('mobile-portfolio-override');
+          
+          if (cards.length === 0) return;
+          
+          // Show only the current card
+          function showMobileCard(index) {
+            cards.forEach((card, i) => {
+              card.classList.remove('active-mobile-card');
+              if (i === index) {
+                card.classList.add('active-mobile-card');
+              }
+            });
+          }
+          
+          // Navigation functions
+          function goMobilePrev(e) {
+            if (window.innerWidth >= 768) return; // Safety check
+            e.preventDefault();
+            e.stopPropagation();
+            mobilePortfolioCurrent = (mobilePortfolioCurrent - 1 + cards.length) % cards.length;
+            showMobileCard(mobilePortfolioCurrent);
+            console.log('Mobile Prev: Showing card', mobilePortfolioCurrent);
+          }
+          
+          function goMobileNext(e) {
+            if (window.innerWidth >= 768) return; // Safety check
+            e.preventDefault();
+            e.stopPropagation();
+            mobilePortfolioCurrent = (mobilePortfolioCurrent + 1) % cards.length;
+            showMobileCard(mobilePortfolioCurrent);
+            console.log('Mobile Next: Showing card', mobilePortfolioCurrent);
+          }
+          
+          // Store handlers for cleanup
+          mobileEventListeners.push({element: prevBtn, type: 'click', handler: goMobilePrev});
+          mobileEventListeners.push({element: nextBtn, type: 'click', handler: goMobileNext});
+          
+          // Bind mobile events with high priority
+          if (prevBtn) prevBtn.addEventListener('click', goMobilePrev, true);
+          if (nextBtn) nextBtn.addEventListener('click', goMobileNext, true);
+          
+          // Initialize - show first card
+          showMobileCard(0);
+          
+        } else if (window.innerWidth >= 768 && isMobileMode) {
+          // SWITCHING TO DESKTOP MODE
+          isMobileMode = false;
+          document.body.classList.remove('mobile-portfolio-override');
+          
+          // Clean up mobile listeners
+          mobileEventListeners.forEach(listener => {
+            if (listener.element) {
+              listener.element.removeEventListener(listener.type, listener.handler, true);
+            }
+          });
+          mobileEventListeners = [];
+          
+          // Remove mobile classes from all cards
+          cards.forEach(card => {
+            card.classList.remove('active-mobile-card');
+          });
+          
+          console.log('Switched to desktop mode - original portfolio JS should work');
+        }
+      }
+      
+      // Setup on load and resize
+      setupMobilePortfolio();
+      window.addEventListener('resize', function() {
+        setTimeout(setupMobilePortfolio, 100); // Small delay to ensure resize is complete
+      });
+    });
+  </script>
+  
   <script>
     // 3D Hamburger and Mobile Menu Toggle
     const hamburgerBtn = document.getElementById('hamburger3dBtn');
@@ -2459,36 +2735,44 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
       function updateCardWidth() {
         if (window.innerWidth < 768) {
           visible = 1;
+          cardWidth = window.innerWidth; // Full width for mobile
         } else {
           visible = 3;
+          cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(sliderRow).gap || 22);
         }
-        cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(sliderRow).gap || 22);
       }
 
 
       // For true infinite loop, always allow next/prev and wrap using modulus
       function updateSlider() {
-        // Use translateX to shift the row
-        const percent = -(100 / visible) * current;
-        sliderRow.style.transition = 'transform 0.5s cubic-bezier(.39,.575,.565,1.000)';
-        sliderRow.style.transform = `translateX(${percent}%)`;
+        if (window.innerWidth < 768) {
+          // For mobile, use transform instead of scroll since we have 100vw cards
+          const percent = -current * 100;
+          sliderRow.style.transition = 'transform 0.5s cubic-bezier(.39,.575,.565,1.000)';
+          sliderRow.style.transform = `translateX(${percent}%)`;
+        } else {
+          // Use translateX to shift the row for desktop
+          const percent = -(100 / visible) * current;
+          sliderRow.style.transition = 'transform 0.5s cubic-bezier(.39,.575,.565,1.000)';
+          sliderRow.style.transform = `translateX(${percent}%)`;
+        }
       }
 
       function goPrev(e) {
         if (e) e.preventDefault();
         updateCardWidth();
-        current = (current - 1 + cards.length) % cards.length;
-        // Clamp so we never show empty space
-        if (current > cards.length - visible) current = cards.length - visible;
+        current = current - 1;
+        if (current < 0) current = cards.length - 1;
         updateSlider();
+        console.log('Prev clicked, current:', current);
       }
       function goNext(e) {
         if (e) e.preventDefault();
         updateCardWidth();
-        current = (current + 1) % cards.length;
-        // Clamp so we never show empty space
-        if (current > cards.length - visible) current = 0;
+        current = current + 1;
+        if (current >= cards.length) current = 0;
         updateSlider();
+        console.log('Next clicked, current:', current);
       }
 
       prevBtn.addEventListener('click', goPrev);
