@@ -521,6 +521,31 @@
         align-items: stretch !important;
         gap: 0.5rem !important;
       }
+      /* Fix testimonial section mobile scroll issue */
+      #testimonials {
+        padding-top: 1rem !important;
+        padding-bottom: 1.5rem !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+      #testimonials .section-title {
+        margin-bottom: 0.8rem !important;
+      }
+      .testimonial-carousel-wrapper {
+        height: auto !important;
+        overflow: visible !important;
+        margin-bottom: 2.5rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+      #testimonialSliderRow {
+        overflow: visible !important;
+        height: auto !important;
+      }
+      .testimonial-slider-card {
+        height: auto !important;
+        min-height: auto !important;
+      }
     }
     /* Portfolio card subheading clean modern style */
       .portfolio-slider-card {
@@ -1625,6 +1650,14 @@
     @media (min-width: 992px) {
       .mobile-menu-overlay { display: none !important; }
     }
+    
+    /* Testimonial section desktop margin */
+    @media (min-width: 768px) {
+      #testimonials {
+        margin-top: -80px !important;
+      }
+    }
+    
         @media (max-width: 991px) {
       .navbar-brand {
         font-size: 1.25rem !important;
@@ -2408,7 +2441,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
   </section>
 
   <!-- Testimonials Section (Slider) -->
-  <section class="section" id="testimonials" style="margin-top:-80px;">
+  <section class="section" id="testimonials" style="margin-top:-114px;">
     <div class="container position-relative">
       <h2 class="section-title text-center mb-5" style="color:#232946;">What Our Clients Say</h2>
       <div class="testimonial-carousel-wrapper d-flex align-items-center justify-content-center">
