@@ -1572,14 +1572,14 @@
       border-color: #eebbc3;
       box-shadow: 0 0 0 0.2rem rgba(238,187,195,0.10);
     }
-    /* Custom Button Styles: All buttons use #5dcdf1, hover #1b1624 */
+    /* Custom Button Styles: All buttons use #6ed6fb, text black, hover black bg with white text */
     .btn, .btn-primary, .btn-outline-primary, .btn-outline-secondary, .btn-success {
-      background: #eebbc3 !important;
-      border: 2px solid #eebbc3 !important;
-      color: #232946 !important;
+      background: #6ed6fb !important;
+      border: 2px solid #6ed6fb !important;
+      color: #000000 !important;
       font-weight: 600;
       border-radius: 2.5rem !important;
-      box-shadow: 0 4px 16px rgba(238,187,195,0.10);
+      box-shadow: 0 4px 16px rgba(110, 214, 251, 0.20);
       padding: 0.7rem 2.2rem !important;
       font-size: 1.13rem;
       letter-spacing: 0.01em;
@@ -1590,9 +1590,9 @@
     .btn-outline-primary:hover, .btn-outline-primary:focus,
     .btn-outline-secondary:hover, .btn-outline-secondary:focus,
     .btn-success:hover, .btn-success:focus {
-      background: #232946 !important;
-      border-color: #232946 !important;
-      color: #eebbc3 !important;
+      background: #000000 !important;
+      border-color: #000000 !important;
+      color: #ffffff !important;
       box-shadow: 0 8px 32px rgba(35,41,70,0.13);
       transform: translateY(-2px) scale(1.03);
     }
@@ -1917,16 +1917,19 @@
       box-shadow: 0 0 0 0.2rem rgba(171,71,188,0.10);
     }
     .newsletter-btn {
+      background: #6ed6fb !important;
+      border: 2px solid #6ed6fb !important;
+      color: #000000 !important;
       font-size: 1.1rem;
       font-weight: 600;
-      box-shadow: 0 2px 8px rgba(238,187,195,0.08);
+      box-shadow: 0 4px 16px rgba(110, 214, 251, 0.20);
       transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s, transform 0.2s;
     }
     .newsletter-btn:hover, .newsletter-btn:focus {
-      background: linear-gradient(90deg, var(--muted-green) 60%, var(--soft-peach) 100%);
-      color: #232946;
-      border-color: #eebbc3;
-      box-shadow: 0 4px 16px rgba(171,71,188,0.13);
+      background: #000000 !important;
+      color: #ffffff !important;
+      border-color: #000000 !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.20);
       transform: translateY(-2px) scale(1.03);
     }
  .footer-modern {
@@ -3274,7 +3277,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
                   <p style="font-size:1.18rem;color:#232946;font-weight:600;line-height:1.4;margin-bottom:2.1rem;">Each week, I share actionable productivity tips, practical life advice, and highlights from my favourite books, directly to your inbox. It’s free to join, and always will be.</p>
                   <form style="background:#faf7f4;border-radius:2.5rem;padding:1.5rem 1.5rem 1.5rem 1.5rem;display:flex;align-items:center;max-width:600px;box-shadow:0 2px 16px #0001;gap:0.5rem;">
                     <input type="email" placeholder="Your email" style="flex:1;border:none;background:transparent;font-size:1.1rem;padding:0.7rem 1.1rem;border-radius:2rem;outline:none;color:#7b7b93;min-width:120px;">
-                    <button type="submit" style="background:#6ed6fb;color:#232946;font-size:1.15rem;font-weight:700;border:none;border-radius:2.5rem;padding:0.9rem 2.2rem;box-shadow:0 2px 8px #6ed6fb44;">Subscribe</button>
+                    <button type="submit" class="newsletter-btn" style="border:none;border-radius:2.5rem;padding:0.9rem 2.2rem;">Subscribe</button>
                   </form>
                   <p style="font-size:0.98rem;color:#7b7b93;margin-top:1.1rem;max-width:600px;">By submitting this form, you’ll be signed up to my free newsletter, which sometimes includes mentions of my books, apps and courses. You can opt-out at any time with no hard feelings 😉 Here’s our <a href="#" style="color:#232946;text-decoration:underline;">privacy policy</a> if you like reading.</p>
                 </div>
