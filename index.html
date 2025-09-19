@@ -665,7 +665,9 @@
         line-height: 1.4 !important;
       }
       .portfolio-heading-arrows {
-        margin-right: 2vw !important;
+        margin-right: 0 !important;
+        margin-left: auto !important;
+        padding-right: 1rem !important;
       }
       .portfolio-carousel-btn {
         width: 50px !important;
@@ -1956,16 +1958,23 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
         min-height: 700px !important;
         height: auto !important;
         overflow: visible !important;
-        padding: 2rem 0 !important;
+        padding: 0 !important;
+        margin-top: -1rem !important;
         display: flex !important;
         justify-content: center !important;
-        align-items: center !important;
+        align-items: flex-start !important;
         width: 100vw !important;
         position: relative !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
         left: 0 !important;
         right: 0 !important;
+      }
+      body.mobile-portfolio-override .portfolio-heading-arrows {
+        justify-content: flex-end !important;
+        margin-right: 0 !important;
+        padding-right: 2rem !important;
+        margin-left: auto !important;
       }
       body.mobile-portfolio-override #portfolio .portfolio-slider-card {
         display: none !important;
@@ -2055,10 +2064,11 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
         min-height: 700px !important;
         height: auto !important;
         overflow: visible !important;
-        padding: 2rem 0 !important;
+        padding: 0 !important;
+        margin-top: -1rem !important;
         display: flex !important;
         justify-content: center !important;
-        align-items: center !important;
+        align-items: flex-start !important;
         width: 100vw !important;
         position: relative !important;
         margin-left: 0 !important;
