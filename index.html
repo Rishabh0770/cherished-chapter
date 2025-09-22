@@ -6,10 +6,994 @@
   <title>Cherished Capter</title>
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Enhanced Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  
+  <!-- Modern Enhancement Styles -->
+  <style>
+    /* ==================== ENHANCED CSS VARIABLES ==================== */
+    :root {
+      /* Enhanced Color Palette */
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      --dark-gradient: linear-gradient(135deg, #667db6 0%, #0082c8 100%);
+      
+      /* Modern Colors */
+      --primary-color: #667eea;
+      --secondary-color: #764ba2;
+      --accent-color: #ff6b6b;
+      --success-color: #4ecdc4;
+      --warning-color: #ffe66d;
+      --dark-elegant: #2c3e50;
+      --light-elegant: #ecf0f1;
+      
+      /* Glass Morphism */
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      
+      /* Enhanced Shadows */
+      --shadow-light: 0 2px 15px rgba(0, 0, 0, 0.08);
+      --shadow-medium: 0 5px 25px rgba(0, 0, 0, 0.15);
+      --shadow-heavy: 0 10px 40px rgba(0, 0, 0, 0.25);
+      --shadow-glow: 0 0 20px rgba(103, 126, 234, 0.3);
+      
+      /* Typography */
+      --font-primary: 'Inter', sans-serif;
+      --font-heading: 'Playfair Display', serif;
+      --font-accent: 'Poppins', sans-serif;
+      
+      /* Animations */
+      --transition-fast: 0.2s ease;
+      --transition-normal: 0.3s ease;
+      --transition-slow: 0.5s ease;
+      --bounce-ease: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    /* ==================== GLASS MORPHISM EFFECTS ==================== */
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      border-radius: 20px;
+    }
+    
+    .glass-card-light {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    /* ==================== GRADIENT TEXT EFFECTS ==================== */
+    .gradient-text-primary {
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    
+    .gradient-text-secondary {
+      background: var(--secondary-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    
+    .gradient-text-accent {
+      background: linear-gradient(45deg, #e6b800, #ab47bc, #7bdcb5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    
+    /* ==================== ENHANCED BUTTONS ==================== */
+    .btn-modern {
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 50px;
+      padding: 12px 30px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all var(--transition-normal);
+      box-shadow: var(--shadow-medium);
+      position: relative;
+      overflow: hidden;
+      color: white;
+    }
+    
+    .btn-modern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .btn-modern:hover::before {
+      left: 100%;
+    }
+    
+    .btn-modern:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(103, 126, 234, 0.4);
+      color: white;
+    }
+    
+    /* ==================== CARD ENHANCEMENTS ==================== */
+    .enhanced-card {
+      transition: all var(--transition-normal);
+      border-radius: 20px;
+      border: none;
+      box-shadow: var(--shadow-light);
+    }
+    
+    .enhanced-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow-heavy);
+    }
+    
+    /* ==================== LOADING ANIMATIONS ==================== */
+    @keyframes pulse-glow {
+      0%, 100% {
+        box-shadow: 0 0 5px var(--primary-color);
+      }
+      50% {
+        box-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+    
+    @keyframes rotate-3d {
+      0% {
+        transform: perspective(1000px) rotateY(0deg);
+      }
+      100% {
+        transform: perspective(1000px) rotateY(360deg);
+      }
+    }
+    
+    /* ==================== SCROLL ANIMATIONS ==================== */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  
+  <!-- Advanced Interactive Effects -->
+  <style>
+    /* ==================== CUSTOM CURSOR EFFECTS ==================== */
+    .custom-cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.15s ease;
+      mix-blend-mode: difference;
+    }
+    
+    .cursor-grow {
+      transform: scale(2);
+    }
+    
+    /* ==================== 3D CARD EFFECTS ==================== */
+    .card-3d {
+      perspective: 1000px;
+      transition: transform 0.3s;
+    }
+    
+    .card-3d:hover {
+      transform: rotateY(5deg) rotateX(5deg) scale(1.05);
+    }
+    
+    .card-3d-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+    
+    .card-3d:hover .card-3d-inner {
+      transform: translateZ(20px);
+    }
+    
+    /* ==================== ADVANCED BUTTON ANIMATIONS ==================== */
+    .btn-ripple {
+      position: relative;
+      overflow: hidden;
+      transform: translate3d(0, 0, 0);
+    }
+    
+    .btn-ripple::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: width 0.3s;
+    }
+    
+    .btn-ripple:hover::before {
+      width: 100%;
+    }
+    
+    .btn-magnetic {
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    /* ==================== FLOATING ELEMENTS ==================== */
+    .float-element {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .float-delayed {
+      animation: float 6s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+    
+    /* ==================== TEXT ANIMATION EFFECTS ==================== */
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: var(--primary-color); }
+    }
+    
+    .typewriter {
+      overflow: hidden;
+      border-right: 2px solid var(--primary-color);
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typewriter 4s steps(40, end), blink 0.75s step-end infinite;
+    }
+    
+    /* ==================== PARTICLE BACKGROUND ==================== */
+    .particles-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float-particles 10s linear infinite;
+    }
+    
+    @keyframes float-particles {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    /* ==================== ENHANCED CARD HOVER EFFECTS ==================== */
+    .card-hover-lift {
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    .card-hover-lift:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    }
+    
+    .card-tilt {
+      transition: transform 0.3s;
+    }
+    
+    .card-tilt:hover {
+      transform: perspective(1000px) rotateX(10deg) rotateY(10deg) scale(1.05);
+    }
+    
+    /* ==================== GLOW EFFECTS ==================== */
+    .glow-on-hover {
+      transition: all 0.3s;
+    }
+    
+    .glow-on-hover:hover {
+      box-shadow: 0 0 30px var(--primary-color), 0 0 60px var(--primary-color);
+    }
+    
+    .text-glow {
+      text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+    }
+    
+    /* ==================== SCROLL PROGRESS INDICATOR ==================== */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: var(--primary-gradient);
+      z-index: 1000;
+      transition: width 0.1s;
+    }
+    
+    /* ==================== LOADING SPINNER ==================== */
+    .modern-loader {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(103, 126, 234, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--primary-color);
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* ==================== MICRO INTERACTIONS ==================== */
+    .scale-on-hover {
+      transition: transform 0.2s;
+    }
+    
+    .scale-on-hover:hover {
+      transform: scale(1.1);
+    }
+    
+    .rotate-on-hover {
+      transition: transform 0.3s;
+    }
+    
+    .rotate-on-hover:hover {
+      transform: rotate(360deg);
+    }
+    
+    .shake-on-hover:hover {
+      animation: shake 0.5s;
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+  </style>
+  
+  <!-- Dark Mode Styles -->
+  <style>
+    /* ==================== DARK MODE VARIABLES ==================== */
+    [data-theme="dark"] {
+      --dark-elegant: #ffffff;
+      --light-elegant: #1a1a1a;
+      --bg-primary: #121212;
+      --bg-secondary: #1e1e1e;
+      --bg-tertiary: #2d2d2d;
+      --text-primary: #ffffff;
+      --text-secondary: #b3b3b3;
+      --border-color: #333333;
+    }
+    
+    [data-theme="light"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8f9fa;
+      --bg-tertiary: #e9ecef;
+      --text-primary: #212529;
+      --text-secondary: #6c757d;
+      --border-color: #dee2e6;
+    }
+    
+    /* ==================== DARK MODE STYLES ==================== */
+    body {
+      background-color: var(--bg-primary, #ffffff);
+      color: var(--text-primary, #212529);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    [data-theme="dark"] {
+      color-scheme: dark;
+    }
+    
+    [data-theme="dark"] .card {
+      background-color: var(--bg-secondary);
+      border-color: var(--border-color);
+    }
+    
+    [data-theme="dark"] .navbar {
+      background-color: var(--bg-secondary) !important;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    [data-theme="dark"] .btn-outline-secondary {
+      color: var(--text-primary);
+      border-color: var(--border-color);
+    }
+    
+    [data-theme="dark"] .form-control {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-color);
+      color: var(--text-primary);
+    }
+    
+    /* ==================== DARK MODE TOGGLE BUTTON ==================== */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary-gradient);
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-medium);
+    }
+    
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: var(--shadow-heavy);
+    }
+    
+    .theme-toggle i {
+      transition: transform 0.3s ease;
+    }
+    
+    .theme-toggle:hover i {
+      transform: rotate(180deg);
+    }
+  </style>
+  
+  <!-- Loading & Animation Styles -->
+  <style>
+    /* ==================== PRELOADER ==================== */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    
+    .preloader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .preloader-logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      animation: pulse-logo 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-logo {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+    
+    .preloader-text {
+      color: white;
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.5s forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .preloader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    /* ==================== PAGE TRANSITION EFFECTS ==================== */
+    .page-transition {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--primary-gradient);
+      z-index: 9998;
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+    
+    .page-transition.active {
+      transform: translateX(0);
+    }
+    
+    /* ==================== ADVANCED SECTION ANIMATIONS ==================== */
+    .section-entrance {
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 1s ease;
+    }
+    
+    .section-entrance.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .stagger-animation {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease;
+    }
+    
+    .stagger-animation.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* ==================== PARALLAX CONTAINER ==================== */
+    .parallax-container {
+      overflow-x: hidden;
+      overflow-y: auto;
+      perspective: 1px;
+      height: 100vh;
+    }
+    
+    .parallax-element {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    
+    .parallax-back {
+      transform: translateZ(-1px) scale(2);
+    }
+    
+    .parallax-base {
+      transform: translateZ(0);
+    }
+    
+    /* ==================== ENHANCED SCROLL INDICATORS ==================== */
+    .scroll-indicator {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: var(--primary-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 999;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .scroll-indicator.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .scroll-indicator:hover {
+      transform: scale(1.1);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    /* ==================== SECTION NAVIGATION DOTS ==================== */
+    .section-nav {
+      position: fixed;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 999;
+    }
+    
+    .section-nav-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(103, 126, 234, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .section-nav-dot.active {
+      background: var(--primary-color);
+      transform: scale(1.3);
+    }
+    
+    .section-nav-dot:hover {
+      background: var(--primary-color);
+      transform: scale(1.2);
+    }
+    
+    .section-nav-dot::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      right: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--bg-tertiary, #2d2d2d);
+      color: var(--text-primary, white);
+      padding: 5px 10px;
+      border-radius: 5px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      font-size: 0.8rem;
+    }
+    
+    .section-nav-dot:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+  
+  <!-- 3D Effects & Advanced Styles -->
+  <style>
+    /* ==================== 3D EFFECTS & TRANSFORMS ==================== */
+    .card-3d {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      transition: transform 0.6s ease;
+    }
+    
+    .card-3d:hover {
+      transform: rotateX(5deg) rotateY(-5deg) translateZ(20px);
+    }
+    
+    .flip-card {
+      background-color: transparent;
+      width: 100%;
+      height: 300px;
+      perspective: 1000px;
+    }
+    
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    
+    .flip-card-front {
+      background: var(--bg-primary);
+      border: 1px solid rgba(103, 126, 234, 0.2);
+    }
+    
+    .flip-card-back {
+      background: var(--primary-gradient);
+      color: white;
+      transform: rotateY(180deg);
+    }
+    
+    /* ==================== FORM ENHANCEMENTS ==================== */
+    .form-group {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    
+    .form-control-enhanced {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(103, 126, 234, 0.3);
+      border-radius: 10px;
+      padding: 15px 20px;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+      width: 100%;
+      backdrop-filter: blur(10px);
+    }
+    
+    .form-control-enhanced:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .form-label-enhanced {
+      position: absolute;
+      left: 20px;
+      top: 15px;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      background: var(--bg-primary);
+      padding: 0 5px;
+    }
+    
+    .form-control-enhanced:focus + .form-label-enhanced,
+    .form-control-enhanced:not(:placeholder-shown) + .form-label-enhanced {
+      transform: translateY(-25px) scale(0.9);
+      color: var(--primary-color);
+    }
+    
+    .form-validation {
+      position: absolute;
+      bottom: -25px;
+      left: 0;
+      color: #e74c3c;
+      font-size: 0.8rem;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+    }
+    
+    .form-validation.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* ==================== MICRO-INTERACTIONS ==================== */
+    .micro-bounce {
+      transition: transform 0.2s ease;
+    }
+    
+    .micro-bounce:active {
+      transform: scale(0.95);
+    }
+    
+    .ripple-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ripple-effect::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: width 0.6s, height 0.6s;
+      transform: translate(-50%, -50%);
+    }
+    
+    .ripple-effect:active::after {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .shake-on-error {
+      animation: shake 0.5s ease-in-out;
+    }
+    
+    @keyframes shake {
+      0%, 20%, 40%, 60%, 80%, 100% {
+        transform: translateX(0);
+      }
+      10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+      }
+    }
+    
+    /* ==================== ADVANCED HOVER EFFECTS ==================== */
+    .hover-lift {
+      transition: all 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hover-glow:hover {
+      box-shadow: 0 0 30px rgba(103, 126, 234, 0.5);
+    }
+    
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+    
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+    
+    .hover-rotate {
+      transition: transform 0.3s ease;
+    }
+    
+    .hover-rotate:hover {
+      transform: rotate(5deg);
+    }
+    
+    /* ==================== TOAST NOTIFICATIONS ==================== */
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      max-width: 350px;
+    }
+    
+    .toast {
+      background: var(--bg-secondary);
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      border-left: 4px solid var(--primary-color);
+      box-shadow: var(--shadow-lg);
+      transform: translateX(100%);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .toast.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    
+    .toast-success {
+      border-left-color: #27ae60;
+    }
+    
+    .toast-error {
+      border-left-color: #e74c3c;
+    }
+    
+    .toast-warning {
+      border-left-color: #f39c12;
+    }
+    
+    /* ==================== PERFORMANCE OPTIMIZATIONS ==================== */
+    .gpu-accelerated {
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+    
+    .smooth-scroll {
+      scroll-behavior: smooth;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    
+    /* ==================== RESPONSIVE DESIGN ENHANCEMENTS ==================== */
+    @media (max-width: 768px) {
+      .section-nav {
+        display: none;
+      }
+      
+      .particle-background {
+        display: none;
+      }
+      
+      .custom-cursor {
+        display: none;
+      }
+      
+      .card-3d:hover {
+        transform: none;
+      }
+      
+      .flip-card:hover .flip-card-inner {
+        transform: none;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .preloader-text {
+        font-size: 1.2rem;
+      }
+      
+      .scroll-indicator {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+      }
+      
+      .toast-container {
+        left: 20px;
+        right: 20px;
+        max-width: none;
+      }
+    }
+  </style>
+  
   <style>
       #portfolio, #portfolio .carousel, #portfolio .portfolio-slider-outer, #portfolio .portfolio-slider-row {
         overflow: visible !important;
@@ -2317,6 +3301,36 @@
     .portfolio-slider-card:hover .portfolio-desc p {
   color: #181818 !important;
 }
+
+    /* ==================== PRICING CARD HOVER EFFECTS ==================== */
+    .pricing-card {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Subtle icon animation */
+    .pricing-card .card-body > div:first-child {
+      transition: transform 0.3s ease;
+    }
+    
+    .pricing-card:hover .card-body > div:first-child {
+      transform: scale(1.1);
+    }
+    
+    /* Button hover enhancement */
+    .pricing-card .btn {
+      transition: all 0.3s ease;
+    }
+    
+    .pricing-card:hover .btn {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
   <body style="background: linear-gradient(120deg, #e6e6fa 60%, #b8c1ec 100%) !important;">
@@ -3893,6 +4907,378 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
           activePopup = null;
         }
       });
+    });
+  </script>
+
+  <!-- Comprehensive Modern JavaScript -->
+  <script>
+    // ==================== PRELOADER MANAGEMENT ====================
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 500);
+      }, 1500);
+    });
+
+    // ==================== THEME TOGGLE ====================
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    // Set initial theme
+    body.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+    
+    themeToggle.addEventListener('click', () => {
+      const newTheme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+    
+    function updateThemeIcon(theme) {
+      const icon = themeToggle.querySelector('i');
+      icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    }
+
+    // ==================== CUSTOM CURSOR ====================
+    const cursor = document.getElementById('customCursor');
+    const follower = document.getElementById('cursorFollower');
+    
+    if (window.innerWidth > 768) {
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        
+        setTimeout(() => {
+          follower.style.left = e.clientX + 'px';
+          follower.style.top = e.clientY + 'px';
+        }, 100);
+      });
+      
+      // Cursor interactions
+      document.querySelectorAll('button, a, .card, .btn').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+      });
+    }
+
+    // ==================== PARTICLE BACKGROUND ====================
+    function createParticles() {
+      const container = document.getElementById('particleBackground');
+      if (!container || window.innerWidth <= 768) return;
+      
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        container.appendChild(particle);
+      }
+    }
+    
+    createParticles();
+
+    // ==================== SCROLL PROGRESS ====================
+    const scrollProgress = document.getElementById('scrollProgress');
+    
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      scrollProgress.style.width = scrollPercent + '%';
+    });
+
+    // ==================== SECTION NAVIGATION ====================
+    const sections = document.querySelectorAll('section[id]');
+    const navDots = document.querySelectorAll('.section-nav-dot');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navDots.forEach(dot => {
+        dot.classList.remove('active');
+        if (dot.getAttribute('data-section') === current) {
+          dot.classList.add('active');
+        }
+      });
+    });
+    
+    // Section navigation clicks
+    navDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const sectionId = dot.getAttribute('data-section');
+        const section = document.getElementById(sectionId === 'hero' ? 'home' : sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ==================== SCROLL TO TOP ====================
+    const scrollToTop = document.getElementById('scrollToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollToTop.classList.add('visible');
+      } else {
+        scrollToTop.classList.remove('visible');
+      }
+    });
+    
+    scrollToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ==================== INTERSECTION OBSERVER FOR ANIMATIONS ====================
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.section-entrance, .stagger-animation, .fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // ==================== ENHANCED FORM HANDLING ====================
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach(form => {
+      const inputs = form.querySelectorAll('.form-control-enhanced');
+      
+      inputs.forEach(input => {
+        input.addEventListener('blur', validateInput);
+        input.addEventListener('input', clearValidation);
+      });
+      
+      form.addEventListener('submit', handleFormSubmit);
+    });
+    
+    function validateInput(e) {
+      const input = e.target;
+      const validation = input.parentNode.querySelector('.form-validation');
+      
+      if (input.hasAttribute('required') && !input.value.trim()) {
+        showValidation(input, validation, 'This field is required');
+        return false;
+      }
+      
+      if (input.type === 'email' && input.value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(input.value)) {
+          showValidation(input, validation, 'Please enter a valid email');
+          return false;
+        }
+      }
+      
+      return true;
+    }
+    
+    function clearValidation(e) {
+      const input = e.target;
+      const validation = input.parentNode.querySelector('.form-validation');
+      if (validation) {
+        validation.classList.remove('show');
+        input.classList.remove('shake-on-error');
+      }
+    }
+    
+    function showValidation(input, validation, message) {
+      if (validation) {
+        validation.textContent = message;
+        validation.classList.add('show');
+        input.classList.add('shake-on-error');
+        setTimeout(() => input.classList.remove('shake-on-error'), 500);
+      }
+    }
+    
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const inputs = form.querySelectorAll('.form-control-enhanced');
+      let isValid = true;
+      
+      inputs.forEach(input => {
+        if (!validateInput({ target: input })) {
+          isValid = false;
+        }
+      });
+      
+      if (isValid) {
+        showToast('Message sent successfully!', 'success');
+        form.reset();
+      } else {
+        showToast('Please fix the errors above', 'error');
+      }
+    }
+
+    // ==================== TOAST NOTIFICATIONS ====================
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+      toast.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span>${message}</span>
+          <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: inherit; font-size: 1.2rem; cursor: pointer;">&times;</button>
+        </div>
+      `;
+      
+      container.appendChild(toast);
+      
+      setTimeout(() => toast.classList.add('show'), 100);
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    // ==================== ENHANCED CARD INTERACTIONS ====================
+    document.querySelectorAll('.card-3d, .flip-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.zIndex = '10';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.zIndex = '1';
+      });
+    });
+
+    // ==================== RIPPLE EFFECTS ====================
+    document.querySelectorAll('.ripple-effect').forEach(element => {
+      element.addEventListener('click', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        this.style.setProperty('--ripple-x', x + 'px');
+        this.style.setProperty('--ripple-y', y + 'px');
+      });
+    });
+
+    // ==================== PARALLAX EFFECTS ====================
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll('.parallax-element');
+      
+      parallaxElements.forEach(element => {
+        const speed = element.dataset.speed || 0.5;
+        const transform = scrolled * speed;
+        element.style.transform = `translateY(${transform}px)`;
+      });
+    });
+
+    // ==================== STAGGER ANIMATIONS ====================
+    function staggerAnimation() {
+      const staggerElements = document.querySelectorAll('.stagger-animation');
+      
+      staggerElements.forEach((element, index) => {
+        setTimeout(() => {
+          element.classList.add('animate');
+        }, index * 100);
+      });
+    }
+    
+    // Trigger stagger animations on scroll
+    const staggerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.classList.contains('stagger-container')) {
+          staggerAnimation();
+        }
+      });
+    });
+    
+    document.querySelectorAll('.stagger-container').forEach(container => {
+      staggerObserver.observe(container);
+    });
+
+    // ==================== PERFORMANCE OPTIMIZATIONS ====================
+    // Debounce scroll events
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+    
+    // Throttle resize events
+    function throttle(func, delay) {
+      let timeoutId;
+      let lastExecTime = 0;
+      return function (...args) {
+        const currentTime = Date.now();
+        
+        if (currentTime - lastExecTime > delay) {
+          func.apply(this, args);
+          lastExecTime = currentTime;
+        } else {
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => {
+            func.apply(this, args);
+            lastExecTime = Date.now();
+          }, delay - (currentTime - lastExecTime));
+        }
+      };
+    }
+
+    // ==================== ACCESSIBILITY ENHANCEMENTS ====================
+    // Keyboard navigation for custom elements
+    document.querySelectorAll('.section-nav-dot').forEach(dot => {
+      dot.setAttribute('tabindex', '0');
+      dot.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          dot.click();
+        }
+      });
+    });
+    
+    // Focus management
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        document.body.classList.add('using-keyboard');
+      }
+    });
+    
+    document.addEventListener('mousedown', () => {
+      document.body.classList.remove('using-keyboard');
+    });
+
+    // ==================== INITIALIZE ON LOAD ====================
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add GPU acceleration to animated elements
+      document.querySelectorAll('.card, .btn, .section-nav-dot').forEach(el => {
+        el.classList.add('gpu-accelerated');
+      });
+      
+      // Add smooth scroll to body
+      document.documentElement.classList.add('smooth-scroll');
+      
+      console.log('🎉 Cherished Chapter website fully loaded with modern enhancements!');
     });
   </script>
 </body>
