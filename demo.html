@@ -6,10 +6,996 @@
   <title>Cherished Capter</title>
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Enhanced Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Bellefair:wght@400&display=swap" rel="stylesheet">
+  <!-- Brittany Font (if available) or fallback script font -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  
+  <!-- Modern Enhancement Styles -->
+  <style>
+    /* ==================== ENHANCED CSS VARIABLES ==================== */
+    :root {
+      /* Enhanced Color Palette */
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      --dark-gradient: linear-gradient(135deg, #667db6 0%, #0082c8 100%);
+      
+      /* Modern Colors */
+      --primary-color: #667eea;
+      --secondary-color: #764ba2;
+      --accent-color: #ff6b6b;
+      --success-color: #4ecdc4;
+      --warning-color: #ffe66d;
+      --dark-elegant: #2c3e50;
+      --light-elegant: #ecf0f1;
+      
+      /* Glass Morphism */
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      
+      /* Enhanced Shadows */
+      --shadow-light: 0 2px 15px rgba(0, 0, 0, 0.08);
+      --shadow-medium: 0 5px 25px rgba(0, 0, 0, 0.15);
+      --shadow-heavy: 0 10px 40px rgba(0, 0, 0, 0.25);
+      --shadow-glow: 0 0 20px rgba(103, 126, 234, 0.3);
+      
+      /* Typography */
+      --font-primary: 'Inter', sans-serif;
+      --font-heading: 'Playfair Display', serif;
+      --font-accent: 'Poppins', sans-serif;
+      
+      /* Animations */
+      --transition-fast: 0.2s ease;
+      --transition-normal: 0.3s ease;
+      --transition-slow: 0.5s ease;
+      --bounce-ease: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    /* ==================== GLASS MORPHISM EFFECTS ==================== */
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      border-radius: 20px;
+    }
+    
+    .glass-card-light {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    /* ==================== GRADIENT TEXT EFFECTS ==================== */
+    .gradient-text-primary {
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    
+    .gradient-text-secondary {
+      background: var(--secondary-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    
+    .gradient-text-accent {
+      background: linear-gradient(45deg, #e6b800, #ab47bc, #7bdcb5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    
+    /* ==================== ENHANCED BUTTONS ==================== */
+    .btn-modern {
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 50px;
+      padding: 12px 30px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all var(--transition-normal);
+      box-shadow: var(--shadow-medium);
+      position: relative;
+      overflow: hidden;
+      color: white;
+    }
+    
+    .btn-modern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .btn-modern:hover::before {
+      left: 100%;
+    }
+    
+    .btn-modern:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(103, 126, 234, 0.4);
+      color: white;
+    }
+    
+    /* ==================== CARD ENHANCEMENTS ==================== */
+    .enhanced-card {
+      transition: all var(--transition-normal);
+      border-radius: 20px;
+      border: none;
+      box-shadow: var(--shadow-light);
+    }
+    
+    .enhanced-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow-heavy);
+    }
+    
+    /* ==================== LOADING ANIMATIONS ==================== */
+    @keyframes pulse-glow {
+      0%, 100% {
+        box-shadow: 0 0 5px var(--primary-color);
+      }
+      50% {
+        box-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+    
+    @keyframes rotate-3d {
+      0% {
+        transform: perspective(1000px) rotateY(0deg);
+      }
+      100% {
+        transform: perspective(1000px) rotateY(360deg);
+      }
+    }
+    
+    /* ==================== SCROLL ANIMATIONS ==================== */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  
+  <!-- Advanced Interactive Effects -->
+  <style>
+    /* ==================== CUSTOM CURSOR EFFECTS ==================== */
+    .custom-cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.15s ease;
+      mix-blend-mode: difference;
+    }
+    
+    .cursor-grow {
+      transform: scale(2);
+    }
+    
+    /* ==================== 3D CARD EFFECTS ==================== */
+    .card-3d {
+      perspective: 1000px;
+      transition: transform 0.3s;
+    }
+    
+    .card-3d:hover {
+      transform: rotateY(5deg) rotateX(5deg) scale(1.05);
+    }
+    
+    .card-3d-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+    
+    .card-3d:hover .card-3d-inner {
+      transform: translateZ(20px);
+    }
+    
+    /* ==================== ADVANCED BUTTON ANIMATIONS ==================== */
+    .btn-ripple {
+      position: relative;
+      overflow: hidden;
+      transform: translate3d(0, 0, 0);
+    }
+    
+    .btn-ripple::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: width 0.3s;
+    }
+    
+    .btn-ripple:hover::before {
+      width: 100%;
+    }
+    
+    .btn-magnetic {
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    /* ==================== FLOATING ELEMENTS ==================== */
+    .float-element {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .float-delayed {
+      animation: float 6s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+    
+    /* ==================== TEXT ANIMATION EFFECTS ==================== */
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: var(--primary-color); }
+    }
+    
+    .typewriter {
+      overflow: hidden;
+      border-right: 2px solid var(--primary-color);
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typewriter 4s steps(40, end), blink 0.75s step-end infinite;
+    }
+    
+    /* ==================== PARTICLE BACKGROUND ==================== */
+    .particles-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float-particles 10s linear infinite;
+    }
+    
+    @keyframes float-particles {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    /* ==================== ENHANCED CARD HOVER EFFECTS ==================== */
+    .card-hover-lift {
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    .card-hover-lift:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    }
+    
+    .card-tilt {
+      transition: transform 0.3s;
+    }
+    
+    .card-tilt:hover {
+      transform: perspective(1000px) rotateX(10deg) rotateY(10deg) scale(1.05);
+    }
+    
+    /* ==================== GLOW EFFECTS ==================== */
+    .glow-on-hover {
+      transition: all 0.3s;
+    }
+    
+    .glow-on-hover:hover {
+      box-shadow: 0 0 30px var(--primary-color), 0 0 60px var(--primary-color);
+    }
+    
+    .text-glow {
+      text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+    }
+    
+    /* ==================== SCROLL PROGRESS INDICATOR ==================== */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: var(--primary-gradient);
+      z-index: 1000;
+      transition: width 0.1s;
+    }
+    
+    /* ==================== LOADING SPINNER ==================== */
+    .modern-loader {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(103, 126, 234, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--primary-color);
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* ==================== MICRO INTERACTIONS ==================== */
+    .scale-on-hover {
+      transition: transform 0.2s;
+    }
+    
+    .scale-on-hover:hover {
+      transform: scale(1.1);
+    }
+    
+    .rotate-on-hover {
+      transition: transform 0.3s;
+    }
+    
+    .rotate-on-hover:hover {
+      transform: rotate(360deg);
+    }
+    
+    .shake-on-hover:hover {
+      animation: shake 0.5s;
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+  </style>
+  
+  <!-- Dark Mode Styles -->
+  <style>
+    /* ==================== DARK MODE VARIABLES ==================== */
+    [data-theme="dark"] {
+      --dark-elegant: #ffffff;
+      --light-elegant: #1a1a1a;
+      --bg-primary: #121212;
+      --bg-secondary: #1e1e1e;
+      --bg-tertiary: #2d2d2d;
+      --text-primary: #ffffff;
+      --text-secondary: #b3b3b3;
+      --border-color: #333333;
+    }
+    
+    [data-theme="light"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8f9fa;
+      --bg-tertiary: #e9ecef;
+      --text-primary: #212529;
+      --text-secondary: #6c757d;
+      --border-color: #dee2e6;
+    }
+    
+    /* ==================== DARK MODE STYLES ==================== */
+    body {
+      background-color: var(--bg-primary, #ffffff);
+      color: var(--text-primary, #212529);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    [data-theme="dark"] {
+      color-scheme: dark;
+    }
+    
+    [data-theme="dark"] .card {
+      background-color: var(--bg-secondary);
+      border-color: var(--border-color);
+    }
+    
+    [data-theme="dark"] .navbar {
+      background-color: var(--bg-secondary) !important;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    [data-theme="dark"] .btn-outline-secondary {
+      color: var(--text-primary);
+      border-color: var(--border-color);
+    }
+    
+    [data-theme="dark"] .form-control {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-color);
+      color: var(--text-primary);
+    }
+    
+    /* ==================== DARK MODE TOGGLE BUTTON ==================== */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary-gradient);
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-medium);
+    }
+    
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: var(--shadow-heavy);
+    }
+    
+    .theme-toggle i {
+      transition: transform 0.3s ease;
+    }
+    
+    .theme-toggle:hover i {
+      transform: rotate(180deg);
+    }
+  </style>
+  
+  <!-- Loading & Animation Styles -->
+  <style>
+    /* ==================== PRELOADER ==================== */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    
+    .preloader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .preloader-logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      animation: pulse-logo 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-logo {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+    
+    .preloader-text {
+      color: white;
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.5s forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .preloader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    /* ==================== PAGE TRANSITION EFFECTS ==================== */
+    .page-transition {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--primary-gradient);
+      z-index: 9998;
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+    
+    .page-transition.active {
+      transform: translateX(0);
+    }
+    
+    /* ==================== ADVANCED SECTION ANIMATIONS ==================== */
+    .section-entrance {
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 1s ease;
+    }
+    
+    .section-entrance.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .stagger-animation {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease;
+    }
+    
+    .stagger-animation.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* ==================== PARALLAX CONTAINER ==================== */
+    .parallax-container {
+      overflow-x: hidden;
+      overflow-y: auto;
+      perspective: 1px;
+      height: 100vh;
+    }
+    
+    .parallax-element {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    
+    .parallax-back {
+      transform: translateZ(-1px) scale(2);
+    }
+    
+    .parallax-base {
+      transform: translateZ(0);
+    }
+    
+    /* ==================== ENHANCED SCROLL INDICATORS ==================== */
+    .scroll-indicator {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: var(--primary-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 999;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .scroll-indicator.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .scroll-indicator:hover {
+      transform: scale(1.1);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    /* ==================== SECTION NAVIGATION DOTS ==================== */
+    .section-nav {
+      position: fixed;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 999;
+    }
+    
+    .section-nav-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(103, 126, 234, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .section-nav-dot.active {
+      background: var(--primary-color);
+      transform: scale(1.3);
+    }
+    
+    .section-nav-dot:hover {
+      background: var(--primary-color);
+      transform: scale(1.2);
+    }
+    
+    .section-nav-dot::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      right: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--bg-tertiary, #2d2d2d);
+      color: var(--text-primary, white);
+      padding: 5px 10px;
+      border-radius: 5px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      font-size: 0.8rem;
+    }
+    
+    .section-nav-dot:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+  
+  <!-- 3D Effects & Advanced Styles -->
+  <style>
+    /* ==================== 3D EFFECTS & TRANSFORMS ==================== */
+    .card-3d {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      transition: transform 0.6s ease;
+    }
+    
+    .card-3d:hover {
+      transform: rotateX(5deg) rotateY(-5deg) translateZ(20px);
+    }
+    
+    .flip-card {
+      background-color: transparent;
+      width: 100%;
+      height: 300px;
+      perspective: 1000px;
+    }
+    
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    
+    .flip-card-front {
+      background: var(--bg-primary);
+      border: 1px solid rgba(103, 126, 234, 0.2);
+    }
+    
+    .flip-card-back {
+      background: var(--primary-gradient);
+      color: white;
+      transform: rotateY(180deg);
+    }
+    
+    /* ==================== FORM ENHANCEMENTS ==================== */
+    .form-group {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    
+    .form-control-enhanced {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(103, 126, 234, 0.3);
+      border-radius: 10px;
+      padding: 15px 20px;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+      width: 100%;
+      backdrop-filter: blur(10px);
+    }
+    
+    .form-control-enhanced:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .form-label-enhanced {
+      position: absolute;
+      left: 20px;
+      top: 15px;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      background: var(--bg-primary);
+      padding: 0 5px;
+    }
+    
+    .form-control-enhanced:focus + .form-label-enhanced,
+    .form-control-enhanced:not(:placeholder-shown) + .form-label-enhanced {
+      transform: translateY(-25px) scale(0.9);
+      color: var(--primary-color);
+    }
+    
+    .form-validation {
+      position: absolute;
+      bottom: -25px;
+      left: 0;
+      color: #e74c3c;
+      font-size: 0.8rem;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+    }
+    
+    .form-validation.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* ==================== MICRO-INTERACTIONS ==================== */
+    .micro-bounce {
+      transition: transform 0.2s ease;
+    }
+    
+    .micro-bounce:active {
+      transform: scale(0.95);
+    }
+    
+    .ripple-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ripple-effect::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: width 0.6s, height 0.6s;
+      transform: translate(-50%, -50%);
+    }
+    
+    .ripple-effect:active::after {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .shake-on-error {
+      animation: shake 0.5s ease-in-out;
+    }
+    
+    @keyframes shake {
+      0%, 20%, 40%, 60%, 80%, 100% {
+        transform: translateX(0);
+      }
+      10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+      }
+    }
+    
+    /* ==================== ADVANCED HOVER EFFECTS ==================== */
+    .hover-lift {
+      transition: all 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hover-glow:hover {
+      box-shadow: 0 0 30px rgba(103, 126, 234, 0.5);
+    }
+    
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+    
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+    
+    .hover-rotate {
+      transition: transform 0.3s ease;
+    }
+    
+    .hover-rotate:hover {
+      transform: rotate(5deg);
+    }
+    
+    /* ==================== TOAST NOTIFICATIONS ==================== */
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      max-width: 350px;
+    }
+    
+    .toast {
+      background: var(--bg-secondary);
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      border-left: 4px solid var(--primary-color);
+      box-shadow: var(--shadow-lg);
+      transform: translateX(100%);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .toast.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    
+    .toast-success {
+      border-left-color: #27ae60;
+    }
+    
+    .toast-error {
+      border-left-color: #e74c3c;
+    }
+    
+    .toast-warning {
+      border-left-color: #f39c12;
+    }
+    
+    /* ==================== PERFORMANCE OPTIMIZATIONS ==================== */
+    .gpu-accelerated {
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+    
+    .smooth-scroll {
+      scroll-behavior: smooth;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    
+    /* ==================== RESPONSIVE DESIGN ENHANCEMENTS ==================== */
+    @media (max-width: 768px) {
+      .section-nav {
+        display: none;
+      }
+      
+      .particle-background {
+        display: none;
+      }
+      
+      .custom-cursor {
+        display: none;
+      }
+      
+      .card-3d:hover {
+        transform: none;
+      }
+      
+      .flip-card:hover .flip-card-inner {
+        transform: none;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .preloader-text {
+        font-size: 1.2rem;
+      }
+      
+      .scroll-indicator {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+      }
+      
+      .toast-container {
+        left: 20px;
+        right: 20px;
+        max-width: none;
+      }
+    }
+  </style>
+  
   <style>
       #portfolio, #portfolio .carousel, #portfolio .portfolio-slider-outer, #portfolio .portfolio-slider-row {
         overflow: visible !important;
@@ -18,10 +1004,107 @@
         margin-bottom: 0 !important;
         padding-bottom: 0 !important;
       }
-      #faq.section {
-        margin-top: -150px !important;
-        padding-top: 0 !important;
+    
+    /* CTA Card Hover Effects */
+    .cta-option {
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-option::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ab47bc, #8e44ad);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      border-radius: 1.2rem;
+      z-index: 1;
+    }
+    
+    .cta-option.consultation-card::before {
+      background: linear-gradient(135deg, #e6b800, #d4a900);
+    }
+    
+    .cta-option:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(171,71,188,0.25) !important;
+    }
+    
+    .cta-option:hover::before {
+      opacity: 0.3;
+    }
+    
+    .cta-option.consultation-card:hover {
+      box-shadow: 0 12px 40px rgba(230,184,0,0.25) !important;
+    }
+    
+    /* Ensure content stays above the color overlay */
+    .cta-option > * {
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Heartbeat Animation for Heart Icon */
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
       }
+      25% {
+        transform: scale(1.1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      75% {
+        transform: scale(1.1);
+      }
+    }
+    
+    .cta-option:hover .heart-icon {
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+    
+    /* Ringing Animation for Phone Icon */
+    @keyframes ring {
+      0%, 100% {
+        transform: rotate(0deg) scale(1);
+      }
+      10% {
+        transform: rotate(-10deg) scale(1.05);
+      }
+      20% {
+        transform: rotate(10deg) scale(1.1);
+      }
+      30% {
+        transform: rotate(-10deg) scale(1.05);
+      }
+      40% {
+        transform: rotate(10deg) scale(1.1);
+      }
+      50% {
+        transform: rotate(0deg) scale(1.05);
+      }
+    }
+    
+    .cta-option:hover .phone-icon {
+      animation: ring 2s ease-in-out infinite;
+    }
+    
+    /* Enhanced button hover effects */
+    .cta-option .btn {
+      transition: all 0.3s ease;
+    }
+    
+    .cta-option:hover .btn {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    
     /* Compact height for contact form inputs */
     .contact-form-compact .form-control {
       height: 2.6rem;
@@ -201,7 +1284,7 @@
         max-width: 100vw !important;
         overflow-x: hidden !important;
       }
-      .container, .section, .portfolio-slider-row, .feature-card, .testimonial-carousel-wrapper, .process-flow, .pricing-table, .faq, .contact-info-card, .newsletter, .footer {
+      .container, .section, .portfolio-slider-row, .feature-card, .testimonial-carousel-wrapper, .process-flow, .pricing-table, .contact-info-card, .newsletter, .footer {
         text-align: center !important;
         align-items: center !important;
         justify-content: center !important;
@@ -1271,7 +2354,7 @@
       font-size: 1.05rem;
       margin-bottom: 0.6rem;
     }
-    body, p, .section, .portfolio-desc p, .feature-card, .faq-a, .newsletter, .footer, .contact-info-card {
+    body, p, .section, .portfolio-desc p, .feature-card, .newsletter, .footer, .contact-info-card {
       font-family: var(--body);
       font-size: 1.13rem;
       font-weight: 400;
@@ -1297,7 +2380,7 @@
       h6 {
         font-size: 0.98rem;
       }
-      body, p, .section, .portfolio-desc p, .feature-card, .faq-a, .newsletter, .footer, .contact-info-card {
+      body, p, .section, .portfolio-desc p, .feature-card, .newsletter, .footer, .contact-info-card {
         font-size: 1.01rem;
       }
     }
@@ -1314,7 +2397,7 @@
       h4, h5, h6 {
         font-size: 0.98rem;
       }
-      body, p, .section, .portfolio-desc p, .feature-card, .faq-a, .newsletter, .footer, .contact-info-card {
+      body, p, .section, .portfolio-desc p, .feature-card, .newsletter, .footer, .contact-info-card {
         font-size: 0.97rem;
       }
     }
@@ -1441,16 +2524,24 @@
     .process-step {
   background: #fff;
   border-radius: 1.2rem;
-  padding: 1.2rem 1rem;
+  padding: 0.8rem 0.5rem;
   margin-bottom: 1rem;
   box-shadow: 0 2px 12px rgba(255, 183, 94, 0.07);
   text-align: center;
-  min-width: 120px;
+  width: 140px;
+  height: 140px;
   font-weight: 500;
+  font-size: 0.85rem;
+  line-height: 1.2;
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.7s;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 .process-step:hover {
   box-shadow: 0 8px 32px #7bdcb544, 0 2px 12px #7bdcb533;
@@ -1481,13 +2572,49 @@
       opacity: 1;
       transform: none;
     }
+    
+    /* Process step icon styling */
+    .process-step i {
+      font-size: 1.8rem !important;
+      margin-bottom: 0.3rem;
+    }
+    
     @media (max-width: 991px) {
-      .process-step { min-width: 90px; font-size: 0.95rem; }
+      .process-step { 
+        width: 120px;
+        height: 120px;
+        font-size: 0.8rem;
+        padding: 0.6rem 0.4rem;
+      }
+      .process-step i {
+        font-size: 1.5rem !important;
+      }
       .process-arrow { font-size: 1.3rem; }
     }
     @media (max-width: 575px) {
-      .process-step { min-width: 70px; font-size: 0.85rem; padding: 0.7rem 0.5rem; }
+      .process-step { 
+        width: 110px;
+        height: 110px;
+        font-size: 0.75rem;
+        padding: 0.5rem 0.3rem;
+      }
+      .process-step i {
+        font-size: 1.3rem !important;
+      }
       .process-arrow { font-size: 1rem; }
+      
+      /* Mobile: Make process flow vertical */
+      .process-flow {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      /* Mobile: Change arrows to point down */
+      .process-arrow i {
+        transform: rotate(90deg);
+        display: inline-block;
+      }
     }
     
     /* Process Popup Styles */
@@ -1556,10 +2683,10 @@
         background: white !important;
         background-color: white !important;
         background-image: none !important;
-        min-width: 300px !important;
-        max-width: 90vw !important;
-        width: auto !important;
-        padding: 25px !important;
+        min-width: 200px !important;
+        max-width: 75vw !important;
+        width: fit-content !important;
+        padding: 12px 16px !important;
         z-index: 99999 !important;
         box-shadow: 0 20px 60px rgba(0,0,0,0.3) !important;
         border-radius: 12px !important;
@@ -1682,10 +2809,6 @@
       padding: 2.5rem 1rem;
       text-align: center;
       margin: 2rem 0;
-    }
-    .faq .accordion-button {
-  background: #C9B1FB !important;
-      font-weight: 600;
     }
     .footer {
       background: #fff;
@@ -2019,28 +3142,6 @@
       box-shadow: 0 4px 16px rgba(171,71,188,0.13);
       transform: translateY(-2px) scale(1.03);
     }
-.faq-q {
-      background: linear-gradient(90deg, #fff6f9 60%, #b8c1ec 100%) !important;
-      color: #232946 !important;
-      font-weight: 600;
-      border-radius: 1.2rem 1.2rem 0 0 !important;
-      font-size: 1.1rem;
-      transition: background 0.2s, color 0.2s;
-    }
-    .faq-q:not(.collapsed) {
-  background: linear-gradient(90deg, #b8c1ec 60%, #fff6f9 100%) !important;
-  color: #232946 !important; /* dark pastel blue */
-    }
-    .faq-a {
-      background: linear-gradient(90deg, #f6e7cb 60%, #eebbc3 100%);
-      color: #3d314a;
-      border-radius: 0 0 1.2rem 1.2rem;
-      font-size: 1rem;
-      font-weight: 500;
-      margin-top: -2px;
-      padding: 1.2rem 1rem;
-      transition: background 0.2s, color 0.2s;
-    }
     .contact-info-card {
       min-height: 320px;
       transition: box-shadow 0.2s, transform 0.2s;
@@ -2249,19 +3350,6 @@
         flex-wrap: nowrap !important;
       }
     }
-     /* FAQ toggle icon styles */
-    .faq-toggle-icon {
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      margin-left: auto;
-      transition: color 0.2s;
-    }
-    .faq-toggle-icon .plus { display: inline; }
-    .faq-toggle-icon .minus { display: none; }
-    .accordion-button:not(.collapsed) .faq-toggle-icon .plus { display: none; }
-    .accordion-button:not(.collapsed) .faq-toggle-icon .minus { display: inline; }
-    .accordion-button::after { display: none !important; }
       .vs-icon-circle {
   transition: transform 0.35s cubic-bezier(.4,1.6,.6,1), background 0.25s;
   display: flex;
@@ -2281,6 +3369,21 @@
       .vs-icon-circle i {
   transition: color 0.2s, transform 0.35s cubic-bezier(.4,1.6,.6,1);
       }
+      .vs-icon-circle i.bi-gift {
+        color: #de7214;
+      }
+      .vs-icon-circle i.bi-calendar-heart {
+        color: #ff6b9d;
+      }
+      .vs-icon-circle i.bi-star {
+        color: #ff6b6b;
+      }
+      .vs-icon-circle i.bi-journal-text {
+        color: #3aa29e;
+      }
+      .vs-icon-circle i.bi-camera {
+        color: #7e44fd;
+      }
      
   .vertical-slider .vs-card:hover .vs-icon-circle {
     transform: scale(1.18);
@@ -2289,13 +3392,16 @@
     transform: scale(1.18);
         color: #e6b800;
       }
-      .vertical-slider .vs-card:hover .vs-icon-circle i.bi-heart {
-        color: #ff4f81;
+      .vertical-slider .vs-card:hover .vs-icon-circle i.bi-gift {
+        color: #d35400;
       }
-      .vertical-slider .vs-card:hover .vs-icon-circle i.bi-trophy {
+      .vertical-slider .vs-card:hover .vs-icon-circle i.bi-calendar-heart {
+        color: #e91e63;
+      }
+      .vertical-slider .vs-card:hover .vs-icon-circle i.bi-star {
         color: #ffd700;
       }
-      .vertical-slider .vs-card:hover .vs-icon-circle i.bi-book {
+      .vertical-slider .vs-card:hover .vs-icon-circle i.bi-journal-text {
         color: #3d314a;
       }
       .vertical-slider .vs-card:hover .vs-icon-circle i.bi-camera {
@@ -2311,19 +3417,49 @@
   padding: 0 !important;
   margin: 0 !important;
     }
-        .faq .accordion-body {
-  background: linear-gradient(90deg, #FDD6B8 60%, #D8C6FB 100%) !important;
-    }
     .portfolio-slider-card:hover .portfolio-desc p {
   color: #181818 !important;
 }
+
+    /* ==================== PRICING CARD HOVER EFFECTS ==================== */
+    .pricing-card {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Subtle icon animation */
+    .pricing-card .card-body > div:first-child {
+      transition: transform 0.3s ease;
+    }
+    
+    .pricing-card:hover .card-body > div:first-child {
+      transform: scale(1.1);
+    }
+    
+    /* Button hover enhancement */
+    .pricing-card .btn {
+      transition: all 0.3s ease;
+    }
+    
+    .pricing-card:hover .btn {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
   <body style="background: linear-gradient(120deg, #e6e6fa 60%, #b8c1ec 100%) !important;">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container position-relative d-flex flex-row align-items-center justify-content-between" style="min-height:56px;">
-      <a class="navbar-brand mb-0" href="#" style="z-index:1203;">Cherished Chapters</a>
+      <a class="navbar-brand mb-0" href="#" style="z-index:1203;">
+        <span style="font-family:'Dancing Script', cursive;font-weight:600;">Cherished</span> 
+        <span style="font-family:'Bellefair', serif;font-weight:400;">Chapters</span>
+      </a>
       <button class="hamburger3d d-lg-none ms-2" id="hamburger3dBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenuOverlay">
         <span class="bar bar1"></span>
         <span class="bar bar2"></span>
@@ -2333,9 +3469,8 @@
       <div class="d-none d-lg-flex ms-auto align-items-center">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#faq">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
           <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -2346,9 +3481,8 @@
         <nav class="mobile-menu-nav">
           <ul>
             <li><a href="#home" class="mobile-menu-link">Home</a></li>
-            <li><a href="#features" class="mobile-menu-link">Features</a></li>
+            <li><a href="#features" class="mobile-menu-link">Products</a></li>
             <li><a href="#portfolio" class="mobile-menu-link">Portfolio</a></li>
-            <li><a href="#faq" class="mobile-menu-link">Services</a></li>
             <li><a href="#process" class="mobile-menu-link">Process</a></li>
             <li><a href="#pricing" class="mobile-menu-link">Pricing</a></li>
             <li><a href="#contact" class="mobile-menu-link">Contact</a></li>
@@ -2362,7 +3496,7 @@
   <!-- Cover Image Section -->
   <section class="cover-image-section">
     <div class="container-fluid p-0" style="min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Cherished Capter Cover" class="img-fluid w-100" style="max-height:420px;object-fit:cover;">
+      <img src="Headline.png" alt="Cherished Capter Cover" class="img-fluid w-100" style="max-height:420px;object-fit:cover;object-position:bottom;">
     </div>
   </section>
 
@@ -2371,19 +3505,18 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-xl-11">
-          <div class="card shadow-lg border-0 p-4 p-md-5 flex-md-row align-items-center mx-auto hero-glass" style="border-radius:2.5rem;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);box-shadow:0 8px 48px rgba(230,184,0,0.10),0 1.5px 8px rgba(26,34,56,0.08);max-width:1200px;width:100%;">
+          <div class="card shadow-lg border-0 p-4 p-md-5 flex-md-row align-items-center mx-auto hero-glass" style="border-radius:2.5rem;background:linear-gradient(120deg,#f0fdf4 0%,#ecfdf5 100%);backdrop-filter:blur(8px);box-shadow:0 8px 48px rgba(230,184,0,0.10),0 1.5px 8px rgba(26,34,56,0.08);max-width:1200px;width:100%;">
             <div class="row g-0 align-items-center">
-              <div class="col-md-7 d-flex flex-column justify-content-center text-center text-md-start px-3 px-md-4">
-                <h1 class="display-4 fw-bold mb-3" style="color:#232946;font-family:'Playfair Display',serif;text-shadow:0 2px 12px #e6b80022;">Hi, I'm Trish!<br><span style="color:#e6b800;background:linear-gradient(90deg,#e6b800,#b8c1ec);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Let's create a one-of-a-kind, heartfelt gift.</span></h1>
-                <p class="lead mb-4" style="color:#181a1b;font-family:'Inter',sans-serif;font-size:1.35rem;">
-I help you in creating a one-of-a-kind and heartfelt gift to celebrate that truly special and cherished relationship.<br><span style="color:#f78da7;font-weight:600;">Warm, personal, and crafted with love.</span></p>
-                <div class="d-flex flex-column flex-sm-row gap-3 mb-2">
-                  <a href="#contact" class="btn btn-lg btn-primary rounded-pill px-5" style="background:linear-gradient(90deg,#e6b800,#b8c1ec);border:none;color:#232946;font-weight:700;box-shadow:0 4px 16px #e6b80022;">Start Your Book</a>
-                  <a href="#quiz" class="btn btn-lg btn-outline-secondary rounded-pill px-5" style="border:2px solid #e6b800;color:#e6b800;font-weight:700;background:rgba(255,255,255,0.7);">Take the Quiz</a>
+              <div class="col-md-7 d-flex flex-column justify-content-center text-center px-3 px-md-4">
+                <h1 class="display-4 fw-bold mb-4" style="color:#232946;font-family:'Playfair Display',serif;text-shadow:0 2px 12px #e6b80022;">Hi, I'm Trish!</h1>
+                <p class="lead mb-4" style="color:#181a1b;font-family:'Inter',sans-serif;font-size:1.35rem;line-height:1.6;">I help you in creating a one-of-a-kind and heartfelt gift to celebrate that truly special and cherished relationship.</p>
+                <div class="d-flex justify-content-center gap-3 mb-2">
+                  <a href="#contact" class="btn btn-lg btn-primary rounded-pill px-5" style="background:linear-gradient(90deg,#e6b800,#b8c1ec);border:none;color:#232946;font-weight:700;box-shadow:0 4px 16px #e6b80022;"><i class="bi bi-pencil-square me-2"></i>Start Your Book</a>
+              <!--   <a href="#quiz" class="btn btn-lg btn-outline-secondary rounded-pill px-5" style="border:2px solid #e6b800;color:#e6b800;font-weight:700;background:rgba(255,255,255,0.7);">Take the Quiz</a>  --> 
                 </div>
               </div>
               <div class="col-md-5 text-center mt-4 mt-md-0 px-3 px-md-4">
-                <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Hero Visual" class="img-fluid rounded-4 shadow hero-img-pro" style="width:340px;height:460px;object-fit:cover;max-width:100%;border-radius:2rem;box-shadow:0 8px 32px #e6b80022;">
+                <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Hero Visual" class="img-fluid rounded-4 shadow hero-img-pro" style="width:340px;height:460px;object-fit:cover;max-width:100%;border-radius:2rem;box-shadow:0 8px 32px #e6b80022;border:4px solid #b8c1ec;">
               </div>
             </div>
           </div>
@@ -2404,15 +3537,15 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
               <div class="vs-title">Milestone Birthdays</div>
             </div>
             <div class="vs-card">
-              <div class="vs-icon"><span class="vs-icon-circle"><i class="bi bi-heart"></i></span></div>
+              <div class="vs-icon"><span class="vs-icon-circle"><i class="bi bi-calendar-heart"></i></span></div>
               <div class="vs-title">Anniversaries</div>
             </div>
             <div class="vs-card">
-              <div class="vs-icon"><span class="vs-icon-circle"><i class="bi bi-trophy"></i></span></div>
+              <div class="vs-icon"><span class="vs-icon-circle"><i class="bi bi-star"></i></span></div>
               <div class="vs-title">Achievements</div>
             </div>
             <div class="vs-card">
-              <div class="vs-icon"><span class="vs-icon-circle"><i class="bi bi-book"></i></span></div>
+              <div class="vs-icon"><span class="vs-icon-circle"><i class="bi bi-journal-text"></i></span></div>
               <div class="vs-title">Personal Stories</div>
             </div>
             <div class="vs-card">
@@ -2428,7 +3561,8 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
           <div class="vs-desc" style="font-size:1.32rem;color:#232946;max-width:540px;">
             Beautifully customized books that chronicle the chapters of one’s life through photographs, milestones and various tokens with personal anecdotes.<br><br>
             It is the best gift for a milestone birthday, anniversary or to celebrate an achievement.<br><br>
-            We will create the book with you and then print, bind, wrap and send it to you.
+            We will create the book with you and then print, bind, wrap and send it to you.<br><br>
+            Create with us / Let us create the best gift you will ever give to your loved one.
           </div>
         </div>
       </div>
@@ -2475,7 +3609,7 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
       }
       .vertical-slider .vs-card .vs-icon {
         font-size: 2.1rem;
-        color: #ff6900;
+        color: #ff6a00;
         flex-shrink: 0;
       }
       .vertical-slider .vs-card .vs-title {
@@ -2486,6 +3620,19 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
       .vertical-slider .vs-card:hover {
   background: #C9B1FB !important;
         color: #181818;
+      }
+      .vertical-slider .vs-card:hover:has(.bi-gift) {
+        background: #ffd93d !important;
+        color: #333333;
+      }
+      .vertical-slider .vs-card:hover:has(.bi-calendar-heart) {
+        background: #ff6b9d !important;
+      }
+      .vertical-slider .vs-card:hover:has(.bi-star) {
+        background: #ff6b6b !important;
+      }
+      .vertical-slider .vs-card:hover:has(.bi-journal-text) {
+        background: #4ecdc4 !important;
       }
       @media (max-width: 767px) {
         .vertical-slider { 
@@ -2825,10 +3972,6 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
         font-size: 1.1rem !important;
         line-height: 1.4 !important;
       }
-      /* Services section mobile margin */
-      #faq.section {
-        margin-top: -5rem !important;
-      }
     }
     
     /* ENSURE DESKTOP REMAINS UNCHANGED */
@@ -2862,13 +4005,13 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
   <div class="d-flex align-items-center justify-content-between flex-wrap flex-md-nowrap portfolio-heading-row" style="gap:0.2rem;margin-bottom:0!important;">
     <div class="portfolio-heading-left" style="min-width:0;margin-left:4vw;">
           <h2 class="portfolio-main-heading" style="margin-bottom:0.2rem;font-size:3.2rem;font-family:'Inter',sans-serif;font-weight:500;color:#231f29;line-height:1.05;">
-            Watch <br>
             <span class="portfolio-main-heading-serif" style="font-family:'Playfair Display',serif;font-weight:700;font-size:4.1rem;letter-spacing:-0.02em;display:inline-block;position:relative;color:#231f29;">
               Some of our work..
               <svg class="portfolio-heading-underline" width="320" height="32" viewBox="0 0 320 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;left:0;bottom:-10px;width:100%;height:32px;pointer-events:none;"><path d="M8 24 Q 80 32 160 24 Q 240 16 312 24" stroke="#fdd46b" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M312 24 l-12 -7 m12 7 l-12 7" stroke="#fdd46b" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
             </span>
             
           </h2>
+          <p class="text-center text-md-start" style="margin-top:1.5rem;font-size:1.32rem;color:#231f29;font-family:'Inter',sans-serif;">Check out some of the books we have created. Maybe the best one will be yours!</p>
         </div>
   <div class="portfolio-heading-arrows d-flex align-items-center" style="gap:0.3rem;margin-right:4vw;">
           <button class="portfolio-carousel-btn" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev" aria-label="Previous" style="background:#fdd46b;width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:background 0.2s;">
@@ -2940,77 +4083,6 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
         </div>
           </div>
           <!-- Add more carousel-item blocks for more slides if needed -->
-        </div>
-      </div>
-    </div>
-  </section>
-   
- <!-- Services Section -->
-  <section class="section" id="faq" style="margin-top:-150px;padding-top:0;padding-bottom:114px;">
-    <div class="container">
-      <div class="row align-items-center justify-content-center g-5 flex-wrap">
-        <!-- Left: Image -->
-        <div class="col-md-6 d-none d-md-flex justify-content-center mb-4 mb-md-0">
-          <img src="lookbook-hero.jpg" alt="FAQ Visual" class="img-fluid rounded-4 shadow" style="max-width:420px;width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;border-radius:1.2rem;box-shadow:0 8px 32px #e6b80022;">
-        </div>
-        <!-- Right: Heading, FAQ, Button -->
-        <div class="col-12 col-md-6 d-flex flex-column align-items-start justify-content-center">
-          <h2 class="section-title mb-4" style="color:#232946;font-size:2.3rem;">Learn about our services</h2>
-          <!-- Mobile-only image after heading -->
-          <div class="d-md-none mb-4 align-self-center">
-            <img src="lookbook-hero.jpg" alt="Services Visual" class="img-fluid rounded-4 shadow" style="max-width:300px;width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;border-radius:1.2rem;box-shadow:0 8px 32px #e6b80022;">
-          </div>
-          <div class="accordion faq w-100 mb-4" id="faqAccordion">
-            <div class="accordion-item fade-in">
-              <h2 class="accordion-header" id="faq1">
-                <button class="accordion-button collapsed faq-q" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1">
-                  Basic
-                  <span class="faq-toggle-icon ms-auto">
-                    <span class="plus"><i class="bi bi-plus-lg"></i></span>
-                    <span class="minus"><i class="bi bi-dash-lg"></i></span>
-                  </span>
-                </button>
-              </h2>
-              <div id="faqCollapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body faq-a">
-                  What should we know about the services you provide? Better descriptions result in more sales.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item fade-in">
-              <h2 class="accordion-header" id="faq2">
-                <button class="accordion-button collapsed faq-q" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
-                  Intermediate
-                  <span class="faq-toggle-icon ms-auto">
-                    <span class="plus"><i class="bi bi-plus-lg"></i></span>
-                    <span class="minus"><i class="bi bi-dash-lg"></i></span>
-                  </span>
-                </button>
-              </h2>
-              <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body faq-a">
-                  What should we know about the services you provide? Better descriptions result in more sales.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item fade-in">
-              <h2 class="accordion-header" id="faq3">
-                <button class="accordion-button collapsed faq-q" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
-                  Advanced
-                  <span class="faq-toggle-icon ms-auto">
-                    <span class="plus"><i class="bi bi-plus-lg"></i></span>
-                    <span class="minus"><i class="bi bi-dash-lg"></i></span>
-                  </span>
-                </button>
-              </h2>
-              <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body faq-a">
-                  What should we know about the services you provide? Better descriptions result in more sales.
-                </div>
-              </div>
-            </div>
-          </div>
-          <a href="#contact" class="btn btn-primary rounded-pill px-5 mt-1" style="font-size:1.18rem;">Shop Now</a>
         </div>
       </div>
     </div>
@@ -3240,68 +4312,66 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
         <i class="bi bi-star-fill" style="font-size: 2rem; color: #7b5e7b; margin-top: 0;"></i>
         <hr style="flex: 1; max-width: 120px; border: none; border-top: 2px solid #7b5e7b; margin: 0;">
       </div>
+      
+      <!-- Create with us text -->
+      <div class="text-center mt-4 mb-5">
+        <p class="lead mb-3" style="color:#4f5d75;font-size:clamp(1.1rem, 2.5vw, 1.3rem);font-weight:500;max-width:800px;margin:0 auto;line-height:1.6;">
+          The way you remember sometimes makes all the difference.
+        </p>
+        <p class="mb-3" style="color:#4f5d75;font-size:clamp(1rem, 2.3vw, 1.15rem);max-width:800px;margin:0 auto;line-height:1.6;">
+          We create with you. We work together to capture your memories into a beautiful book filled with pictures, personal stories and more…
+        </p>
+        <p class="mb-0" style="color:#4f5d75;font-size:clamp(1rem, 2.3vw, 1.15rem);font-style:italic;max-width:800px;margin:0 auto;line-height:1.6;">
+          We will connect through online meetings. We request you to be ready to spend enough time on the project, which will guarantee heartfelt results.
+        </p>
+      </div>
+      
       <div class="process-flow" id="processFlow">
-  <div class="process-step" style="color:#181818;" data-title="Consultation" data-description="We start with a detailed consultation to understand your story, preferences, and the special moments you want to capture in your personalized book.">
-    <i class="bi bi-chat-dots" style="color:#181818;"></i><br>Consultation
+  <div class="process-step" style="color:#181818;" data-title="Initial Consultation" data-description="Discuss vision, theme, tone, and style preferences.">
+    <i class="bi bi-chat-dots" style="color:#181818;"></i><br>Initial<br>Consultation
     <div class="process-popup">
-      <h4><i class="bi bi-chat-dots"></i> Consultation</h4>
-      <p>We start with a detailed consultation to understand your story, preferences, and the special moments you want to capture in your personalized book.</p>
+      <h4><i class="bi bi-chat-dots"></i> Initial Consultation</h4>
+      <p>Discuss vision, theme, tone, and style preferences.</p>
     </div>
   </div>
         <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;" data-title="Curation" data-description="Our team carefully curates content, selecting the most meaningful memories and organizing them into a coherent and beautiful narrative structure.">
-    <i class="bi bi-lightbulb" style="color:#181818;"></i><br>Curation
+  <div class="process-step" style="color:#181818;" data-title="Content Curation" data-description="Collect pictures, anecdotes, quotes; gather inputs from others if needed.">
+    <i class="bi bi-lightbulb" style="color:#181818;"></i><br>Content<br>Curation
     <div class="process-popup">
-      <h4><i class="bi bi-lightbulb"></i> Curation</h4>
-      <p>Our team carefully curates content, selecting the most meaningful memories and organizing them into a coherent and beautiful narrative structure.</p>
+      <h4><i class="bi bi-lightbulb"></i> Content Curation</h4>
+      <p>Collect pictures, anecdotes, quotes; gather inputs from others if needed.</p>
     </div>
   </div>
         <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;" data-title="Storyboarding" data-description="We create a detailed storyboard that maps out the flow of your book, ensuring every page tells your story in the most impactful way.">
+  <div class="process-step" style="color:#181818;" data-title="Storyboarding" data-description="Outline sections and sequence photos and stories logically.">
     <i class="bi bi-journal-text" style="color:#181818;"></i><br>Storyboarding
     <div class="process-popup">
       <h4><i class="bi bi-journal-text"></i> Storyboarding</h4>
-      <p>We create a detailed storyboard that maps out the flow of your book, ensuring every page tells your story in the most impactful way.</p>
+      <p>Outline sections and sequence photos and stories logically.</p>
     </div>
   </div>
         <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;" data-title="Design" data-description="Our talented designers bring your story to life with beautiful layouts, typography, and visual elements that perfectly complement your narrative.">
-    <i class="bi bi-brush" style="color:#181818;"></i><br>Design
+  <div class="process-step" style="color:#181818;" data-title="Design & Layout" data-description="Create and review digital layouts; adjust visuals and fonts.">
+    <i class="bi bi-brush" style="color:#181818;"></i><br>Design &<br>Layout
     <div class="process-popup">
-      <h4><i class="bi bi-brush"></i> Design</h4>
-      <p>Our talented designers bring your story to life with beautiful layouts, typography, and visual elements that perfectly complement your narrative.</p>
+      <h4><i class="bi bi-brush"></i> Design & Layout</h4>
+      <p>Create and review digital layouts; adjust visuals and fonts.</p>
     </div>
   </div>
         <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;" data-title="Approval" data-description="You review the complete design and provide feedback. We make any necessary revisions until you're completely satisfied with your book.">
-    <i class="bi bi-check2-circle" style="color:#181818;"></i><br>Approval
+  <div class="process-step" style="color:#181818;" data-title="Approval & Finalization" data-description="Final proof review and edits.">
+    <i class="bi bi-check2-circle" style="color:#181818;"></i><br>Approval &<br>Finalization
     <div class="process-popup">
-      <h4><i class="bi bi-check2-circle"></i> Approval</h4>
-      <p>You review the complete design and provide feedback. We make any necessary revisions until you're completely satisfied with your book.</p>
+      <h4><i class="bi bi-check2-circle"></i> Approval & Finalization</h4>
+      <p>Final proof review and edits.</p>
     </div>
   </div>
         <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;" data-title="Printing" data-description="Using premium materials and professional printing techniques, we bring your book to life with exceptional quality and attention to detail.">
-    <i class="bi bi-printer" style="color:#181818;"></i><br>Printing
+  <div class="process-step" style="color:#181818;" data-title="Printing & Binding & Shipping" data-description="Choose materials and coordinate printing. Gift-ready packaging and delivery options.">
+    <i class="bi bi-printer" style="color:#181818;"></i><br>Printing & Binding<br>& Shipping
     <div class="process-popup">
-      <h4><i class="bi bi-printer"></i> Printing</h4>
-      <p>Using premium materials and professional printing techniques, we bring your book to life with exceptional quality and attention to detail.</p>
-    </div>
-  </div>
-        <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;" data-title="Packaging" data-description="Your finished book is carefully packaged in beautiful, protective packaging that makes it perfect for gifting or keeping as a treasured keepsake.">
-    <i class="bi bi-box" style="color:#181818;"></i><br>Packaging
-    <div class="process-popup">
-      <h4><i class="bi bi-box"></i> Packaging</h4>
-      <p>Your finished book is carefully packaged in beautiful, protective packaging that makes it perfect for gifting or keeping as a treasured keepsake.</p>
-    </div>
-  </div>
-        <span class="process-arrow"><i class="bi bi-arrow-right"></i></span>
-  <div class="process-step" style="color:#181818;" data-title="After-Sales" data-description="Our commitment doesn't end at delivery. We provide ongoing support and are always here to help with any questions or additional services you might need.">
-    <i class="bi bi-emoji-smile" style="color:#181818;"></i><br>After-Sales
-    <div class="process-popup">
-      <h4><i class="bi bi-emoji-smile"></i> After-Sales</h4>
-      <p>Our commitment doesn't end at delivery. We provide ongoing support and are always here to help with any questions or additional services you might need.</p>
+      <h4><i class="bi bi-printer"></i> Printing & Binding & Shipping</h4>
+      <p>Choose materials and coordinate printing. Gift-ready packaging and delivery options.</p>
     </div>
   </div>
       </div>
@@ -3323,14 +4393,15 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
             <div class="card-body d-flex flex-column align-items-center text-center p-4">
               <div class="mb-3" style="font-size:2.5rem;color:#ab47bc;"><i class="bi bi-star"></i></div>
               <h5 class="fw-bold mb-2" style="color:#232946;">Basic</h5>
-              <ul class="list-unstyled mb-3" style="color:#4f5d75;">
+              <ul class="list-unstyled mb-3 flex-grow-1 d-flex flex-column justify-content-center" style="color:#4f5d75;">
                 <li>20 Pages</li>
-                <li>Custom Illustrations <i class="bi bi-check-lg text-success"></i></li>
-                <li>Personal Consultation <i class="bi bi-check-lg text-success"></i></li>
-                <li class="text-muted">Gift Packaging</li>
+                <li>3 Calls <i class="bi bi-check-lg text-success"></i></li>
+                <li>E-mail support <i class="bi bi-check-lg text-success"></i></li>
               </ul>
-              <div class="h4 mb-3" style="color:#ab47bc;">₹4,999</div>
-              <a href="#contact" class="btn btn-primary rounded-pill px-4">Explore</a>
+              <div class="mt-auto">
+                <div class="h4 mb-3" style="color:#ab47bc;">$250</div>
+                <a href="#contact" class="btn btn-primary rounded-pill px-4">Explore</a>
+              </div>
             </div>
           </div>
         </div>
@@ -3339,14 +4410,16 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
             <div class="card-body d-flex flex-column align-items-center text-center p-4">
               <div class="mb-3" style="font-size:2.5rem;color:#3a5a40;"><i class="bi bi-gem"></i></div>
               <h5 class="fw-bold mb-2" style="color:#232946;">Standard</h5>
-              <ul class="list-unstyled mb-3" style="color:#4f5d75;">
+              <ul class="list-unstyled mb-3 flex-grow-1 d-flex flex-column justify-content-center" style="color:#4f5d75;">
                 <li>40 Pages</li>
+                <li>5 Calls <i class="bi bi-check-lg text-success"></i></li>
                 <li>Custom Illustrations <i class="bi bi-check-lg text-success"></i></li>
-                <li>Personal Consultation <i class="bi bi-check-lg text-success"></i></li>
-                <li>Gift Packaging <i class="bi bi-check-lg text-success"></i></li>
+                <li>E-mail & chat support <i class="bi bi-check-lg text-success"></i></li>
               </ul>
-              <div class="h4 mb-3" style="color:#3a5a40;">₹7,999</div>
-              <a href="#contact" class="btn btn-success rounded-pill px-4">Explore</a>
+              <div class="mt-auto">
+                <div class="h4 mb-3" style="color:#3a5a40;">$350</div>
+                <a href="#contact" class="btn btn-success rounded-pill px-4">Explore</a>
+              </div>
             </div>
           </div>
         </div>
@@ -3355,14 +4428,17 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
             <div class="card-body d-flex flex-column align-items-center text-center p-4">
               <div class="mb-3" style="font-size:2.5rem;color:#4f5d75;"><i class="bi bi-trophy"></i></div>
               <h5 class="fw-bold mb-2" style="color:#232946;">Premium</h5>
-              <ul class="list-unstyled mb-3" style="color:#4f5d75;">
-                <li>60 Pages</li>
+              <ul class="list-unstyled mb-3 flex-grow-1 d-flex flex-column justify-content-center" style="color:#4f5d75;">
+                <li>75 Pages</li>
+                <li>10 Calls <i class="bi bi-check-lg text-success"></i></li>
                 <li>Custom Illustrations <i class="bi bi-check-lg text-success"></i></li>
-                <li>Personal Consultation <i class="bi bi-check-lg text-success"></i></li>
-                <li>Gift Packaging <i class="bi bi-check-lg text-success"></i></li>
+                <li>E-mail & chat support <i class="bi bi-check-lg text-success"></i></li>
+                <li>Premium Gift Packaging <i class="bi bi-check-lg text-success"></i></li>
               </ul>
-              <div class="h4 mb-3" style="color:#4f5d75;">₹11,999</div>
-              <a href="#contact" class="btn btn-outline-primary rounded-pill px-4">Explore</a>
+              <div class="mt-auto">
+                <div class="h4 mb-3" style="color:#4f5d75;">$500</div>
+                <a href="#contact" class="btn btn-outline-primary rounded-pill px-4">Explore</a>
+              </div>
             </div>
           </div>
         </div>
@@ -3370,16 +4446,259 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
     </div>
   </section>
 
+  <!-- Quiz CTA Section -->
+  <section class="container my-5 fade-in">
+    <div class="cta-modern-card mx-auto text-center p-4 p-md-5" style="max-width:900px;background:linear-gradient(120deg,#e8f5e8 60%,#d4edda 100%);border-radius:1.5rem;box-shadow:0 8px 32px rgba(60,80,40,0.12);">
+      <div class="mb-4">
+        <h3 class="mb-3" style="color:#28a745;font-family:var(--headline);font-weight:700;font-size:clamp(1.5rem, 4vw, 2.2rem);">Still Not Sure?</h3>
+        <p class="mb-4 px-2" style="color:#4f5d75;font-size:clamp(1rem, 2.5vw, 1.15rem);font-style:italic;max-width:600px;margin:0 auto;line-height:1.5;">Let's discuss your ideas and explore the possibilities together</p>
+      </div>
+
+      <div class="text-center mb-4">
+        <a href="#" class="btn btn-success rounded-pill px-5 py-3" style="background:linear-gradient(135deg,#28a745,#20c997);border:none;font-weight:600;font-size:clamp(1rem, 2.5vw, 1.2rem);box-shadow:0 4px 16px rgba(40,167,69,0.3);">
+          Discuss <i class="bi bi-chat-dots ms-2"></i>
+        </a>
+      </div>
+
+      <div class="pt-3" style="border-top:2px solid rgba(40,167,69,0.15);">
+        <p class="mb-0 px-2" style="color:#28a745;font-weight:500;font-size:clamp(0.95rem, 2.3vw, 1.1rem);">
+          <i class="bi bi-lightbulb me-2"></i>
+          Let us help you discover the perfect book for your loved one
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Section -->
   <section class="container my-5 fade-in" id="quiz">
-    <div class="cta-modern-card mx-auto text-center p-5" style="max-width:520px;background:linear-gradient(120deg,#fff6f9 60%,#f6e7cb 100%);border-radius:1.2rem;box-shadow:0 4px 24px rgba(60,40,80,0.10);">
-      <h3 class="mb-3" style="color:#ab47bc;font-family:var(--headline);font-weight:700;">Still not sure?</h3>
-      <p class="mb-4" style="color:#4f5d75;">Take our quick quiz to find your perfect gift!</p>
-      <a href="#" class="btn btn-lg btn-primary rounded-pill px-5 cta-quiz-btn">Take the Quiz</a>
+    <div class="cta-modern-card mx-auto text-center p-4 p-md-5" style="max-width:900px;background:linear-gradient(120deg,#fff6f9 60%,#f6e7cb 100%);border-radius:1.5rem;box-shadow:0 8px 32px rgba(60,40,80,0.12);">
+      <div class="mb-4">
+        <h4 class="mb-3" style="color:#232946;font-family:var(--headline);font-weight:600;font-size:clamp(1.2rem, 3.5vw, 1.8rem);">Ready to Begin Your Journey?</h4>
+        <p class="mb-4 px-2" style="color:#4f5d75;font-size:clamp(1rem, 2.5vw, 1.15rem);font-style:italic;max-width:600px;margin:0 auto;line-height:1.5;">Let us help you create the most meaningful gift you will ever give to your loved one.</p>
+      </div>
+
+      <div class="row g-3 g-md-4 text-start mb-4">
+        <div class="col-12 col-lg-6">
+          <div class="cta-option h-100 p-3 p-md-4 d-flex flex-column" style="background:rgba(255,255,255,0.8);border-radius:1.2rem;border-left:4px solid #ab47bc;box-shadow:0 4px 16px rgba(171,71,188,0.1);">
+            <div class="d-flex align-items-center mb-3 flex-column flex-sm-row text-center text-sm-start">
+              <i class="bi bi-heart-fill heart-icon mb-2 mb-sm-0 me-sm-3" style="font-size:clamp(1.5rem, 3vw, 1.8rem);color:#ab47bc;"></i>
+              <h5 class="mb-0" style="color:#ab47bc;font-weight:600;font-size:clamp(1rem, 2.8vw, 1.2rem);">Ready to Start Creating?</h5>
+            </div>
+            <p class="mb-3 flex-grow-1 text-center text-sm-start" style="color:#4f5d75;font-size:clamp(0.9rem, 2.2vw, 1rem);line-height:1.6;">Complete our consultation form and secure your project with the initial fee. We'll review your materials and schedule a personalized discussion to bring your vision to life.</p>
+            <div class="mt-auto text-center text-sm-start">
+              <a href="#contact" class="btn btn-primary rounded-pill px-4 py-2 w-100 w-sm-auto" style="background:linear-gradient(135deg,#ab47bc,#8e44ad);border:none;font-weight:600;font-size:clamp(0.9rem, 2.2vw, 1rem);">
+                <i class="bi bi-pencil-square me-2"></i>Start Your Project
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-12 col-lg-6">
+          <div class="cta-option consultation-card h-100 p-3 p-md-4 d-flex flex-column" style="background:rgba(255,255,255,0.8);border-radius:1.2rem;border-left:4px solid #e6b800;box-shadow:0 4px 16px rgba(230,184,0,0.1);">
+            <div class="d-flex align-items-center mb-3 flex-column flex-sm-row text-center text-sm-start">
+              <i class="bi bi-telephone-fill phone-icon mb-2 mb-sm-0 me-sm-3" style="font-size:clamp(1.5rem, 3vw, 1.8rem);color:#e6b800;"></i>
+              <h5 class="mb-0" style="color:#e6b800;font-weight:600;font-size:clamp(1rem, 2.8vw, 1.2rem);">Need a Consultation First?</h5>
+            </div>
+            <p class="mb-3 flex-grow-1 text-center text-sm-start" style="color:#4f5d75;font-size:clamp(0.9rem, 2.2vw, 1rem);line-height:1.6;">Not sure if this is right for you? Have questions about our process? Schedule a complimentary consultation call to discuss your ideas and explore the possibilities.</p>
+            <div class="mt-auto text-center text-sm-start">
+              <a href="#" class="btn btn-outline-warning rounded-pill px-4 py-2 w-100 w-sm-auto" data-bs-toggle="modal" data-bs-target="#consultationModal" style="border-color:#e6b800;color:#e6b800;font-weight:600;font-size:clamp(0.9rem, 2.2vw, 1rem);">
+                <i class="bi bi-calendar-check me-2"></i>Book Consultation
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-3 pt-md-4" style="border-top:2px solid rgba(171,71,188,0.15);">
+        <p class="mb-0 px-2" style="color:#ab47bc;font-weight:500;font-size:clamp(0.95rem, 2.3vw, 1.1rem);">
+          <i class="bi bi-envelope-heart me-2"></i>
+          We would love to hear from you and help bring your vision to life.
+        </p>
+      </div>
     </div>
   </section>
     
- 
+  <!-- FAQs Section -->
+  <section class="section" id="faqs">
+    <div class="container">
+      <h2 class="section-title text-center mb-3" style="color:#232946;">HOW DO WE CREATE IT?</h2>
+      <div class="text-center d-flex align-items-center justify-content-center" style="gap: 1rem; margin-top: 0; margin-bottom: 0;">
+        <hr style="flex: 1; max-width: 120px; border: none; border-top: 2px solid #7b5e7b; margin: 0;">
+        <i class="bi bi-star-fill" style="font-size: 2rem; color: #7b5e7b; margin-top: 0;"></i>
+        <hr style="flex: 1; max-width: 120px; border: none; border-top: 2px solid #7b5e7b; margin: 0;">
+      </div>
+      
+      <!-- Introduction text -->
+      <div class="text-center mt-4 mb-5">
+        <p class="lead mb-3" style="color:#4f5d75;font-size:clamp(1.1rem, 2.5vw, 1.3rem);font-weight:500;max-width:800px;margin:0 auto;line-height:1.6;">
+          The way you remember sometimes makes all the difference.
+        </p>
+        <p class="mb-3" style="color:#4f5d75;font-size:clamp(1rem, 2.3vw, 1.15rem);max-width:800px;margin:0 auto;line-height:1.6;">
+          We create with you. We work together to capture your memories into a beautiful book filled with pictures, personal stories and more…
+        </p>
+        <p class="mb-0" style="color:#4f5d75;font-size:clamp(1rem, 2.3vw, 1.15rem);font-style:italic;max-width:800px;margin:0 auto;line-height:1.6;">
+          We will connect through online meetings. We request you to be ready to spend enough time on the project, which will guarantee heartfelt results
+        </p>
+      </div>
+
+      <!-- FAQ Accordion -->
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="accordion" id="faqAccordion">
+        <div class="accordion-item mb-3" style="border:none;border-radius:1rem;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1" style="border-radius:1rem;background:#f8f9fa;color:#232946;font-size:clamp(1rem, 2.5vw, 1.1rem);">
+              <i class="bi bi-chat-dots me-3 text-primary"></i>Initial Consultation
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" style="background:linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);border-radius:0 0 1rem 1rem;padding:2rem;border-top:3px solid #0d6efd;">
+              <div style="background:#fff;padding:1.5rem;border-radius:0.75rem;box-shadow:0 1px 8px rgba(0,0,0,0.06);border-left:4px solid #0d6efd;">
+                <ul style="color:#495057;font-size:clamp(0.95rem, 2.2vw, 1.05rem);line-height:1.7;margin:0;padding-left:1.2rem;">
+                  <li class="mb-3">In depth conversation on your vision, sentimental value and expectations for the book</li>
+                  <li class="mb-3">We will present samples to inspire ideas and refine the concept.</li>
+                  <li class="mb-3">Clarify the book's purpose and theme: Journey through decades, family history, travel adventures etc.</li>
+                  <li class="mb-3">Decide on the tone: nostalgic, celebratory, heartfelt or fun!</li>
+                  <li class="mb-0">Discuss the preferred size, cover style, and binding!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3" style="border:none;border-radius:1rem;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2" style="border-radius:1rem;background:#f8f9fa;color:#232946;font-size:clamp(1rem, 2.5vw, 1.1rem);">
+              <i class="bi bi-images me-3 text-success"></i>Curation of Pictures and Rest
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" style="background:linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);border-radius:0 0 1rem 1rem;padding:2rem;border-top:3px solid #198754;">
+              <div style="background:#fff;padding:1.5rem;border-radius:0.75rem;box-shadow:0 1px 8px rgba(0,0,0,0.06);border-left:4px solid #198754;">
+                <ul style="color:#495057;font-size:clamp(0.95rem, 2.2vw, 1.05rem);line-height:1.7;margin:0;padding-left:1.2rem;">
+                  <li class="mb-3">Create a base document when you start uploading all the pictures and other tokens and write personal anecdotes.</li>
+                  <li class="mb-3">We can reach out to others on your behalf to collect input for the book.</li>
+                  <li class="mb-0">Incorporate quotes, poetry, or words from significant figures if desired.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3" style="border:none;border-radius:1rem;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3" style="border-radius:1rem;background:#f8f9fa;color:#232946;font-size:clamp(1rem, 2.5vw, 1.1rem);">
+              <i class="bi bi-journal-text me-3 text-warning"></i>Storyboarding & Structuring
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" style="background:linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);border-radius:0 0 1rem 1rem;padding:2rem;border-top:3px solid #ffc107;">
+              <div style="background:#fff;padding:1.5rem;border-radius:0.75rem;box-shadow:0 1px 8px rgba(0,0,0,0.06);border-left:4px solid #ffc107;">
+                <ul style="color:#495057;font-size:clamp(0.95rem, 2.2vw, 1.05rem);line-height:1.7;margin:0;padding-left:1.2rem;">
+                  <li class="mb-3">Collaboratively outline the sections of the book (e.g., childhood, achievements, travels)</li>
+                  <li class="mb-3">Sequence photographs and stories to chronicle the journey effectively.</li>
+                  <li class="mb-0">Suggest places for artwork, captions, and highlights for significant events.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3" style="border:none;border-radius:1rem;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4" style="border-radius:1rem;background:#f8f9fa;color:#232946;font-size:clamp(1rem, 2.5vw, 1.1rem);">
+              <i class="bi bi-brush me-3 text-info"></i>Design & Layout
+            </button>
+          </h2>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" style="background:linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);border-radius:0 0 1rem 1rem;padding:2rem;border-top:3px solid #0dcaf0;">
+              <div style="background:#fff;padding:1.5rem;border-radius:0.75rem;box-shadow:0 1px 8px rgba(0,0,0,0.06);border-left:4px solid #0dcaf0;">
+                <ul style="color:#495057;font-size:clamp(0.95rem, 2.2vw, 1.05rem);line-height:1.7;margin:0;padding-left:1.2rem;">
+                  <li class="mb-3">We create initial layouts, integrating materials with creative visuals.</li>
+                  <li class="mb-3">Present digital proofs for your review and feedback.</li>
+                  <li class="mb-0">Adjust designs according to your preferences (colours, fonts, motif).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3" style="border:none;border-radius:1rem;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5" style="border-radius:1rem;background:#f8f9fa;color:#232946;font-size:clamp(1rem, 2.5vw, 1.1rem);">
+              <i class="bi bi-check2-circle me-3 text-success"></i>Approval & Finalization
+            </button>
+          </h2>
+          <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" style="background:linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);border-radius:0 0 1rem 1rem;padding:2rem;border-top:3px solid #198754;">
+              <div style="background:#fff;padding:1.5rem;border-radius:0.75rem;box-shadow:0 1px 8px rgba(0,0,0,0.06);border-left:4px solid #198754;">
+                <ul style="color:#495057;font-size:clamp(0.95rem, 2.2vw, 1.05rem);line-height:1.7;margin:0;padding-left:1.2rem;">
+                  <li class="mb-3">Provide a final digital proof for comprehensive review.</li>
+                  <li class="mb-0">Make any final tweaks or edits requested.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3" style="border:none;border-radius:1rem;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6" style="border-radius:1rem;background:#f8f9fa;color:#232946;font-size:clamp(1rem, 2.5vw, 1.1rem);">
+              <i class="bi bi-printer me-3 text-primary"></i>Printing & Binding
+            </button>
+          </h2>
+          <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" style="background:linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);border-radius:0 0 1rem 1rem;padding:2rem;border-top:3px solid #0d6efd;">
+              <div style="background:#fff;padding:1.5rem;border-radius:0.75rem;box-shadow:0 1px 8px rgba(0,0,0,0.06);border-left:4px solid #0d6efd;">
+                <ul style="color:#495057;font-size:clamp(0.95rem, 2.2vw, 1.05rem);line-height:1.7;margin:0;padding-left:1.2rem;">
+                  <li class="mb-3">Choose premium printing materials and finishes based on your selection.</li>
+                  <li class="mb-0">Coordinate the process with a vendor.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3" style="border:none;border-radius:1rem;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq7" aria-expanded="false" aria-controls="faq7" style="border-radius:1rem;background:#f8f9fa;color:#232946;font-size:clamp(1rem, 2.5vw, 1.1rem);">
+              <i class="bi bi-gift me-3 text-danger"></i>Packaging & Delivery
+            </button>
+          </h2>
+          <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" style="background:linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);border-radius:0 0 1rem 1rem;padding:2rem;border-top:3px solid #dc3545;">
+              <div style="background:#fff;padding:1.5rem;border-radius:0.75rem;box-shadow:0 1px 8px rgba(0,0,0,0.06);border-left:4px solid #dc3545;">
+                <ul style="color:#495057;font-size:clamp(0.95rem, 2.2vw, 1.05rem);line-height:1.7;margin:0;padding-left:1.2rem;">
+                  <li class="mb-3">Package the book elegantly, suitable for gifting if requested.</li>
+                  <li class="mb-0">Offer delivery options.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3" style="border:none;border-radius:1rem;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq8" aria-expanded="false" aria-controls="faq8" style="border-radius:1rem;background:#f8f9fa;color:#232946;font-size:clamp(1rem, 2.5vw, 1.1rem);">
+              <i class="bi bi-headset me-3 text-info"></i>After-Sales Support
+            </button>
+          </h2>
+          <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" style="background:linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);border-radius:0 0 1rem 1rem;padding:2rem;border-top:3px solid #0dcaf0;">
+              <div style="background:#fff;padding:1.5rem;border-radius:0.75rem;box-shadow:0 1px 8px rgba(0,0,0,0.06);border-left:4px solid #0dcaf0;">
+                <ul style="color:#495057;font-size:clamp(0.95rem, 2.2vw, 1.05rem);line-height:1.7;margin:0;padding-left:1.2rem;">
+                  <li class="mb-3">Provide care instructions for preserving the book.</li>
+                  <li class="mb-0">Offer reprints, additional copies, or digital versions if desired.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Contact Us Form -->
   <section class="section" id="contact">
@@ -3534,10 +4853,9 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
         </div>
         <div class="col-12 col-md-4 text-center text-md-end">
           <div class="footer-links mb-2">
-            <a href="#features" class="footer-link mx-2">Features</a>
+            <a href="#features" class="footer-link mx-2">Products</a>
             <a href="#portfolio" class="footer-link mx-2">Portfolio</a>
             <a href="#pricing" class="footer-link mx-2">Pricing</a>
-            <a href="#faq" class="footer-link mx-2">FAQ</a>
             <a href="#contact" class="footer-link mx-2">Contact</a>
           </div>
           <div class="footer-copyright" style="color:#000000;font-size:0.95rem;">
@@ -3894,6 +5212,570 @@ I help you in creating a one-of-a-kind and heartfelt gift to celebrate that trul
         }
       });
     });
+  </script>
+
+  <!-- Comprehensive Modern JavaScript -->
+  <script>
+    // ==================== PRELOADER MANAGEMENT ====================
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 500);
+      }, 1500);
+    });
+
+    // ==================== THEME TOGGLE ====================
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    // Set initial theme
+    body.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+    
+    themeToggle.addEventListener('click', () => {
+      const newTheme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+    
+    function updateThemeIcon(theme) {
+      const icon = themeToggle.querySelector('i');
+      icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    }
+
+    // ==================== CUSTOM CURSOR ====================
+    const cursor = document.getElementById('customCursor');
+    const follower = document.getElementById('cursorFollower');
+    
+    if (window.innerWidth > 768) {
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        
+        setTimeout(() => {
+          follower.style.left = e.clientX + 'px';
+          follower.style.top = e.clientY + 'px';
+        }, 100);
+      });
+      
+      // Cursor interactions
+      document.querySelectorAll('button, a, .card, .btn').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+      });
+    }
+
+    // ==================== PARTICLE BACKGROUND ====================
+    function createParticles() {
+      const container = document.getElementById('particleBackground');
+      if (!container || window.innerWidth <= 768) return;
+      
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        container.appendChild(particle);
+      }
+    }
+    
+    createParticles();
+
+    // ==================== SCROLL PROGRESS ====================
+    const scrollProgress = document.getElementById('scrollProgress');
+    
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      scrollProgress.style.width = scrollPercent + '%';
+    });
+
+    // ==================== SECTION NAVIGATION ====================
+    const sections = document.querySelectorAll('section[id]');
+    const navDots = document.querySelectorAll('.section-nav-dot');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navDots.forEach(dot => {
+        dot.classList.remove('active');
+        if (dot.getAttribute('data-section') === current) {
+          dot.classList.add('active');
+        }
+      });
+    });
+    
+    // Section navigation clicks
+    navDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const sectionId = dot.getAttribute('data-section');
+        const section = document.getElementById(sectionId === 'hero' ? 'home' : sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ==================== SCROLL TO TOP ====================
+    const scrollToTop = document.getElementById('scrollToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollToTop.classList.add('visible');
+      } else {
+        scrollToTop.classList.remove('visible');
+      }
+    });
+    
+    scrollToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ==================== INTERSECTION OBSERVER FOR ANIMATIONS ====================
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.section-entrance, .stagger-animation, .fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // ==================== ENHANCED FORM HANDLING ====================
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach(form => {
+      const inputs = form.querySelectorAll('.form-control-enhanced');
+      
+      inputs.forEach(input => {
+        input.addEventListener('blur', validateInput);
+        input.addEventListener('input', clearValidation);
+      });
+      
+      form.addEventListener('submit', handleFormSubmit);
+    });
+    
+    function validateInput(e) {
+      const input = e.target;
+      const validation = input.parentNode.querySelector('.form-validation');
+      
+      if (input.hasAttribute('required') && !input.value.trim()) {
+        showValidation(input, validation, 'This field is required');
+        return false;
+      }
+      
+      if (input.type === 'email' && input.value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(input.value)) {
+          showValidation(input, validation, 'Please enter a valid email');
+          return false;
+        }
+      }
+      
+      return true;
+    }
+    
+    function clearValidation(e) {
+      const input = e.target;
+      const validation = input.parentNode.querySelector('.form-validation');
+      if (validation) {
+        validation.classList.remove('show');
+        input.classList.remove('shake-on-error');
+      }
+    }
+    
+    function showValidation(input, validation, message) {
+      if (validation) {
+        validation.textContent = message;
+        validation.classList.add('show');
+        input.classList.add('shake-on-error');
+        setTimeout(() => input.classList.remove('shake-on-error'), 500);
+      }
+    }
+    
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const inputs = form.querySelectorAll('.form-control-enhanced');
+      let isValid = true;
+      
+      inputs.forEach(input => {
+        if (!validateInput({ target: input })) {
+          isValid = false;
+        }
+      });
+      
+      if (isValid) {
+        showToast('Message sent successfully!', 'success');
+        form.reset();
+      } else {
+        showToast('Please fix the errors above', 'error');
+      }
+    }
+
+    // ==================== TOAST NOTIFICATIONS ====================
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+      toast.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span>${message}</span>
+          <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: inherit; font-size: 1.2rem; cursor: pointer;">&times;</button>
+        </div>
+      `;
+      
+      container.appendChild(toast);
+      
+      setTimeout(() => toast.classList.add('show'), 100);
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    // ==================== ENHANCED CARD INTERACTIONS ====================
+    document.querySelectorAll('.card-3d, .flip-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.zIndex = '10';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.zIndex = '1';
+      });
+    });
+
+    // ==================== RIPPLE EFFECTS ====================
+    document.querySelectorAll('.ripple-effect').forEach(element => {
+      element.addEventListener('click', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        this.style.setProperty('--ripple-x', x + 'px');
+        this.style.setProperty('--ripple-y', y + 'px');
+      });
+    });
+
+    // ==================== PARALLAX EFFECTS ====================
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll('.parallax-element');
+      
+      parallaxElements.forEach(element => {
+        const speed = element.dataset.speed || 0.5;
+        const transform = scrolled * speed;
+        element.style.transform = `translateY(${transform}px)`;
+      });
+    });
+
+    // ==================== STAGGER ANIMATIONS ====================
+    function staggerAnimation() {
+      const staggerElements = document.querySelectorAll('.stagger-animation');
+      
+      staggerElements.forEach((element, index) => {
+        setTimeout(() => {
+          element.classList.add('animate');
+        }, index * 100);
+      });
+    }
+    
+    // Trigger stagger animations on scroll
+    const staggerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.classList.contains('stagger-container')) {
+          staggerAnimation();
+        }
+      });
+    });
+    
+    document.querySelectorAll('.stagger-container').forEach(container => {
+      staggerObserver.observe(container);
+    });
+
+    // ==================== PERFORMANCE OPTIMIZATIONS ====================
+    // Debounce scroll events
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+    
+    // Throttle resize events
+    function throttle(func, delay) {
+      let timeoutId;
+      let lastExecTime = 0;
+      return function (...args) {
+        const currentTime = Date.now();
+        
+        if (currentTime - lastExecTime > delay) {
+          func.apply(this, args);
+          lastExecTime = currentTime;
+        } else {
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => {
+            func.apply(this, args);
+            lastExecTime = Date.now();
+          }, delay - (currentTime - lastExecTime));
+        }
+      };
+    }
+
+    // ==================== ACCESSIBILITY ENHANCEMENTS ====================
+    // Keyboard navigation for custom elements
+    document.querySelectorAll('.section-nav-dot').forEach(dot => {
+      dot.setAttribute('tabindex', '0');
+      dot.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          dot.click();
+        }
+      });
+    });
+    
+    // Focus management
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        document.body.classList.add('using-keyboard');
+      }
+    });
+    
+    document.addEventListener('mousedown', () => {
+      document.body.classList.remove('using-keyboard');
+    });
+
+    // ==================== INITIALIZE ON LOAD ====================
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add GPU acceleration to animated elements
+      document.querySelectorAll('.card, .btn, .section-nav-dot').forEach(el => {
+        el.classList.add('gpu-accelerated');
+      });
+      
+      // Add smooth scroll to body
+      document.documentElement.classList.add('smooth-scroll');
+      
+      console.log('🎉 Cherished Chapter website fully loaded with modern enhancements!');
+    });
+  </script>
+
+  <!-- Consultation Booking Modal -->
+  <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius:1.5rem;border:none;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+        <div class="modal-header text-center" style="background:linear-gradient(135deg,#e6b800,#d4a900);border-radius:1.5rem 1.5rem 0 0;border:none;padding:1rem 3rem 1rem 1.5rem;position:relative;">
+          <h5 class="modal-title text-white fw-bold mx-auto" id="consultationModalLabel" style="font-size:clamp(1.1rem, 3vw, 1.25rem);">
+            <i class="bi bi-calendar-check me-2"></i>Book Your Consultation Call
+          </h5>
+          <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Close" style="top:1rem;right:1rem;"></button>
+        </div>
+        <style>
+          @media (max-width: 767px) {
+            #consultationModal .modal-dialog {
+              margin: 0.5rem !important;
+              max-width: calc(100vw - 1rem) !important;
+            }
+            #consultationModal .modal-content {
+              width: 100% !important;
+            }
+          }
+        </style>
+        <div class="modal-body p-3 p-md-4">
+          <form id="consultationForm">
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="fullName" class="form-label fw-semibold" style="font-size:clamp(0.9rem, 2.5vw, 1rem);">Full Name *</label>
+                <input type="text" class="form-control" id="fullName" required style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="email" class="form-label fw-semibold" style="font-size:clamp(0.9rem, 2.5vw, 1rem);">Email Address *</label>
+                <input type="email" class="form-control" id="email" required style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="phone" class="form-label fw-semibold" style="font-size:clamp(0.9rem, 2.5vw, 1rem);">Phone Number *</label>
+                <input type="tel" class="form-control" id="phone" required style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold" style="font-size:clamp(0.9rem, 2.5vw, 1rem);">Preferred Date & Time *</label>
+                <div class="row g-2">
+                  <div class="col-12 col-md-6">
+                    <input type="date" class="form-control" id="preferredDate" required style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <select class="form-select" id="preferredTime" required style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
+                      <option value="">Select Time Slot</option>
+                      <option value="09:00">9:00 AM</option>
+                      <option value="10:00">10:00 AM</option>
+                      <option value="11:00">11:00 AM</option>
+                      <option value="12:00">12:00 PM</option>
+                      <option value="13:00">1:00 PM</option>
+                      <option value="14:00">2:00 PM</option>
+                      <option value="15:00">3:00 PM</option>
+                      <option value="16:00">4:00 PM</option>
+                      <option value="17:00">5:00 PM</option>
+                      <option value="17:00">6:00 PM</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <label for="projectDetails" class="form-label fw-semibold" style="font-size:clamp(0.9rem, 2.5vw, 1rem);">Tell us about your project idea</label>
+                <textarea class="form-control" id="projectDetails" rows="4" placeholder="Tell us about the special book you want to create for your loved one..." style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);min-height:100px;"></textarea>
+                <style>
+                  #projectDetails::placeholder {
+                    color: #f8f9fa !important;
+                    opacity: 0.8;
+                  }
+                  #projectDetails::-webkit-input-placeholder {
+                    color: #f8f9fa !important;
+                    opacity: 0.8;
+                  }
+                  #projectDetails::-moz-placeholder {
+                    color: #f8f9fa !important;
+                    opacity: 0.8;
+                  }
+                  #projectDetails:-ms-input-placeholder {
+                    color: #f8f9fa !important;
+                    opacity: 0.8;
+                  }
+                </style>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer d-flex justify-content-end align-items-center flex-column flex-md-row" style="border:none;padding:1rem 1.5rem;gap:0.75rem;">
+          <button type="button" class="btn btn-outline-secondary rounded-pill order-2 order-md-1" data-bs-dismiss="modal" style="font-size:clamp(0.9rem, 2.5vw, 1rem);padding:0.5rem 1rem;display:inline-block;width:auto;">Cancel</button>
+          <button type="button" class="btn btn-primary rounded-pill order-1 order-md-2" id="submitConsultation" style="background:linear-gradient(135deg,#e6b800,#d4a900);border:none;font-size:clamp(0.9rem, 2.5vw, 1rem);padding:0.5rem 1rem;display:inline-block;width:auto;">
+            <i class="bi bi-send me-2"></i>Book a Call
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Consultation form submission
+    document.getElementById('submitConsultation').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const form = document.getElementById('consultationForm');
+      const formData = new FormData(form);
+      
+      // Validate required fields
+      const requiredFields = ['fullName', 'email', 'phone', 'preferredDate', 'preferredTime'];
+      let isValid = true;
+      
+      requiredFields.forEach(field => {
+        const input = document.getElementById(field);
+        if (!input.value.trim()) {
+          input.style.borderColor = '#dc3545';
+          isValid = false;
+        } else {
+          input.style.borderColor = '#e6b800';
+        }
+      });
+      
+      if (!isValid) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      
+      // Collect form data
+      const consultationData = {
+        fullName: document.getElementById('fullName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        timezone: document.getElementById('timezone').value,
+        preferredDate: document.getElementById('preferredDate').value,
+        preferredTime: document.getElementById('preferredTime').value,
+        projectDetails: document.getElementById('projectDetails').value,
+        source: document.querySelector('input[name="source"]:checked')?.value || 'Not specified'
+      };
+      
+      // Send email using EmailJS (you'll need to configure this)
+      sendConsultationEmail(consultationData);
+    });
+    
+    function sendConsultationEmail(data) {
+      // Show loading state
+      const submitBtn = document.getElementById('submitConsultation');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Sending...';
+      submitBtn.disabled = true;
+      
+      // Prepare email content
+      const emailContent = `
+        New Consultation Booking Request
+        
+        Contact Information:
+        - Name: ${data.fullName}
+        - Email: ${data.email}
+        - Phone: ${data.phone}
+        - Timezone: ${data.timezone}
+        
+        Preferred Schedule:
+        - Date: ${data.preferredDate}
+        - Time: ${data.preferredTime}
+        
+        Project Details:
+        ${data.projectDetails || 'No details provided'}
+        
+        Source: ${data.source}
+        
+        Submitted on: ${new Date().toLocaleString()}
+      `;
+      
+      // For demonstration purposes, we'll use mailto (you should implement proper email service)
+      const mailtoLink = `mailto:your-email@example.com?subject=New Consultation Booking - ${data.fullName}&body=${encodeURIComponent(emailContent)}`;
+      
+      // Simulate sending (replace with actual email service integration)
+      setTimeout(() => {
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        // Show success message
+        alert('Thank you! Your consultation request has been submitted. We will contact you within 24 hours to confirm your appointment.');
+        
+        // Close modal and reset form
+        const modal = bootstrap.Modal.getInstance(document.getElementById('consultationModal'));
+        modal.hide();
+        document.getElementById('consultationForm').reset();
+        
+        // Open email client (for demonstration)
+        window.open(mailtoLink);
+      }, 2000);
+    }
+    
+    // Set minimum date to today
+    document.getElementById('preferredDate').min = new Date().toISOString().split('T')[0];
   </script>
 </body>
 </html>
