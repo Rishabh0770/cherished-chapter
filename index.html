@@ -3599,6 +3599,12 @@
         }
       }
   </style>
+<style>
+  .navbar {
+    background: #0c3b2e !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  }
+</style>
 </head>
   <body style="background: linear-gradient(120deg, #e6e6fa 60%, #b8c1ec 100%) !important;">
   <!-- Navbar -->
@@ -4644,15 +4650,9 @@
           </div>
           <div class="text-center mb-4">
             <img src="7566.png" alt="Question" style="width:95%;max-width:95%;height:auto;max-height:320px;object-fit:contain;margin-bottom:1.2rem;display:block;margin-left:auto;margin-right:auto;" />
-            <a href="#" class="btn btn-primary rounded-pill px-5 py-3 still-not-sure-btn" style="background:#ffc099 !important;border:none !important;color:#232946 !important;font-weight:700 !important;font-size:clamp(1rem, 2.5vw, 1.2rem);box-shadow:0 4px 16px #e6b80022 !important;">
-              Discuss <i class="bi bi-chat-dots ms-2"></i>
-            </a>
-            <style>
-              .still-not-sure-btn:hover, .still-not-sure-btn:focus {
-                background: #181a1b !important;
-                color: #fff !important;
-              }
-            </style>
+            <a href="#" class="btn btn-primary rounded-pill px-5 py-3 still-not-sure-btn">
+            Discuss <i class="bi bi-chat-dots ms-2"></i>
+              </a>
           </div>
           <div class="pt-3" style="border-top:2px solid rgba(40,167,69,0.15);">
             <p class="mb-0 px-2" style="color:#28a745;font-weight:500;font-size:clamp(0.95rem, 2.3vw, 1.1rem);">
@@ -4677,16 +4677,10 @@
                   </div>
                   <p class="mb-3 flex-grow-1 text-center text-sm-start" style="color:#4f5d75;font-size:clamp(0.9rem, 2.2vw, 1rem);line-height:1.6;">Complete our consultation form and secure your project with the initial fee. We'll review your materials and schedule a personalized discussion to bring your vision to life.</p>
                   <div class="mt-auto text-center text-sm-start">
-                    <a href="#contact" class="btn btn-primary rounded-pill px-4 py-2 w-100 w-sm-auto ready-btn" style="background:#ffc099 !important;border:none !important;color:#232946 !important;font-weight:700 !important;font-size:clamp(0.9rem, 2.2vw, 1rem);box-shadow:0 4px 16px #e6b80022 !important;">
-                      <i class="bi bi-pencil-square me-2"></i>Start Your Project
-                    </a>
-                  </div>
-                  <style>
-                    .ready-btn:hover, .ready-btn:focus {
-                      background: #181a1b !important;
-                      color: #fff !important;
-                    }
-                  </style>
+                    <a href="#contact" class="btn btn-primary rounded-pill px-4 py-2 w-100 w-sm-auto ready-btn">
+                 <i class="bi bi-pencil-square me-2"></i>Start Your Project
+                      </a>
+                    </div>
                 </div>
               </div>
               <div class="col-12 col-md-6">
@@ -4697,8 +4691,8 @@
                   </div>
                   <p class="mb-3 flex-grow-1 text-center text-sm-start" style="color:#4f5d75;font-size:clamp(0.9rem, 2.2vw, 1rem);line-height:1.6;">Not sure if this is right for you? Have questions about our process? Schedule a complimentary consultation call to discuss your ideas and explore the possibilities.</p>
                   <div class="mt-auto text-center text-sm-start">
-                    <a href="#" class="btn btn-primary rounded-pill px-4 py-2 w-100 w-sm-auto ready-btn" data-bs-toggle="modal" data-bs-target="#consultationModal" style="background:#ffc099 !important;border:none !important;color:#232946 !important;font-weight:700 !important;font-size:clamp(0.9rem, 2.2vw, 1rem);box-shadow:0 4px 16px #e6b80022 !important;">
-                      <i class="bi bi-calendar-check me-2"></i>Book Consultation
+                    <a href="#" class="btn btn-primary rounded-pill px-4 py-2 w-100 w-sm-auto ready-btn" data-bs-toggle="modal" data-bs-target="#consultationModal">
+                 <i class="bi bi-calendar-check me-2"></i>Book Consultation
                     </a>
                   </div>
                 </div>
@@ -5988,5 +5982,104 @@
     // Set minimum date to today
     document.getElementById('preferredDate').min = new Date().toISOString().split('T')[0];
   </script>
+  </script>
+  <!-- Force hover color for CTA buttons -->
+  <style>
+    a.still-not-sure-btn:hover, a.still-not-sure-btn:focus,
+    a.ready-btn:hover, a.ready-btn:focus {
+      background: #000 !important;
+      color: #fff !important;
+      border-color: #000 !important;
+    }
+  </style>
+  <style>
+    a.still-not-sure-btn,
+    a.ready-btn {
+      background: #ffc099 !important;
+      color: #232946 !important;
+      border: none !important;
+      font-weight: 700;
+      font-size: clamp(0.92rem, 2vw, 1.08rem);
+      box-shadow: 0 4px 16px #e6b80022 !important;
+      transition: background 0.22s, color 0.22s;
+    }
+    a.still-not-sure-btn:hover, a.still-not-sure-btn:focus,
+    a.ready-btn:hover, a.ready-btn:focus {
+      background: #000 !important;
+      color: #fff !important;
+      border: none !important;
+      box-shadow: 0 4px 16px #000 !important;
+    }
+
+    /* Responsive adjustments for .ready-btn */
+    a.ready-btn {
+      padding-left: 1.2rem !important;
+      padding-right: 1.2rem !important;
+      padding-top: 0.6rem !important;
+      padding-bottom: 0.6rem !important;
+      white-space: nowrap;
+    }
+    @media (max-width: 991.98px) {
+      a.ready-btn {
+        font-size: 0.98rem !important;
+        padding-left: 0.9rem !important;
+        padding-right: 0.9rem !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+      }
+    }
+    @media (max-width: 575.98px) {
+      a.ready-btn {
+        font-size: 0.92rem !important;
+        padding-left: 0.7rem !important;
+        padding-right: 0.7rem !important;
+        padding-top: 0.45rem !important;
+        padding-bottom: 0.45rem !important;
+      }
+    }
+  </style>
+  <style>
+    .nav-link {
+      color: #e0e0e0 !important; /* light grey */
+      font-weight: 500;
+      transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+    .nav-link.active, .nav-link:hover, .nav-link:focus {
+      color: #232323 !important; /* black on hover/active */
+      background: #eebbc3 !important;
+      box-shadow: 0 2px 12px rgba(238,187,195,0.13);
+      border-radius: 0.7rem;
+    }
+  </style>
+  <style>
+    nav.navbar,
+    .navbar,
+    .navbar.navbar-expand-lg,
+    .navbar.navbar-light,
+    .navbar.navbar-dark {
+      background: #0c3b2e !important;
+      background-color: #0c3b2e !important;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    }
+  </style>
+  <style>
+    .footer,
+    .footer-modern {
+      background: #0c3b2e !important;
+      background-color: #0c3b2e !important;
+      color: #e0e0e0 !important;
+    }
+  </style>
 </body>
 </html>
+  <style>
+    a.still-not-sure-btn[class]:hover,
+    a.still-not-sure-btn[class]:focus,
+    a.ready-btn[class]:hover,
+    a.ready-btn[class]:focus {
+      background: #000 !important;
+      color: #fff !important;
+      border-color: #000 !important;
+      box-shadow: 0 4px 16px #000 !important;
+    }
+  </style>
