@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cherished Chapter Questionnaire</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #f8fafc 60%, #e0e7ff 100%);
+    scroll-behavior: smooth;
+    min-height: 100vh;
+  }
+  h2 {
+    color: #5e60ce;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  h4 {
+    color: #5390d9;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+  .form-section {
+  background: #e4fde1;
+    padding: 32px 20px 28px 20px;
+    margin-bottom: 32px;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(83,144,217,0.10);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .form-section:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 16px 40px rgba(83,144,217,0.13);
+  }
+  .form-label {
+    font-weight: 600;
+    color: #5e548e;
+    letter-spacing: 0.5px;
+  }
+  input.form-control, textarea.form-control, select.form-control {
+    border-radius: 10px;
+    border: 1.5px solid #bdb2ff;
+    font-size: 1rem;
+    transition: border 0.2s, box-shadow 0.2s;
+    background: #f8fafc;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: #5390d9;
+    box-shadow: 0 0 8px rgba(83,144,217,0.18);
+    outline: none;
+    background: #fff;
+  }
+  .form-check {
+    margin-bottom: 10px;
+  }
+  .form-check-input:checked {
+    background-color: #5390d9;
+    border-color: #5390d9;
+  }
+  .form-check-label {
+    font-weight: 500;
+    color: #5e548e;
+  }
+  .bi {
+    transition: transform 0.3s, color 0.3s;
+  }
+  .form-section:hover .bi {
+    transform: scale(1.18);
+    color: #5390d9;
+  }
+  .btn-primary, .btn-primary:focus {
+  background: #ffeedd;
+  color: #22223b;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(83,144,217,0.08);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover {
+  background: #23272f;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(83,144,217,0.13);
+  }
+  .btn:active {
+    transform: scale(0.98);
+  }
+  .navbar {
+    box-shadow: 0 2px 12px rgba(83,144,217,0.06);
+    padding: 0.7rem 0;
+    background: linear-gradient(90deg, #495867 0%, #577399 100%);
+    border-radius: 0;
+    width: 100vw;
+    margin: 0;
+  }
+  .navbar-brand img {
+    height: 44px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(83,144,217,0.08);
+  }
+  .navbar-dark .navbar-nav .nav-link {
+  color: #f8fafc;
+    font-weight: 500;
+    margin-right: 15px;
+    border-radius: 8px;
+    padding: 6px 18px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .navbar-dark .navbar-nav .nav-link.active {
+    background-color: #80ffea;
+    color: #22223b !important;
+    font-weight: 700;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: #fff;
+    background: #5390d9;
+  }
+  .container {
+    max-width: 820px;
+  }
+  .form-control::placeholder {
+    color: #bdb2ff;
+    opacity: 1;
+  }
+  footer {
+    background: #bdb2ff;
+    color: #22223b;
+    padding: 40px 0 20px 0;
+    text-align: center;
+    font-size: 0.98rem;
+    border-top: 1.5px solid #80ffea;
+    margin-top: 60px;
+    border-radius: 18px 18px 0 0;
+  }
+  footer a {
+    color: #5390d9;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 8px;
+  }
+  footer a:hover {
+    color: #5e60ce;
+    text-decoration: underline;
+  }
+  #scrollProgress {
+    position: fixed;
+    top: 0; left: 0; width: 0%; height: 5px;
+    background-color: #80ffea;
+    z-index: 9999;
+    transition: width 0.25s;
+  }
+  @media (max-width: 991.98px) {
+    .navbar-brand {
+      margin-left: 0 !important;
+    }
+      /* .nav-align-responsive removed, now using Bootstrap flex utilities only */
+    .navbar-nav .nav-link {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+    .form-section {
+      padding: 18px 6px 16px 6px;
+    }
+    .container {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+    @media (min-width: 992px) {
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-brand {
+      margin-right: 0;
+    }
+      /* .nav-align-responsive removed, now using Bootstrap flex utilities only */
+  }
+</style>
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top w-100" style="background-color:#1e1e1e; z-index: 1020; padding:0;">
+  <div class="navbar-inner container px-3">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="logo.PNG" alt="Logo" height="40">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav-align-responsive">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-lg-flex justify-content-lg-end w-100">
+          <li class="nav-item"><a class="nav-link" href="index.html#about">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#theme">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#memories">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#people">Process</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#timeline">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#next">Contact</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+
+
+<div class="container py-5">
+  <h2>Let’s start creating your Cherished Chapter</h2>
+  <p class="text-center mb-5">Thank you for your interest in creating a cherished gift with Cherished Chapters! This questionnaire will help us understand your vision and the special story you want to tell.</p>
+
+  <form action="YOUR_FORMSPREE_URL" method="POST" class="needs-validation" novalidate>
+
+    <!-- About You -->
+    <div class="form-section" id="about">
+      <h4><i class="bi bi-person-circle"></i> About You</h4>
+      <div class="row g-3">
+        <div class="col-md-6"><label class="form-label">Name</label><input type="text" class="form-control" name="Name" placeholder="Person" required></div>
+        <div class="col-md-6"><label class="form-label">Email</label><input type="email" class="form-control" name="Email" placeholder="Person@example.com" required></div>
+        <div class="col-md-6"><label class="form-label">Location</label><input type="text" class="form-control" name="Location" placeholder="Place"></div>
+        <div class="col-md-6"><label class="form-label">Time Zone</label><input type="text" class="form-control" name="TimeZone" placeholder="Date"></div>
+        <div class="col-12"><label class="form-label">Preferred time for calls with the CC Team</label><input type="text" class="form-control" name="PreferredCallTime"></div>
+      </div>
+    </div>
+
+    <!-- Theme -->
+    <div class="form-section" id="theme">
+      <h4><i class="bi bi-book"></i> About Your “Cherished Chapter”</h4>
+
+      <div class="mb-3"><label class="form-label">Primary purpose or theme:</label>
+        <div class="row">
+          <div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="radio" name="Theme" value="Milestone birthday" id="theme1"><label class="form-check-label" for="theme1">Milestone birthday</label></div></div>
+          <div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="radio" name="Theme" value="Anniversary" id="theme2"><label class="form-check-label" for="theme2">Anniversary</label></div></div>
+          <div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="radio" name="Theme" value="Achievement" id="theme3"><label class="form-check-label" for="theme3">Celebrating an achievement / Project</label></div></div>
+          <div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="radio" name="Theme" value="Family history" id="theme4"><label class="form-check-label" for="theme4">Family history / journey</label></div></div>
+          <div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="radio" name="Theme" value="Travel adventures" id="theme5"><label class="form-check-label" for="theme5">Travel adventures</label></div></div>
+          <div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="radio" name="Theme" value="Life of pet" id="theme6"><label class="form-check-label" for="theme6">Documenting life of a pet</label></div></div>
+          <div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="radio" name="Theme" value="Other" id="theme7"><label class="form-check-label" for="theme7">Other</label></div></div>
+        </div>
+      </div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-md-6"><label class="form-label">Recipient Name</label><input type="text" class="form-control" name="RecipientName" placeholder="Person"></div>
+        <div class="col-md-6"><label class="form-label">Relationship to you</label><input type="text" class="form-control" name="RecipientRelationship"></div>
+      </div>
+      <div class="form-check mb-3"><input class="form-check-input" type="checkbox" name="RecipientSelf" id="forSelf"><label class="form-check-label" for="forSelf">For yourself</label></div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-md-4"><input type="text" class="form-control" name="Story1" placeholder="Story 1"></div>
+        <div class="col-md-4"><input type="text" class="form-control" name="Story2" placeholder="Story 2"></div>
+        <div class="col-md-4"><input type="text" class="form-control" name="Story3" placeholder="Story 3"></div>
+      </div>
+
+      <div class="mb-3"><label class="form-label">Milestones to highlight</label><textarea class="form-control" rows="2" name="Milestones"></textarea></div>
+      <div class="mb-3"><label class="form-label">Key people, pets, or places</label><textarea class="form-control" rows="2" name="KeyPeople"></textarea></div>
+      <div class="mb-3"><label class="form-label">Memorabilia</label><textarea class="form-control" rows="2" name="Memorabilia"></textarea></div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="radio" name="Length" value="0-20 pages" id="len1"><label class="form-check-label" for="len1">0-20 pages</label></div></div>
+        <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="radio" name="Length" value="20-30 pages" id="len2"><label class="form-check-label" for="len2">20-30 pages</label></div></div>
+        <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="radio" name="Length" value="30+ pages" id="len3"><label class="form-check-label" for="len3">More than 30 pages</label></div></div>
+        <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="radio" name="Length" value="50+ pages" id="len4"><label class="form-check-label" for="len4">More than 50 pages</label></div></div>
+      </div>
+
+      <!-- Tone, Content, Structure, Book Name, Cover Requests, Inspirations -->
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Tone</label>
+          <div class="form-check"><input class="form-check-input" type="checkbox" name="Tone" value="Nostalgic" id="tone1"><label class="form-check-label" for="tone1">Nostalgic</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" name="Tone" value="Celebratory" id="tone2"><label class="form-check-label" for="tone2">Celebratory</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" name="Tone" value="Heartfelt" id="tone3"><label class="form-check-label" for="tone3">Heartfelt</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" name="Tone" value="Fun" id="tone4"><label class="form-check-label" for="tone4">Fun</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" name="Tone" value="Other" id="tone5"><label class="form-check-label" for="tone5">Other</label></div>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Content</label>
+          <div class="form-check"><input class="form-check-input" type="checkbox" name="Content" value="Photographs" id="cont1"><label class="form-check-label" for="cont1">Photographs</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" name="Content" value="Anecdotes" id="cont2"><label class="form-check-label" for="cont2">Personal anecdotes/stories</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" name="Content" value="Quotes" id="cont3"><label class="form-check-label" for="cont3">Quotes / Poetry</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" name="Content" value="Letters" id="cont4"><label class="form-check-label" for="cont4">Letters / Writings</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" name="Content" value="Memorabilia" id="cont5"><label class="form-check-label" for="cont5">Other tokens/memorabilia</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" name="Content" value="Messages" id="cont6"><label class="form-check-label" for="cont6">Personal messages from others</label></div>
+        </div>
+      </div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-md-6"><label class="form-label">Book Structure</label><input type="text" class="form-control" name="Structure"></div>
+        <div class="col-md-6"><label class="form-label">Book Name / Cover Title</label><input type="text" class="form-control" name="BookName"></div>
+      </div>
+      <div class="mb-3"><label class="form-label">Cover Requests</label><textarea class="form-control" rows="2" name="CoverRequests"></textarea></div>
+      <div class="mb-3"><label class="form-label">Inspirations / Examples</label><textarea class="form-control" rows="2" name="Inspiration"></textarea></div>
+      <div class="mb-3"><label class="form-label">Additional Instructions</label><textarea class="form-control" rows="2" name="Instructions"></textarea></div>
+    </div>
+
+    <!-- Memories and Stories -->
+    <div class="form-section" id="memories">
+      <h4><i class="bi bi-journal-text"></i> Your Memories and Stories</h4>
+      <div class="row g-3">
+        <div class="col-md-6"><label>Childhood</label><textarea class="form-control" rows="2" name="Childhood"></textarea></div>
+        <div class="col-md-6"><label>Adolescence/Young Adulthood</label><textarea class="form-control" rows="2" name="Adolescence"></textarea></div>
+        <div class="col-md-6"><label>Career/Achievements</label><textarea class="form-control" rows="2" name="Career"></textarea></div>
+        <div class="col-md-6"><label>Relationships/Family</label><textarea class="form-control" rows="2" name="Relationships"></textarea></div>
+        <div class="col-md-6"><label>Travels</label><textarea class="form-control" rows="2" name="Travels"></textarea></div>
+        <div class="col-md-6"><label>Other significant memories</label><textarea class="form-control" rows="2" name="OtherMemories"></textarea></div>
+      </div>
+    </div>
+
+    <!-- Individuals -->
+    <div class="form-section" id="people">
+      <h4><i class="bi bi-people"></i> Specific Individuals</h4>
+      <div class="row g-3">
+        <div class="col-md-4"><input type="text" class="form-control" name="Individual1" placeholder="Name & Relationship"></div>
+        <div class="col-md-4"><input type="text" class="form-control" name="Individual2" placeholder="Name & Relationship"></div>
+        <div class="col-md-4"><input type="text" class="form-control" name="Individual3" placeholder="Name & Relationship"></div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="form-section" id="timeline">
+      <h4><i class="bi bi-calendar-event"></i> Timeline</h4>
+      <div class="row g-3 mb-3">
+        <div class="col-md-4"><label>Target Date</label><input type="date" class="form-control" name="TargetDate"></div>
+        <div class="col-md-4"><label>Specific Event</label><input type="text" class="form-control" name="SpecificEvent"></div>
+        <div class="col-md-4"><label>Print & Deliver?</label>
+          <div class="form-check"><input class="form-check-input" type="radio" name="PrintDeliver" value="Yes" id="printYes"><label class="form-check-label" for="printYes">Yes</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="PrintDeliver" value="No" id="printNo"><label class="form-check-label" for="printNo">No</label></div>
+        </div>
+      </div>
+      <div class="mb-3"><label>If yes, provide the address</label><textarea class="form-control" rows="2" name="DeliveryAddress"></textarea></div>
+      <div class="mb-3"><small>Depending on printing and shipping timelines we will adjust the target date of completion of the book.</small></div>
+    </div>
+
+    <!-- Next Steps -->
+    <div class="form-section" id="next">
+      <h4><i class="bi bi-chat-left-text"></i> Next Steps</h4>
+      <p>After you complete this questionnaire, we will review your responses and schedule an initial consultation call to discuss your vision in depth. Add any immediate questions below.</p>
+      <div class="mb-3"><textarea class="form-control" rows="3" name="NextSteps"></textarea></div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-6 pe-1">
+        <button type="submit" class="btn btn-primary w-100 py-2">Submit</button>
+      </div>
+      <div class="col-6 ps-1">
+        <button type="reset" class="btn btn-outline-secondary w-100 py-2">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<footer>
+  <p>&copy; 2025 Cherished Chapter. All rights reserved.</p>
+  <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  window.addEventListener('scroll', function() {
+    let scrollTop = document.documentElement.scrollTop;
+    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (scrollTop / scrollHeight) * 100;
+    document.getElementById('scrollProgress').style.width = scrolled + '%';
+  });
+  // Removed navLinks JS: links now go to index.html sections directly
+</script>
+</body>
+</html>

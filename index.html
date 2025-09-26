@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,6 +58,11 @@
     }
     
     /* ==================== GLASS MORPHISM EFFECTS ==================== */
+    /* Muted white placeholder for newsletter form */
+    .newsletter-signup-section input::placeholder {
+      color: #e0e0e0 !important;
+      opacity: 1 !important;
+    }
     .glass-card {
       background: var(--glass-bg);
       backdrop-filter: blur(15px);
@@ -186,6 +192,27 @@
     .scroll-reveal.revealed {
       opacity: 1;
       transform: translateY(0);
+    }
+  </style>
+  <style>
+    /* Hero section image zoom on hover */
+    .hero-img-pro {
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s;
+    }
+    .hero-img-pro:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 40px #e6b80044, 0 2px 12px #1a223822;
+      z-index: 2;
+    }
+  </style>
+  <style>
+    /* Mobile responsive for newsletter/signup section outer card */
+    @media (max-width: 575.98px) {
+      .newsletter-signup-section .outer-newsletter-card {
+        max-width: 100% !important;
+        padding: 20px 6px 16px 6px !important;
+        border-radius: 1.2rem !important;
+      }
     }
   </style>
   
@@ -1201,7 +1228,7 @@
         order: 1;
       }
       #hamburger3dBtn {
-        margin-right: 0.2rem !important;
+        margin-right: 1.1rem !important;
         margin-left: 0 !important;
         order: 2;
       }
@@ -2211,6 +2238,10 @@
         padding: 1rem 1.2rem !important;
         text-align: center !important;
       }
+      .newsletter-signup-section input::placeholder {
+        color: #e0e0e0 !important;
+        opacity: 1 !important;
+      }
       .newsletter-signup-section form button {
         width: 100% !important;
         font-size: 1.1rem !important;
@@ -2233,20 +2264,27 @@
       .footer-modern {
         padding-top: 2rem !important;
         padding-bottom: 1.5rem !important;
+  background: #44355b !important;
       }
       .footer-modern .container {
         padding-left: 1.5rem !important;
         padding-right: 1.5rem !important;
       }
       .footer-modern .row {
+        flex-direction: column !important;
         text-align: center !important;
+        gap: 0 !important;
       }
       .footer-modern .col-12.col-md-4 {
+        width: 100% !important;
+        max-width: 100% !important;
         text-align: center !important;
-        margin-bottom: 2rem !important;
+        margin-bottom: 1.2rem !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
       }
       .footer-modern .col-12.col-md-4:last-child {
-        margin-bottom: 1rem !important;
+        margin-bottom: 0.5rem !important;
       }
       .footer-logo {
         justify-content: center !important;
@@ -2292,14 +2330,21 @@
       }
       .footer-links {
         margin-bottom: 1rem !important;
+        width: 100% !important;
+      }
+      .footer-links ul {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        padding-left: 0 !important;
       }
       .footer-link {
         display: inline-block !important;
-        margin: 0.3rem 0.8rem !important;
+        margin: 0.3rem 0.5rem !important;
         font-size: 0.95rem !important;
         color: #4f5d75 !important;
         text-decoration: none !important;
-        padding: 0.5rem !important;
+        padding: 0.5rem 0.7rem !important;
         border-radius: 0.5rem !important;
         transition: all 0.3s ease !important;
       }
@@ -2812,7 +2857,8 @@
       background: linear-gradient(120deg, var(--soft-lavender) 70%, var(--muted-blue) 100%);
       border-radius: 0.7rem;
       text-align: center;
-      vertical-align: middle;
+  vertical-align: middle;
+  color: #ffd166 !important;
       border: 1.5px solid var(--dark-navy);
       color: #232946;
     }
@@ -3226,13 +3272,21 @@
       transform: translateY(-2px) scale(1.03);
     }
  .footer-modern {
-      background: linear-gradient(90deg,#fff6f9 60%,#b8c1ec 100%);
-      color: #232946;
+  background: #264653 !important;
+      color: #fff !important;
       border-top: 1.5px solid #eebbc3;
       font-family: var(--body);
     }
+
+    .footer-modern, .footer-modern a, .footer-modern .footer-link, .footer-modern .footer-logo, .footer-modern .footer-desc, .footer-modern .footer-contact, .footer-modern .footer-social-link, .footer-modern .footer-copyright {
+      color: #fff !important;
+    }
+    .footer-modern .footer-link:hover, .footer-modern .footer-social-link:hover {
+      color: #ffd166 !important;
+    }
     .footer-logo-icon {
-      vertical-align: middle;
+  vertical-align: middle;
+  color: #ffd166 !important;
     }
     .footer-social-link {
       color: #ab47bc;
@@ -3468,6 +3522,57 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
+        /* Mobile responsive for hero section with floral SVG background */
+    @media (max-width: 767px) {
+      .hero-section {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+        min-height: 420px !important;
+      }
+      .hero-section svg {
+        height: 320px !important;
+        min-height: 220px !important;
+        max-height: 60vw !important;
+      }
+      .hero-section .container {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+      }
+      .hero-section .row {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+      }
+      .hero-section h1 {
+        font-size: 2rem !important;
+        margin-bottom: 0.8rem !important;
+      }
+      .hero-section p {
+        font-size: 1.08rem !important;
+        margin-bottom: 1rem !important;
+      }
+      .hero-section img.hero-img-pro {
+        width: 70vw !important;
+        max-width: 260px !important;
+        aspect-ratio: 3/5 !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        border-radius: 0.5rem !important;
+        object-fit: cover !important;
+        box-shadow: 0 4px 24px #0002 !important;
+        background: #fff !important;
+      }
+      .hero-section .btn {
+        font-size: 1rem !important;
+        padding: 0.6rem 1.5rem !important;
+      }
+    }
+        /* Make consultation form placeholder text visible on dark backgrounds */
+    #consultationModal input::placeholder,
+    #consultationModal textarea::placeholder,
+    #consultationModal select::placeholder {
+      color: #f8f9fa !important;
+      opacity: 0.8 !important;
+    }
   </style>
 </head>
   <body style="background: linear-gradient(120deg, #e6e6fa 60%, #b8c1ec 100%) !important;">
@@ -3475,8 +3580,7 @@
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container position-relative d-flex flex-row align-items-center justify-content-between" style="min-height:56px;">
       <a class="navbar-brand mb-0" href="#" style="z-index:1203;">
-        <span style="font-family:'Dancing Script', cursive;font-weight:600;">Cherished</span> 
-        <span style="font-family:'Bellefair', serif;font-weight:400;">Chapters</span>
+  <img src="logo.PNG" alt="Cherished Chapters" style="height:60px;width:auto;">
       </a>
       <button class="hamburger3d d-lg-none ms-2" id="hamburger3dBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenuOverlay">
         <span class="bar bar1"></span>
@@ -3519,23 +3623,40 @@
   </section>
 
   <!-- Hero Section -->
-  <section class="hero-section py-5" id="home" style="background: none !important;">
-    <div class="container">
+  <section class="hero-section py-5 position-relative overflow-hidden" id="home" style="background: none !important;">
+    <!-- Decorative Floral SVG Background -->
+    <svg class="position-absolute top-0 start-0 w-100 h-100" style="z-index:0;pointer-events:none;" viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g opacity="0.18">
+        <ellipse cx="200" cy="100" rx="180" ry="80" fill="#e6b800"/>
+        <ellipse cx="1240" cy="120" rx="160" ry="70" fill="#ab47bc"/>
+        <ellipse cx="400" cy="500" rx="220" ry="90" fill="#b8c1ec"/>
+        <ellipse cx="1100" cy="480" rx="180" ry="80" fill="#f6c6b4"/>
+        <!-- Simple flower shapes -->
+        <g>
+          <circle cx="300" cy="180" r="30" fill="#f6c6b4"/>
+          <circle cx="330" cy="180" r="18" fill="#e6b800"/>
+          <circle cx="315" cy="155" r="12" fill="#ab47bc"/>
+        </g>
+        <g>
+          <circle cx="1200" cy="200" r="28" fill="#b8c1ec"/>
+          <circle cx="1225" cy="210" r="16" fill="#e6b800"/>
+          <circle cx="1210" cy="230" r="10" fill="#ab47bc"/>
+        </g>
+      </g>
+    </svg>
+  <div class="container position-relative" style="z-index:1;">
       <div class="row justify-content-center">
         <div class="col-12 col-xl-11">
-          <div class="card shadow-lg border-0 p-4 p-md-5 flex-md-row align-items-center mx-auto hero-glass" style="border-radius:2.5rem;background:linear-gradient(120deg,#f0fdf4 0%,#ecfdf5 100%);backdrop-filter:blur(8px);box-shadow:0 8px 48px rgba(230,184,0,0.10),0 1.5px 8px rgba(26,34,56,0.08);max-width:1200px;width:100%;">
-            <div class="row g-0 align-items-center">
-              <div class="col-md-7 d-flex flex-column justify-content-center text-center px-3 px-md-4">
-                <h1 class="display-4 fw-bold mb-4" style="color:#232946;font-family:'Playfair Display',serif;text-shadow:0 2px 12px #e6b80022;">Hi, I'm Trish!</h1>
-                <p class="lead mb-4" style="color:#181a1b;font-family:'Inter',sans-serif;font-size:1.35rem;line-height:1.6;">I help you in creating a one-of-a-kind and heartfelt gift to celebrate that truly special and cherished relationship.</p>
-                <div class="d-flex justify-content-center gap-3 mb-2">
-                  <a href="#contact" class="btn btn-lg btn-primary rounded-pill px-5" style="background:linear-gradient(90deg,#e6b800,#b8c1ec);border:none;color:#232946;font-weight:700;box-shadow:0 4px 16px #e6b80022;"><i class="bi bi-pencil-square me-2"></i>Start Your Book</a>
-              <!--   <a href="#quiz" class="btn btn-lg btn-outline-secondary rounded-pill px-5" style="border:2px solid #e6b800;color:#e6b800;font-weight:700;background:rgba(255,255,255,0.7);">Take the Quiz</a>  --> 
-                </div>
+          <div class="row g-0 align-items-center">
+            <div class="col-md-7 d-flex flex-column justify-content-center text-center px-3 px-md-4">
+              <h1 class="display-4 fw-bold mb-4" style="color:#232946;font-family:'Playfair Display',serif;text-shadow:0 2px 12px #e6b80022;">Hi, I'm Trish!</h1>
+              <p class="lead mb-4" style="color:#181a1b;font-family:'Inter',sans-serif;font-size:1.35rem;line-height:1.6;">I help you in creating a one-of-a-kind and heartfelt gift to celebrate that truly special and cherished relationship.</p>
+              <div class="d-flex justify-content-center gap-3 mb-2">
+                <a href="#contact" class="btn btn-lg btn-primary rounded-pill px-5" style="background:linear-gradient(90deg,#e6b800,#b8c1ec);border:none;color:#232946;font-weight:700;box-shadow:0 4px 16px #e6b80022;"><i class="bi bi-pencil-square me-2"></i>Start Your Book</a>
               </div>
-              <div class="col-md-5 text-center mt-4 mt-md-0 px-3 px-md-4">
-                <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Hero Visual" class="img-fluid rounded-4 shadow hero-img-pro" style="width:340px;height:460px;object-fit:cover;max-width:100%;border-radius:2rem;box-shadow:0 8px 32px #e6b80022;border:4px solid #b8c1ec;">
-              </div>
+            </div>
+            <div class="col-md-5 text-center mt-4 mt-md-0 px-3 px-md-4">
+              <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Hero Visual" class="img-fluid rounded-4 shadow hero-img-pro" style="width:340px;height:460px;object-fit:cover;max-width:100%;border-radius:2rem;box-shadow:0 8px 32px #e6b80022;border:4px solid #b8c1ec;">
             </div>
           </div>
         </div>
@@ -4025,7 +4146,6 @@
           <h2 class="portfolio-main-heading" style="margin-bottom:0.2rem;font-size:3.2rem;font-family:'Inter',sans-serif;font-weight:500;color:#231f29;line-height:1.05;">
             <span class="portfolio-main-heading-serif" style="font-family:'Playfair Display',serif;font-weight:700;font-size:4.1rem;letter-spacing:-0.02em;display:inline-block;position:relative;color:#231f29;">
               Some of our work..
-              <svg class="portfolio-heading-underline" width="320" height="32" viewBox="0 0 320 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;left:0;bottom:-10px;width:100%;height:32px;pointer-events:none;"><path d="M8 24 Q 80 32 160 24 Q 240 16 312 24" stroke="#fdd46b" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M312 24 l-12 -7 m12 7 l-12 7" stroke="#fdd46b" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
             </span>
             
           </h2>
@@ -4413,11 +4533,14 @@
               <h5 class="fw-bold mb-2" style="color:#232946;">Basic</h5>
               <ul class="list-unstyled mb-3 flex-grow-1 d-flex flex-column justify-content-center" style="color:#4f5d75;">
                 <li>20 Pages</li>
-                <li>3 Calls <i class="bi bi-check-lg text-success"></i></li>
-                <li>E-mail support <i class="bi bi-check-lg text-success"></i></li>
+                <li>3 Calls</li>
+                <li>E-mail support</li>
               </ul>
               <div class="mt-auto">
-                <div class="h4 mb-3" style="color:#ab47bc;">$250</div>
+                <div class="h4 mb-3" style="color:#ab47bc;">
+                  <span style="text-decoration:line-through;color:#b0b0b0;font-size:1.1rem;margin-right:0.5rem;">$350</span>
+                  $250
+                </div>
                 <a href="#contact" class="btn btn-primary rounded-pill px-4">Explore</a>
               </div>
             </div>
@@ -4430,12 +4553,15 @@
               <h5 class="fw-bold mb-2" style="color:#232946;">Standard</h5>
               <ul class="list-unstyled mb-3 flex-grow-1 d-flex flex-column justify-content-center" style="color:#4f5d75;">
                 <li>40 Pages</li>
-                <li>5 Calls <i class="bi bi-check-lg text-success"></i></li>
-                <li>Custom Illustrations <i class="bi bi-check-lg text-success"></i></li>
-                <li>E-mail & chat support <i class="bi bi-check-lg text-success"></i></li>
+                <li>5 Calls</li>
+                <li>Custom Illustrations</li>
+                <li>E-mail & chat support</li>
               </ul>
               <div class="mt-auto">
-                <div class="h4 mb-3" style="color:#3a5a40;">$350</div>
+                <div class="h4 mb-3" style="color:#3a5a40;">
+                  <span style="text-decoration:line-through;color:#b0b0b0;font-size:1.1rem;margin-right:0.5rem;">$450</span>
+                  $350
+                </div>
                 <a href="#contact" class="btn btn-success rounded-pill px-4">Explore</a>
               </div>
             </div>
@@ -4448,13 +4574,16 @@
               <h5 class="fw-bold mb-2" style="color:#232946;">Premium</h5>
               <ul class="list-unstyled mb-3 flex-grow-1 d-flex flex-column justify-content-center" style="color:#4f5d75;">
                 <li>75 Pages</li>
-                <li>10 Calls <i class="bi bi-check-lg text-success"></i></li>
-                <li>Custom Illustrations <i class="bi bi-check-lg text-success"></i></li>
-                <li>E-mail & chat support <i class="bi bi-check-lg text-success"></i></li>
-                <li>Premium Gift Packaging <i class="bi bi-check-lg text-success"></i></li>
+                <li>10 Calls</li>
+                <li>Custom Illustrations</li>
+                <li>E-mail & chat support</li>
+                <li>Premium Gift Packaging</li>
               </ul>
               <div class="mt-auto">
-                <div class="h4 mb-3" style="color:#4f5d75;">$500</div>
+                <div class="h4 mb-3" style="color:#4f5d75;">
+                  <span style="text-decoration:line-through;color:#b0b0b0;font-size:1.1rem;margin-right:0.5rem;">$650</span>
+                  $500
+                </div>
                 <a href="#contact" class="btn btn-outline-primary rounded-pill px-4">Explore</a>
               </div>
             </div>
@@ -4539,24 +4668,11 @@
   <!-- FAQs Section -->
   <section class="section" id="faqs">
     <div class="container">
-      <h2 class="section-title text-center mb-3" style="color:#232946;">HOW DO WE CREATE IT?</h2>
+  <h2 class="section-title text-center mb-3" style="color:#232946;">FAQ,s</h2>
       <div class="text-center d-flex align-items-center justify-content-center" style="gap: 1rem; margin-top: 0; margin-bottom: 0;">
         <hr style="flex: 1; max-width: 120px; border: none; border-top: 2px solid #7b5e7b; margin: 0;">
         <i class="bi bi-star-fill" style="font-size: 2rem; color: #7b5e7b; margin-top: 0;"></i>
         <hr style="flex: 1; max-width: 120px; border: none; border-top: 2px solid #7b5e7b; margin: 0;">
-      </div>
-      
-      <!-- Introduction text -->
-      <div class="text-center mt-4 mb-5">
-        <p class="lead mb-3" style="color:#4f5d75;font-size:clamp(1.1rem, 2.5vw, 1.3rem);font-weight:500;max-width:800px;margin:0 auto;line-height:1.6;">
-          The way you remember sometimes makes all the difference.
-        </p>
-        <p class="mb-3" style="color:#4f5d75;font-size:clamp(1rem, 2.3vw, 1.15rem);max-width:800px;margin:0 auto;line-height:1.6;">
-          We create with you. We work together to capture your memories into a beautiful book filled with pictures, personal stories and more…
-        </p>
-        <p class="mb-0" style="color:#4f5d75;font-size:clamp(1rem, 2.3vw, 1.15rem);font-style:italic;max-width:800px;margin:0 auto;line-height:1.6;">
-          We will connect through online meetings. We request you to be ready to spend enough time on the project, which will guarantee heartfelt results
-        </p>
       </div>
 
       <!-- FAQ Accordion -->
@@ -4753,23 +4869,20 @@
           <form class="rounded-form w-100" style="background:#fff;border-radius:1.2rem;box-shadow:0 4px 24px rgba(60,40,80,0.10);padding:2.2rem 2rem;">
             <div class="row gx-2 gy-2">
               <div class="col-12 col-md-6">
-                <div class="mb-3 form-floating contact-form-compact">
-                  <input type="text" class="form-control w-100" id="name" placeholder="Name*" required>
-                  <label for="name">Name*</label>
+                <div class="mb-3 contact-form-compact">
+                  <input type="text" class="form-control w-100" id="name" placeholder="Enter your full name" required>
                 </div>
               </div>
               <div class="col-12 col-md-6">
-                <div class="mb-3 form-floating contact-form-compact">
-                  <input type="email" class="form-control w-100" id="email" placeholder="Email*" required>
-                  <label for="email">Email*</label>
+                <div class="mb-3 contact-form-compact">
+                  <input type="email" class="form-control w-100" id="email" placeholder="Enter your email address" required>
                 </div>
               </div>
             </div>
             <div class="row gx-2 gy-2">
               <div class="col-12 col-md-6">
-                <div class="mb-3 form-floating contact-form-compact">
-                  <input type="tel" class="form-control w-100" id="mobile" placeholder="Mobile No" pattern="[0-9]{10}" maxlength="10">
-                  <label for="mobile">Mobile No</label>
+                <div class="mb-3 contact-form-compact">
+                  <input type="tel" class="form-control w-100" id="mobile" placeholder="Enter your phone number" pattern="[0-9]{10}" maxlength="10">
                 </div>
               </div>
               <div class="col-12 col-md-6">
@@ -4812,35 +4925,28 @@
   <section class="newsletter-signup-section" style="padding:60px 0 40px 0;">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-lg-11">
-          <div style="background:#fff;border-radius:2.2rem;box-shadow:0 8px 48px #e6b80011,0 1.5px 8px #1a223811;padding:48px 40px 36px 40px;position:relative;overflow:hidden;min-height:340px;display:flex;align-items:center;">
-            <span style="position:absolute;top:32px;right:32px;z-index:2;pointer-events:none;">
-              <svg width="64" height="127" viewBox="0 0 64 127" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1.65948 5.63422C42.5025 -13.5856 49.4233 57.1188 27.5936 51.2416C5.76382 45.3645 41.779 6.91799 57.8628 46.7242C74.1998 87.1572 22.0498 123.344 22.0498 123.344M22.0498 123.344C22.0498 123.344 36.5784 126.54 43.3704 122.174M22.0498 123.344C22.0498 123.344 19.093 111.965 24.187 102.99" stroke="#FD976D" stroke-width="4"/>
-              </svg>
-            </span>
-            <div class="row w-100 align-items-center gx-5 gy-4">
-              <div class="col-lg-6 d-flex flex-column align-items-start justify-content-center" style="min-width:320px;">
-                <h2 style="font-family:'Inter',sans-serif;font-size:2.8rem;font-weight:400;line-height:1.1;color:#232946;margin-bottom:0.5rem;">Subscribe to<br><span style="font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:900;letter-spacing:-0.03em;display:inline-flex;align-items:center;gap:0.3em;">LifeNotes <img src="icon-plane.png" alt="Paper Plane" style="height:1.1em;width:auto;display:inline-block;vertical-align:middle;"></span></h2>
-                <p style="font-size:1.15rem;color:#232946;margin-bottom:1.1rem;">Join a growing community of more than <br><span style="font-weight:700;font-size:1.08rem;">330,000 friendly readers.</span></p>
-                <div class="d-flex align-items-center mb-2">
-                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" style="width:44px;height:44px;border-radius:50%;object-fit:cover;margin-right:-12px;border:3px solid #fff;box-shadow:0 2px 8px #0001;">
-                  <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="" style="width:44px;height:44px;border-radius:50%;object-fit:cover;margin-right:-12px;border:3px solid #fff;box-shadow:0 2px 8px #0001;">
-                  <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="" style="width:44px;height:44px;border-radius:50%;object-fit:cover;margin-right:16px;border:3px solid #fff;box-shadow:0 2px 8px #0001;">
-                  <span style="font-size:1.3rem;color:#ffc107;margin-right:0.5rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                  <span style="color:#7b7b93;font-size:1rem;">200+ reviews</span>
+        <div class="col-12 col-lg-10">
+          <div class="outer-newsletter-card" style="background:linear-gradient(120deg,#f0fdf4 0%,#ecfdf5 100%);border-radius:2.2rem;box-shadow:0 8px 48px #e6b80011,0 1.5px 8px #1a223811;padding:48px 40px 36px 40px;position:relative;overflow:hidden;min-height:240px;display:flex;align-items:center;justify-content:center;max-width:500px;margin:0 auto;">
+            <div class="w-100" style="max-width:600px;">
+              <h2 style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#232946;text-align:center;margin-bottom:1.2rem;">Not the Right Time?</h2>
+              <p style="font-size:1.18rem;color:#232946;font-weight:500;line-height:1.4;text-align:center;margin-bottom:2.1rem;">Sign up today and we'll keep you updated so you can give the perfect gift at the perfect time.</p>
+              <form style="background:#f6c6b4;border-radius:0.7rem;padding:1.5rem;box-shadow:0 2px 16px #0001;max-width:500px;margin:0 auto;">
+                <div class="mb-3">
+                  <label for="newsletterName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="newsletterName" placeholder="Person">
                 </div>
-              </div>
-              <div class="col-lg-6 d-flex flex-column justify-content-center" style="min-width:320px;">
-                <div style="margin-left:0;">
-                  <p style="font-size:1.18rem;color:#232946;font-weight:600;line-height:1.4;margin-bottom:2.1rem;">Each week, I share actionable productivity tips, practical life advice, and highlights from my favourite books, directly to your inbox. It’s free to join, and always will be.</p>
-                  <form style="background:#faf7f4;border-radius:2.5rem;padding:1.5rem 1.5rem 1.5rem 1.5rem;display:flex;align-items:center;max-width:600px;box-shadow:0 2px 16px #0001;gap:0.5rem;">
-                    <input type="email" placeholder="Your email" style="flex:1;border:none;background:transparent;font-size:1.1rem;padding:0.7rem 1.1rem;border-radius:2rem;outline:none;color:#7b7b93;min-width:120px;">
-                    <button type="submit" class="newsletter-btn" style="border:none;border-radius:2.5rem;padding:0.9rem 2.2rem;">Subscribe</button>
-                  </form>
-                  <p style="font-size:0.98rem;color:#7b7b93;margin-top:1.1rem;max-width:600px;">By submitting this form, you’ll be signed up to my free newsletter, which sometimes includes mentions of my books, apps and courses. You can opt-out at any time with no hard feelings 😉 Here’s our <a href="#" style="color:#232946;text-decoration:underline;">privacy policy</a> if you like reading.</p>
+                <div class="mb-3">
+                  <label for="newsletterEmail" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="newsletterEmail" placeholder="person@example.com">
                 </div>
-              </div>
+                <div class="mb-3">
+                  <label for="newsletterEvents" class="form-label">Events/Dates for which you would like to consider Cherished Chapters in future</label>
+                  <input type="text" class="form-control" id="newsletterEvents" placeholder="Date">
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-modern" style="width:auto;min-width:unset;padding:0.5rem 1.5rem;border-radius:0.4rem;">Sign Up</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -4849,35 +4955,44 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer-modern mt-0 pt-4 pb-3" style="background:#e9e6f7 !important;">
+  <footer class="footer-modern mt-0 pt-4 pb-3">
     <div class="container">
-      <div class="row align-items-center gy-4">
-        <div class="col-12 col-md-4 text-center text-md-start mb-3 mb-md-0">
-          <div class="footer-logo d-inline-flex align-items-center mb-2">
+      <div class="row align-items-center gy-4 flex-column flex-md-row text-center text-md-start">
+        <div class="col-12 col-md-4 mb-3 mb-md-0 d-flex flex-column align-items-center align-items-md-start">
+          <div class="footer-logo d-flex align-items-center justify-content-center justify-content-md-start mb-2">
             <span class="footer-logo-icon me-2" style="font-size:2.2rem;color:#ab47bc;"><i class="bi bi-journal-bookmark-fill"></i></span>
-            <span class="footer-logo-text fw-bold" style="font-family:var(--headline);font-size:1.5rem;color:#232946;">Cherished Chapters</span>
+            <img src="logo.PNG" alt="Cherished Chapters Logo" style="height:48px;width:auto;">
           </div>
           <div class="footer-desc" style="color:#4f5d75;font-size:1rem;max-width:260px;">Where memories become gifts. Custom books, crafted with love in Mumbai.</div>
         </div>
-        <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
+        <div class="col-12 col-md-4 mb-3 mb-md-0 d-flex flex-column align-items-center">
+          <div class="footer-links mb-2 w-100">
+        <h6 class="fw-bold text-uppercase mb-2" style="letter-spacing:0.05em;color:#ffd166;">Quick Links</h6>
+            <ul class="list-unstyled mb-0 d-flex flex-wrap justify-content-center justify-content-md-start">
+              <li class="mb-2 me-3"><a href="#home" class="footer-link">Home</a></li>
+              <li class="mb-2 me-3"><a href="#features" class="footer-link">Products</a></li>
+              <li class="mb-2 me-3"><a href="#portfolio" class="footer-link">Portfolio</a></li>
+              <li class="mb-2 me-3"><a href="#process" class="footer-link">Process</a></li>
+              <li class="mb-2 me-3"><a href="#pricing" class="footer-link">Pricing</a></li>
+              <li class="mb-2"><a href="#contact" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 d-flex flex-column align-items-center align-items-md-end">
+          <div class="footer-contact mb-2" style="color:#fff;font-size:1rem;">
+            <i class="bi bi-geo-alt me-1" style="color:#ffd166;"></i> Mumbai, India
+          </div>
           <div class="footer-social mb-2">
             <a href="#" class="footer-social-link mx-2" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
             <a href="#" class="footer-social-link mx-2" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
             <a href="mailto:hello@cherishedcapter.com" class="footer-social-link mx-2" aria-label="Email"><i class="bi bi-envelope"></i></a>
           </div>
-          <div class="footer-contact" style="color:#4f5d75;font-size:1rem;">
-            <i class="bi bi-geo-alt me-1"></i> Mumbai, India
-          </div>
         </div>
-        <div class="col-12 col-md-4 text-center text-md-end">
-          <div class="footer-links mb-2">
-            <a href="#features" class="footer-link mx-2">Products</a>
-            <a href="#portfolio" class="footer-link mx-2">Portfolio</a>
-            <a href="#pricing" class="footer-link mx-2">Pricing</a>
-            <a href="#contact" class="footer-link mx-2">Contact</a>
-          </div>
-          <div class="footer-copyright" style="color:#000000;font-size:0.95rem;">
-            &copy; 2025 Cherished Chapters. All rights reserved.
+      </div>
+      <div class="row mt-3">
+        <div class="col-12 col-md-4 offset-md-8">
+          <div class="footer-copyright text-end" style="color:#fff;font-size:0.95rem;">
+            &copy; 2025 <span style="color:#ffd166;">Cherished Chapters</span>. All rights reserved.
           </div>
         </div>
       </div>
@@ -5630,21 +5745,21 @@
             <div class="row g-3">
               <div class="col-12">
                 <label for="fullName" class="form-label fw-semibold" style="font-size:clamp(0.9rem, 2.5vw, 1rem);">Full Name *</label>
-                <input type="text" class="form-control" id="fullName" required style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
+                <input type="text" class="form-control" id="fullName" required placeholder="Enter your full name" style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
               </div>
               <div class="col-12 col-md-6">
                 <label for="email" class="form-label fw-semibold" style="font-size:clamp(0.9rem, 2.5vw, 1rem);">Email Address *</label>
-                <input type="email" class="form-control" id="email" required style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
+                <input type="email" class="form-control" id="email" required placeholder="Enter your email address" style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
               </div>
               <div class="col-12 col-md-6">
                 <label for="phone" class="form-label fw-semibold" style="font-size:clamp(0.9rem, 2.5vw, 1rem);">Phone Number *</label>
-                <input type="tel" class="form-control" id="phone" required style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
+                <input type="tel" class="form-control" id="phone" required placeholder="Enter your phone number" style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
               </div>
               <div class="col-12">
                 <label class="form-label fw-semibold" style="font-size:clamp(0.9rem, 2.5vw, 1rem);">Preferred Date & Time *</label>
                 <div class="row g-2">
                   <div class="col-12 col-md-6">
-                    <input type="date" class="form-control" id="preferredDate" required style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
+                    <input type="date" class="form-control" id="preferredDate" required placeholder="Select a date" style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
                   </div>
                   <div class="col-12 col-md-6">
                     <select class="form-select" id="preferredTime" required style="border-radius:0.8rem;border:2px solid #e6b800;padding:0.75rem 1rem;font-size:clamp(0.9rem, 2.5vw, 1rem);">
