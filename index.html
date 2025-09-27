@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    @keyframes bell-shake {
+      0% { transform: rotate(0); }
+      10% { transform: rotate(-30deg); }
+      20% { transform: rotate(25deg); }
+      30% { transform: rotate(-20deg); }
+      40% { transform: rotate(15deg); }
+      50% { transform: rotate(-10deg); }
+      60% { transform: rotate(6deg); }
+      70% { transform: rotate(-4deg); }
+      80% { transform: rotate(2deg); }
+      90% { transform: rotate(-1deg); }
+      100% { transform: rotate(0); }
+    }
+    .btn.btn-modern:hover .signup-bell {
+      animation: bell-shake 0.7s cubic-bezier(.36,.07,.19,.97) both;
+      transform-origin: top center !important;
+      color: #ff9800;
+      display: inline-block;
+    }
+  </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cherished Capter</title>
@@ -15,6 +36,16 @@
   
   <!-- Modern Enhancement Styles -->
   <style>
+    /* Hide placeholder text in .form-floating to prevent overlap with label */
+    .form-floating > .form-control::placeholder {
+      color: transparent !important;
+    }
+    /* Ensure all contact form placeholder text is white for consistency */
+    .rounded-form input::placeholder,
+    .rounded-form textarea::placeholder {
+      color: #fff !important;
+      opacity: 1 !important;
+    }
     /* ==================== ENHANCED CSS VARIABLES ==================== */
     :root {
       /* Enhanced Color Palette */
@@ -3652,6 +3683,34 @@
       <img src="Headline.png" alt="Cherished Capter Cover" class="img-fluid w-100" style="max-height:420px;object-fit:cover;object-position:bottom;">
     </div>
   </section>
+<style>
+  @media (max-width: 767.98px) {
+    .outer-newsletter-card {
+      flex-direction: column !important;
+      padding: 24px 6px 18px 6px !important;
+      max-width: 99vw !important;
+    }
+    .outer-newsletter-card .d-flex.flex-row {
+      flex-direction: column !important;
+      gap: 1.2rem !important;
+      align-items: stretch !important;
+    }
+    .outer-newsletter-card .flex-grow-1 {
+      max-width: 100% !important;
+    }
+    .outer-newsletter-card form {
+      padding: 1rem !important;
+      max-width: 100% !important;
+    }
+    /* Remove display:flex !important for .d-none.d-md-flex on mobile to allow Bootstrap to hide it */
+    .outer-newsletter-card img {
+      max-width: 320px !important;
+      width: 100% !important;
+      margin: 0 auto !important;
+      display: block !important;
+    }
+  }
+</style>
 
   <!-- Hero Section -->
   <section class="hero-section py-5 position-relative overflow-hidden" id="home" style="background: none !important;">
@@ -4956,7 +5015,7 @@
               <textarea class="form-control" id="query" placeholder="Your Query*" style="height: 100px; min-height: 60px;" required></textarea>
               <label for="query">Your Query*</label>
             </div>
-            <button type="submit" class="btn btn-primary rounded-pill w-100 contact-btn">Send Message</button>
+            <button type="submit" class="btn btn-primary rounded-pill w-100 contact-btn">Send Message <i class="bi bi-send" style="margin-left:0.5em;"></i></button>
   <style>
     /* Fix for floating label on textarea */
     .form-floating > textarea.form-control ~ label {
@@ -4998,27 +5057,40 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
-          <div class="outer-newsletter-card" style="background:linear-gradient(120deg,#f0fdf4 0%,#ecfdf5 100%);border-radius:2.2rem;box-shadow:0 8px 48px #e6b80011,0 1.5px 8px #1a223811;padding:48px 40px 36px 40px;position:relative;overflow:hidden;min-height:240px;display:flex;align-items:center;justify-content:center;max-width:500px;margin:0 auto;">
-            <div class="w-100" style="max-width:600px;">
-              <h2 style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#232946;text-align:center;margin-bottom:1.2rem;">Not the Right Time?</h2>
-              <p style="font-size:1.18rem;color:#232946;font-weight:500;line-height:1.4;text-align:center;margin-bottom:2.1rem;">Sign up today and we'll keep you updated so you can give the perfect gift at the perfect time.</p>
-              <form style="background:#f6c6b4;border-radius:0.7rem;padding:1.5rem;box-shadow:0 2px 16px #0001;max-width:500px;margin:0 auto;">
-                <div class="mb-3">
-                  <label for="newsletterName" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="newsletterName" placeholder="Person">
+          <div class="outer-newsletter-card" style="background:linear-gradient(120deg,#f0fdf4 0%,#ecfdf5 100%);border-radius:2.2rem;box-shadow:0 8px 48px #e6b80011,0 1.5px 8px #1a223811;padding:48px 40px 36px 40px;position:relative;overflow:hidden;min-height:240px;display:flex;align-items:center;justify-content:center;max-width:1200px;margin:0 auto;">
+            <div class="w-100">
+              <div style="text-align:center;max-width:800px;margin:0 auto 2.2rem auto;">
+                <h2 style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#232946;margin-bottom:1.2rem;">Not the Right Time?</h2>
+                <p style="font-size:1.18rem;color:#232946;font-weight:500;line-height:1.4;margin-bottom:0;">Sign up today and we'll keep you updated so you can give the perfect gift at the perfect time.</p>
+                <div class="d-block d-md-none" style="width:100%;text-align:center;margin:18px 0 10px 0;">
+                  <img src="subscribe.png" alt="Subscribe" style="max-width:200px;width:100%;height:auto;object-fit:contain;">
                 </div>
-                <div class="mb-3">
-                  <label for="newsletterEmail" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="newsletterEmail" placeholder="person@example.com">
-                </div>
-                <div class="mb-3">
-                  <label for="newsletterEvents" class="form-label">Events/Dates for which you would like to consider Cherished Chapters in future</label>
-                  <input type="text" class="form-control" id="newsletterEvents" placeholder="Date">
-                </div>
-                <div class="d-flex justify-content-center">
-                  <button type="submit" class="btn btn-modern" style="width:auto;min-width:unset;padding:0.5rem 1.5rem;border-radius:0.4rem;">Sign Up</button>
-                </div>
-              </form>
+              </div>
+              <div class="d-flex flex-row align-items-center justify-content-between" style="gap: 2rem;align-items:center;">
+                <div class="flex-grow-1" style="max-width:60%;">
+                  <form style="background:#f6c6b4;border-radius:0.7rem;padding:1.5rem;box-shadow:0 2px 16px #0001;max-width:500px;margin:0 auto;">
+                  <div class="mb-3">
+                    <label for="newsletterName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="newsletterName" placeholder="Person">
+                  </div>
+                  <div class="mb-3">
+                    <label for="newsletterEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="newsletterEmail" placeholder="person@example.com">
+                  </div>
+                  <div class="mb-3">
+                    <label for="newsletterEvents" class="form-label">Events/Dates for which you would like to consider Cherished Chapters in future</label>
+                    <input type="text" class="form-control" id="newsletterEvents" placeholder="Date">
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-modern" style="width:auto;min-width:unset;padding:0.5rem 1.5rem;border-radius:0.4rem;">
+                      Sign Up <i class="bi bi-bell signup-bell" style="margin-left:0.5em;"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="d-none d-md-flex d-md-flex flex-shrink-0 flex-column justify-content-center align-items-end" style="max-width:38%;min-height:420px;text-align:right;">
+                <img src="subscribe.png" alt="Subscribe" style="max-width:420px;width:100%;height:auto;object-fit:contain;">
+              </div>
             </div>
           </div>
         </div>
