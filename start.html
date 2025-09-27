@@ -1,0 +1,711 @@
+<style>
+	.question-label {
+		font-weight: 600;
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+	}
+	.question-pointer {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background: #764ba2;
+		color: #fff;
+		border-radius: 50%;
+		width: 1.7em;
+		height: 1.7em;
+		font-size: 1em;
+		font-family: inherit;
+		margin-right: 0.2em;
+		box-shadow: 0 1px 4px #764ba233;
+	}
+</style>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Cherished Capter</title>
+		<!-- Bootstrap 5 -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Enhanced Google Fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Bellefair:wght@400&display=swap" rel="stylesheet">
+		<!-- Brittany Font (if available) or fallback script font -->
+		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<!-- Bootstrap Icons -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+		<!-- Modern Navbar, Hamburger, Footer, and Nav-link Styles from index.html -->
+		<style>
+			:root {
+				--primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				--secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+				--accent-color: #ff6b6b;
+				--headline: 'Playfair Display', serif;
+				--body: 'Inter', sans-serif;
+				--navbar-bg: #0c3b2e;
+				--navbar-link: #e0e0e0;
+				--navbar-link-active-bg: #eebbc3;
+				--navbar-link-active-color: #232946;
+			}
+			.navbar {
+				background: var(--navbar-bg) !important;
+				box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				width: 100vw;
+				z-index: 1204;
+				transition: box-shadow 0.2s, background 0.2s;
+			}
+			body { padding-top: 64px; }
+			.navbar .container {
+				flex-direction: row !important;
+				justify-content: space-between !important;
+				align-items: center !important;
+				padding-left: 0.7rem !important;
+				padding-right: 0.7rem !important;
+			}
+			.navbar-brand {
+				font-family: var(--headline);
+				font-size: 2rem;
+				color: #eebbc3 !important;
+				letter-spacing: 1px;
+				margin-left: 0.2rem !important;
+				margin-right: 0 !important;
+			}
+			#hamburger3dBtn {
+				margin-right: 1.1rem !important;
+				margin-left: 0 !important;
+			}
+			.nav-link {
+				color: var(--navbar-link) !important;
+				font-weight: 500;
+				margin-right: 1rem;
+				transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+				border-radius: 0.7rem;
+				position: relative;
+				padding: 0.35rem 1.1rem !important;
+				z-index: 1;
+			}
+			.nav-link.active, .nav-link:hover, .nav-link:focus {
+				color: var(--navbar-link-active-color) !important;
+				background: var(--navbar-link-active-bg) !important;
+				box-shadow: 0 2px 12px rgba(238,187,195,0.13);
+				border-radius: 0.7rem;
+			}
+			.hamburger3d {
+				width: 44px; height: 44px; background: none; border: none;
+				display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 7px;
+				z-index: 1202; position: relative; cursor: pointer; perspective: 400px; transition: filter 0.2s;
+			}
+			.hamburger3d .bar {
+				display: block; width: 32px; height: 4px;
+				background: linear-gradient(90deg, #eebbc3 0%, #5dcdf1 100%);
+				border-radius: 2px; box-shadow: 0 2px 8px rgba(93,205,241,0.13);
+				transition: transform 0.38s cubic-bezier(.68,-0.55,.27,1.55), background 0.2s, opacity 0.3s;
+				will-change: transform;
+			}
+			.hamburger3d.active .bar1 {
+				transform: translateY(10px) rotate(45deg);
+				background: linear-gradient(90deg, #ab47bc 0%, #5dcdf1 100%);
+			}
+			.hamburger3d.active .bar2 {
+				opacity: 0;
+				transform: scaleX(0.2);
+			}
+			.hamburger3d.active .bar3 {
+				transform: translateY(-10px) rotate(-45deg);
+				background: linear-gradient(90deg, #ab47bc 0%, #5dcdf1 100%);
+			}
+			@media (min-width: 992px) {
+				.hamburger3d { display: none !important; }
+			}
+			.mobile-menu-overlay {
+				position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+				width: 100vw; height: 100vh;
+				background: rgba(35,41,70,0.98);
+				z-index: 1201; display: flex; align-items: center; justify-content: center;
+				opacity: 0; pointer-events: none; transform: scale(1.08) rotateY(30deg);
+				transition: opacity 0.38s cubic-bezier(.68,-0.55,.27,1.55), transform 0.38s cubic-bezier(.68,-0.55,.27,1.55);
+			}
+			.mobile-menu-overlay.active {
+				opacity: 1; pointer-events: auto; transform: scale(1) rotateY(0deg);
+			}
+			.mobile-menu-nav ul {
+				list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 2.2rem; align-items: center;
+			}
+			.mobile-menu-link {
+				font-family: 'Playfair Display', serif; font-size: 2.1rem; color: #eebbc3; text-decoration: none; letter-spacing: 1px; font-weight: 700;
+				transition: color 0.2s, text-shadow 0.2s; text-shadow: 0 2px 12px #23294644;
+			}
+			.mobile-menu-link:hover, .mobile-menu-link:focus {
+				color: #5dcdf1; text-shadow: 0 4px 24px #5dcdf1aa;
+			}
+			@media (min-width: 992px) {
+				.mobile-menu-overlay { display: none !important; }
+			}
+			.footer-modern {
+				background: #264653 !important; color: #fff !important; border-top: 1.5px solid #eebbc3; font-family: var(--body);
+			}
+			.footer-modern, .footer-modern a, .footer-modern .footer-link, .footer-modern .footer-logo, .footer-modern .footer-desc, .footer-modern .footer-contact, .footer-modern .footer-social-link, .footer-modern .footer-copyright {
+				color: #fff !important;
+			}
+			.footer-modern .footer-link:hover, .footer-modern .footer-social-link:hover {
+				color: #ffd166 !important;
+			}
+			.footer-logo-icon { vertical-align: middle; color: #ffd166 !important; }
+			.footer-social-link { color: #ab47bc; font-size: 1.5rem; transition: color 0.2s; display: inline-block; }
+			.footer-social-link:hover { color: #3a5a40; }
+			.footer-link { color: #4f5d75; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+			.footer-link:hover { color: #ab47bc; text-decoration: underline; }
+			@media (max-width: 767px) {
+				.footer-modern .row > div { text-align: center !important; margin-bottom: 1.2rem; }
+				.footer-logo-text { font-size: 1.2rem; }
+			}
+		</style>
+        
+<!-- Hamburger menu functionality -->
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var hamburgerBtn = document.getElementById('hamburger3dBtn');
+		var mobileMenu = document.getElementById('mobileMenuOverlay');
+		if (hamburgerBtn && mobileMenu) {
+			hamburgerBtn.addEventListener('click', function() {
+				hamburgerBtn.classList.toggle('active');
+				mobileMenu.classList.toggle('active');
+				// Update aria attributes for accessibility
+				var expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+				hamburgerBtn.setAttribute('aria-expanded', !expanded);
+				mobileMenu.setAttribute('aria-hidden', expanded);
+			});
+			// Close menu when clicking outside the nav (on overlay background)
+			mobileMenu.addEventListener('click', function(e) {
+				if (e.target.classList.contains('mobile-menu-overlay')) {
+					hamburgerBtn.classList.remove('active');
+					mobileMenu.classList.remove('active');
+					hamburgerBtn.setAttribute('aria-expanded', 'false');
+					mobileMenu.setAttribute('aria-hidden', 'true');
+				}
+			});
+			// Close menu when a mobile nav link is clicked
+			mobileMenu.querySelectorAll('.mobile-menu-link').forEach(function(link) {
+				link.addEventListener('click', function() {
+					hamburgerBtn.classList.remove('active');
+					mobileMenu.classList.remove('active');
+					hamburgerBtn.setAttribute('aria-expanded', 'false');
+					mobileMenu.setAttribute('aria-hidden', 'true');
+				});
+			});
+		}
+	});
+</script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg sticky-top">
+
+	<div class="container d-flex flex-row align-items-center justify-content-between" style="min-height:56px;">
+		<!-- Logo always left -->
+		<a class="navbar-brand mb-0" href="#" style="z-index:1203;">
+			<img src="logo.PNG" alt="Cherished Chapters" style="height:60px;width:auto;">
+		</a>
+		<!-- Desktop Nav always right -->
+		<div class="d-none d-lg-flex align-items-center ms-auto">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="#features">Products</a></li>
+				<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+				<li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+				<li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+				<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+			</ul>
+		</div>
+		<!-- Hamburger for mobile -->
+		<button class="hamburger3d d-lg-none ms-2" id="hamburger3dBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenuOverlay">
+			<span class="bar bar1"></span>
+			<span class="bar bar2"></span>
+			<span class="bar bar3"></span>
+		</button>
+		<!-- Mobile Fullscreen Menu Overlay -->
+		<div class="mobile-menu-overlay" id="mobileMenuOverlay" tabindex="-1" aria-hidden="true">
+			<nav class="mobile-menu-nav">
+				<ul>
+					<li><a href="#home" class="mobile-menu-link">Home</a></li>
+					<li><a href="#features" class="mobile-menu-link">Products</a></li>
+					<li><a href="#portfolio" class="mobile-menu-link">Portfolio</a></li>
+					<li><a href="#process" class="mobile-menu-link">Process</a></li>
+					<li><a href="#pricing" class="mobile-menu-link">Pricing</a></li>
+					<li><a href="#contact" class="mobile-menu-link">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</nav>
+
+
+<main class="container py-5" style="max-width: 820px;">
+	<h2 class="mb-4 text-center gradient-text-primary" style="font-family: 'Playfair Display', serif; font-weight: 700;">Let’s start creating your Cherished Chapter:</h2>
+	<p class="lead text-center mb-5">Thank you for your interest in creating a cherished gift with Cherished Chapters! This questionnaire will help us understand your vision and the special story you want to tell.</p>
+				<form id="cherishedChapterForm" class="modern-form-card" action="https://formspree.io/f/yourFormID" method="POST">
+					<input type="hidden" name="_subject" value="New Cherished Chapter Submission">
+					<input type="hidden" name="_redirect" value="/thank-you.html">
+</style>
+<style>
+/* Modern Form Card Styles */
+.modern-form-card {
+    background: linear-gradient(135deg, #f7eaff 0%, #e0c3fc 100%);
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 32px 0 rgba(103,126,234,0.13), 0 1.5px 8px 0 rgba(44,62,80,0.08);
+    padding: 2.5rem 2rem 2rem 2rem;
+    max-width: 820px;
+    margin: 0 auto 2.5rem auto;
+    border: 1.5px solid #e0e0e0;
+    font-family: var(--body);
+}
+	@media (max-width: 600px) {
+		.modern-form-card {
+			padding: 1rem 0.3rem 1.2rem 0.3rem;
+			border-radius: 1rem;
+			font-size: 0.97rem;
+		}
+		.modern-form-card h4 {
+			font-size: 1.15rem;
+			margin-bottom: 0.7rem;
+			text-align: center;
+		}
+		.modern-form-card label.form-label, .modern-form-card .question-label {
+			font-size: 0.98rem;
+			align-items: flex-start;
+		}
+		.modern-form-card label.form-label:not(:has(.question-pointer)),
+		.modern-form-card .question-label:not(:has(.question-pointer)) {
+			margin-left: 1.2em;
+		}
+		.modern-form-card .question-pointer {
+			margin-right: 0.7em;
+			min-width: 2.1em;
+			min-height: 2.1em;
+			font-size: 1.08em;
+			margin-bottom: 0.2em;
+		}
+		.modern-form-card input,
+		.modern-form-card textarea,
+		.modern-form-card select {
+			font-size: 0.97rem;
+			padding: 0.45rem 0.7rem;
+		}
+		.modern-form-card .row.g-3, .modern-form-card .row.g-2, .modern-form-card .row.g-2.align-items-end {
+			gap: 0.5rem !important;
+			flex-direction: column !important;
+		}
+		.modern-form-card .col-md-6, .modern-form-card .col-lg-4, .modern-form-card .col-auto {
+			width: 100% !important;
+			max-width: 100% !important;
+			flex: 0 0 100% !important;
+		}
+		.modern-form-card .form-check,
+		.modern-form-card .form-check-inline {
+			display: flex !important;
+			align-items: center !important;
+			margin-bottom: 0.5em !important;
+			min-height: 2.2em;
+		}
+		.modern-form-card .form-check-input {
+			margin-top: 0 !important;
+			margin-right: 0.6em !important;
+			width: 1.2em;
+			height: 1.2em;
+		}
+		.modern-form-card .form-check-label {
+			font-size: 1em;
+			margin-left: 0 !important;
+		}
+		.modern-form-card .form-section {
+			padding: 0.7rem 0.2rem !important;
+			border-radius: 0.7rem;
+		}
+	}
+	.modern-form-card h4 {
+		font-family: var(--headline);
+		color: #764ba2;
+		font-weight: 700;
+		margin-bottom: 1.1rem;
+	}
+	.modern-form-card label.form-label {
+		color: #232946;
+		font-weight: 600;
+		letter-spacing: 0.01em;
+		margin-bottom: 0.3rem;
+	}
+	.modern-form-card input[type="text"],
+	.modern-form-card input[type="email"],
+	.modern-form-card input[type="date"],
+	.modern-form-card textarea,
+	.modern-form-card select {
+		border-radius: 0.7rem;
+		border: 1.5px solid #b8c1ec;
+		background: #f7f8fa;
+		color: #232946;
+		font-size: 1rem;
+		transition: border-color 0.2s, box-shadow 0.2s;
+		box-shadow: none;
+		margin-bottom: 0.5rem;
+	}
+	.modern-form-card input[type="text"]:focus,
+	.modern-form-card input[type="email"]:focus,
+	.modern-form-card input[type="date"]:focus,
+	.modern-form-card textarea:focus,
+	.modern-form-card select:focus {
+		border-color: #764ba2;
+		box-shadow: 0 0 0 2px #eebbc3aa;
+		background: #fff;
+		outline: none;
+	}
+	.modern-form-card .form-check-input:focus {
+		border-color: #764ba2;
+		box-shadow: 0 0 0 2px #eebbc3aa;
+	}
+	.modern-form-card .form-check-input:checked {
+		background-color: #764ba2;
+		border-color: #764ba2;
+		box-shadow: 0 0 0 2px #eebbc3aa;
+	}
+	.modern-form-card .form-check-label {
+		color: #232946;
+		font-weight: 500;
+		margin-left: 0.3rem;
+	}
+	.modern-form-card textarea {
+		min-height: 38px;
+		resize: vertical;
+	}
+	.modern-form-card hr {
+		border-top: 1.5px solid #eebbc3;
+		margin: 2rem 0 1.5rem 0;
+	}
+	.modern-form-card .btn-modern {
+		background: var(--primary-gradient);
+		color: #fff;
+		border: none;
+		border-radius: 2rem;
+		font-weight: 600;
+		padding: 0.7rem 2.2rem;
+		font-size: 1.1rem;
+		box-shadow: 0 2px 12px rgba(103,126,234,0.13);
+		transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+		letter-spacing: 0.03em;
+	}
+	.modern-form-card .btn-modern:hover, .modern-form-card .btn-modern:focus {
+		background: var(--secondary-gradient);
+		color: #fff;
+		box-shadow: 0 6px 24px rgba(240,147,251,0.18);
+		transform: translateY(-2px) scale(1.03);
+	}
+	.modern-form-card .btn-outline-secondary {
+		border-radius: 2rem;
+		font-weight: 500;
+		color: #764ba2;
+		border: 1.5px solid #764ba2;
+		background: #fff;
+		transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+		padding: 0.7rem 2.2rem;
+		font-size: 1.1rem;
+	}
+	.modern-form-card .btn-outline-secondary:hover, .modern-form-card .btn-outline-secondary:focus {
+		background: #f7eaff;
+		color: #232946;
+		border-color: #eebbc3;
+		box-shadow: 0 2px 12px #eebbc344;
+	}
+	@media (max-width: 600px) {
+		.modern-form-card .d-flex.gap-3 {
+			flex-direction: column !important;
+			gap: 0.7rem !important;
+		}
+		.modern-form-card .row.g-3, .modern-form-card .row.g-2 {
+			gap: 0.7rem !important;
+		}
+	}
+</style>
+			<div class="form-section mb-4 p-3 p-md-4">
+				<h4 class="mb-3">About you</h4>
+				<div class="row g-3">
+			<div class="col-md-6">
+				<label for="yourName" class="form-label question-label">Name</label>
+				<input type="text" class="form-control" id="yourName" name="yourName" placeholder="Person" required>
+			</div>
+			<div class="col-md-6">
+				<label for="yourEmail" class="form-label question-label">Email</label>
+				<input type="email" class="form-control" id="yourEmail" name="yourEmail" placeholder="person@example.com" required>
+			</div>
+			<div class="col-md-6">
+				<label for="yourLocation" class="form-label question-label">Location</label>
+				<input type="text" class="form-control" id="yourLocation" name="yourLocation" placeholder="Place">
+			</div>
+			<div class="col-md-6">
+				<label for="yourTimezone" class="form-label question-label">Time Zone</label>
+				<input type="text" class="form-control" id="yourTimezone" name="yourTimezone" placeholder="Date">
+			</div>
+			<div class="col-md-12">
+				<label for="preferredCallTime" class="form-label question-label">Preferred time for calls with the CC Team</label>
+				<input type="text" class="form-control" id="preferredCallTime" name="preferredCallTime">
+			</div>
+		</div>
+			</div>
+			<div class="form-section mb-4 p-3 p-md-4">
+				<h4 class="mb-3">About Your “Cherished Chapter”</h4>
+				<div class="mb-3">
+			<label class="form-label question-label"><span class="question-pointer">1</span>What is the primary purpose or theme of this book?</label>
+			<div class="row g-2">
+				<div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="theme" value="Milestone birthday" id="themeBirthday"><label class="form-check-label" for="themeBirthday">Milestone birthday</label></div></div>
+				<div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="theme" value="Anniversary" id="themeAnniv"><label class="form-check-label" for="themeAnniv">Anniversary</label></div></div>
+				<div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="theme" value="Achievement" id="themeAchieve"><label class="form-check-label" for="themeAchieve">Achievement / Project</label></div></div>
+				<div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="theme" value="Family history" id="themeFamily"><label class="form-check-label" for="themeFamily">Family history/journey</label></div></div>
+				<div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="theme" value="Travel" id="themeTravel"><label class="form-check-label" for="themeTravel">Travel adventures</label></div></div>
+				<div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="theme" value="Pet" id="themePet"><label class="form-check-label" for="themePet">Life of a pet</label></div></div>
+				<div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="theme" value="Other" id="themeOther"><label class="form-check-label" for="themeOther">Other</label></div></div>
+				<div class="col-12 mt-2"><input type="text" class="form-control" name="themeOtherText" placeholder="If other, please specify"></div>
+			</div>
+		</div>
+				<div class="row g-3 mb-3">
+			<div class="col-12 mb-2">
+				<label class="form-label question-label"><span class="question-pointer">2</span>Who is the recipient of this special gift?</label>
+			</div>
+			<div class="col-md-6 mb-2">
+				<label for="recipientName" class="form-label">Name</label>
+				<input type="text" class="form-control" id="recipientName" name="recipientName" placeholder="Person">
+			</div>
+			<div class="col-md-6 mb-2">
+				<label for="recipientRelation" class="form-label">Relationship to you</label>
+				<input type="text" class="form-control" id="recipientRelation" name="recipientRelation" placeholder="e.g. Friend, Parent, Spouse">
+			</div>
+			<div class="col-12">
+				<div class="form-check mt-1">
+					<input class="form-check-input" type="checkbox" id="forSelf" name="forSelf">
+					<label class="form-check-label" for="forSelf">For yourself</label>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<label for="memoriesDesc" class="form-label question-label"><span class="question-pointer">3</span>Please describe the stories/memories/events you want to focus on.</label>
+				<textarea class="form-control mb-2" id="memoriesDesc" name="memoriesDesc" rows="2" placeholder="Story 1"></textarea>
+				<textarea class="form-control mb-2" name="memoriesDesc2" rows="2" placeholder="Story 2"></textarea>
+				<textarea class="form-control" name="memoriesDesc3" rows="2" placeholder="Story 3"></textarea>
+			</div>
+		</div>
+				<div class="mb-3">
+			<label for="milestones" class="form-label question-label"><span class="question-pointer">4</span>Which milestone(s) or memories should be highlighted?</label>
+			<textarea class="form-control" id="milestones" name="milestones" rows="2" placeholder="Birthdays, anniversaries, achievements, trips, etc."></textarea>
+		</div>
+				<div class="mb-3">
+			<label for="keyPeople" class="form-label question-label"><span class="question-pointer">5</span>What key people, pets, or places must be featured?</label>
+			<textarea class="form-control" id="keyPeople" name="keyPeople" rows="2" placeholder="(we will make sure you do not miss out on anyone important)"></textarea>
+		</div>
+				<div class="mb-3">
+			<label for="memorabilia" class="form-label question-label"><span class="question-pointer">6</span>Do you wish to incorporate memorabilia?</label>
+			<textarea class="form-control" id="memorabilia" name="memorabilia" rows="2" placeholder="Letters, tickets, artwork, family trees, photos, autographs, etc."></textarea>
+		</div>
+				<div class="mb-3">
+			<label class="form-label question-label"><span class="question-pointer">7</span>What length do you envision for the book?</label>
+			<div class="row g-2">
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="radio" name="bookLength" value="0-20" id="len1"><label class="form-check-label" for="len1">0-20 pages</label></div></div>
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="radio" name="bookLength" value="20-30" id="len2"><label class="form-check-label" for="len2">20-30 pages</label></div></div>
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="radio" name="bookLength" value="30+" id="len3"><label class="form-check-label" for="len3">More than 30 pages</label></div></div>
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="radio" name="bookLength" value="50+" id="len4"><label class="form-check-label" for="len4">More than 50 pages</label></div></div>
+			</div>
+		</div>
+				<div class="mb-3">
+			<label class="form-label question-label"><span class="question-pointer">8</span>What tone would you like the book to convey?</label>
+			<div class="row g-2">
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="checkbox" name="tone" value="Nostalgic" id="toneNostalgic"><label class="form-check-label" for="toneNostalgic">Nostalgic</label></div></div>
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="checkbox" name="tone" value="Celebratory" id="toneCelebratory"><label class="form-check-label" for="toneCelebratory">Celebratory</label></div></div>
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="checkbox" name="tone" value="Heartfelt" id="toneHeartfelt"><label class="form-check-label" for="toneHeartfelt">Heartfelt</label></div></div>
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="checkbox" name="tone" value="Fun" id="toneFun"><label class="form-check-label" for="toneFun">Fun</label></div></div>
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="checkbox" name="tone" value="Other" id="toneOther"><label class="form-check-label" for="toneOther">Other</label></div></div>
+				<div class="col-12 mt-2"><input type="text" class="form-control" name="toneOtherText" placeholder="If other, please specify"></div>
+			</div>
+		</div>
+				<div class="mb-3">
+			<label class="form-label question-label"><span class="question-pointer">9</span>What kind of content do you envision including in the book?</label>
+			<div class="row g-2">
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="checkbox" name="contentType" value="Photographs" id="contentPhoto"><label class="form-check-label" for="contentPhoto">Photographs</label></div></div>
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="checkbox" name="contentType" value="Anecdotes" id="contentAnecdotes"><label class="form-check-label" for="contentAnecdotes">Personal anecdotes/stories</label></div></div>
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="checkbox" name="contentType" value="Quotes" id="contentQuotes"><label class="form-check-label" for="contentQuotes">Quotes or poetry</label></div></div>
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="checkbox" name="contentType" value="Letters" id="contentLetters"><label class="form-check-label" for="contentLetters">Letters or significant writings</label></div></div>
+				<div class="col-auto"><div class="form-check"><input class="form-check-input" type="checkbox" name="contentType" value="Tokens" id="contentTokens"><label class="form-check-label" for="contentTokens">Other tokens/memorabilia</label></div></div>
+				<div class="col-12 mt-2"><input type="text" class="form-control" name="contentOtherText" placeholder="If other, please describe"></div>
+				<div class="col-12 mt-2"><div class="form-check"><input class="form-check-input" type="checkbox" name="contentType" value="PersonalMessages" id="contentMessages"><label class="form-check-label" for="contentMessages">Personal messages from others</label></div></div>
+			</div>
+		</div>
+				<div class="mb-3">
+			<label for="structure" class="form-label question-label"><span class="question-pointer">10</span>Do you want the book to follow a particular structure?</label>
+			<input type="text" class="form-control" id="structure" name="structure" placeholder="Chronological, themed chapters, free-flow, etc.">
+		</div>
+				<div class="mb-3">
+			<label for="bookName" class="form-label question-label"><span class="question-pointer">11</span>Do you have a name in mind for the Cherished Chapter? (Book cover)</label>
+			<input type="text" class="form-control" id="bookName" name="bookName" placeholder="e.g. Happy Birthday, Our Eternal Love">
+			<small class="text-muted d-block mt-1" style="font-size:0.98em;">It can simply be a wish like Happy Birthday or Happy Anniversary or Congratulations, or the main theme of the book like “Looking back at your school days”, “Your hard work got you here”, “Our eternal love”, or it can be a line of a song or just anything :)</small>
+		</div>
+				<div class="mb-3">
+			<label for="coverRequests" class="form-label question-label"><span class="question-pointer">12</span>Any special requests for the cover design or material?</label>
+			<input type="text" class="form-control" id="coverRequests" name="coverRequests" placeholder="Photo cover, embossing, leather, cloth, etc.">
+		</div>
+		<div class="mb-3">
+			<label for="inspiration" class="form-label question-label"><span class="question-pointer">13</span>Can you share any existing books, styles, or examples that inspire you?</label>
+			<textarea class="form-control" id="inspiration" name="inspiration" rows="2"></textarea>
+		</div>
+		<div class="mb-3">
+			<label for="additionalComments" class="form-label question-label"><span class="question-pointer">14</span>Any additional comments or special instructions?</label>
+			<textarea class="form-control" id="additionalComments" name="additionalComments" rows="2"></textarea>
+		</div>
+			</div>
+			<div class="form-section mb-4 p-3 p-md-4">
+				<h4 class="mb-3">Your Memories and Stories</h4>
+				<div class="mb-3">
+					<label class="form-label question-label"><span class="question-pointer">1</span>What are some key milestones, periods, or events you would like to highlight in the book?</label>
+					<div class="row g-2 mb-2">
+						<div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="milestones[]" value="Childhood" id="milestoneChildhood"><label class="form-check-label" for="milestoneChildhood">Childhood</label></div></div>
+						<div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="milestones[]" value="Adolescence/Young Adulthood" id="milestoneAdolescence"><label class="form-check-label" for="milestoneAdolescence">Adolescence/Young Adulthood</label></div></div>
+						<div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="milestones[]" value="Career/Achievements" id="milestoneCareer"><label class="form-check-label" for="milestoneCareer">Career/Achievements</label></div></div>
+						<div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="milestones[]" value="Relationships/Family" id="milestoneFamily"><label class="form-check-label" for="milestoneFamily">Relationships/Family</label></div></div>
+						<div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="milestones[]" value="Travels" id="milestoneTravels"><label class="form-check-label" for="milestoneTravels">Travels</label></div></div>
+						<div class="col-md-6 col-lg-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="milestones[]" value="Other" id="milestoneOther"><label class="form-check-label" for="milestoneOther">Other</label></div></div>
+						<div class="col-12 mt-2"><input type="text" class="form-control" name="milestoneOtherText" placeholder="If other, please specify"></div>
+					</div>
+		</div>
+				<div class="mb-3">
+			<label class="form-label question-label"><span class="question-pointer">2</span>Are there any specific individuals whose input you would like us to help collect for the book?</label>
+			<div class="row g-2 mb-2">
+				<div class="col-12 mb-2">
+					<div class="row g-2 align-items-end">
+						<div class="col-md-6">
+							<input type="text" class="form-control" name="inputPerson1Name" id="inputPerson1Name" placeholder="Name">
+						</div>
+						<div class="col-md-6">
+							<input type="text" class="form-control" name="inputPerson1Relation" id="inputPerson1Relation" placeholder="Relationship">
+						</div>
+					</div>
+				</div>
+				<div class="col-12 mb-2">
+					<div class="row g-2 align-items-end">
+						<div class="col-md-6">
+							<input type="text" class="form-control" name="inputPerson2Name" id="inputPerson2Name" placeholder="Name">
+						</div>
+						<div class="col-md-6">
+							<input type="text" class="form-control" name="inputPerson2Relation" id="inputPerson2Relation" placeholder="Relationship">
+						</div>
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="row g-2 align-items-end">
+						<div class="col-md-6">
+							<input type="text" class="form-control" name="inputPerson3Name" id="inputPerson3Name" placeholder="Name">
+						</div>
+						<div class="col-md-6">
+							<input type="text" class="form-control" name="inputPerson3Relation" id="inputPerson3Relation" placeholder="Relationship">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				<div class="row g-3 mb-3">
+			<label class="form-label question-label"><span class="question-pointer">3</span>Do you have a general timeline or deadline for when you would like this book completed?</label>
+			<div class="row g-2 align-items-end">
+				<div class="col-md-6 mb-2">
+					<label for="targetDate" class="form-label">Target Date</label>
+					<input type="date" class="form-control" id="targetDate" name="targetDate">
+				</div>
+				<div class="col-md-6 mb-2">
+					<label for="calendarEvent" class="form-label">Is this for a specific event?</label>
+					<input type="text" class="form-control" id="calendarEvent" name="calendarEvent" placeholder="Event name">
+				</div>
+			</div>
+		</div>
+				<div class="mb-3">
+					<label class="form-label question-label"><span class="question-pointer">4</span>Do you want us to print and deliver?</label>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="printDeliver" id="printYes" value="Yes" onclick="document.getElementById('printAddressSection').style.display='block'">
+						<label class="form-check-label" for="printYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="printDeliver" id="printNo" value="No" onclick="document.getElementById('printAddressSection').style.display='none'">
+						<label class="form-check-label" for="printNo">No</label>
+					</div>
+					<div id="printAddressSection" style="display:none; margin-top:1em;">
+						<label for="deliveryAddress" class="form-label">If yes, please provide the address</label>
+						<textarea class="form-control mb-2" id="deliveryAddress" name="deliveryAddress" rows="2"></textarea>
+						<small class="text-muted d-block mt-1">Depending on printing and shipping timelines we will adjust the target date of completion of the book.</small>
+					</div>
+				</div>
+			</div>
+			<div class="form-section mb-4 p-3 p-md-4">
+				<div class="mb-4">
+			<small class="text-muted">Depending on printing and shipping timelines we will adjust the target date of completion of the book.</small>
+		</div>
+						<div class="mb-4">
+							<strong>Next Steps</strong><br>
+							After you complete this questionnaire, we will review your responses and schedule an initial consultation call to discuss your vision in depth. If you have any immediate questions, please feel free to add them below.
+							<textarea class="form-control mt-3" name="nextStepsQuestions" rows="2" placeholder="Type your question or comment here..."></textarea>
+						</div>
+			</div>
+		<div class="d-flex justify-content-end gap-3">
+</style>
+<style>
+	.form-section {
+		background: #f7f8fa;
+		border-radius: 1.1rem;
+		box-shadow: 0 2px 12px rgba(103,126,234,0.06);
+		border: 1.2px solid #e0e0e0;
+	}
+	@media (max-width: 600px) {
+		.form-section {
+			padding: 1rem 0.5rem !important;
+			border-radius: 0.7rem;
+		}
+	}
+</style>
+			<button type="reset" class="btn btn-outline-secondary">Cancel</button>
+			<button type="submit" class="btn btn-modern">Submit</button>
+		</div>
+	</form>
+</main>
+
+<footer class="footer-modern mt-0 pt-4 pb-3">
+	<div class="container">
+		<div class="row align-items-center gy-4 flex-column flex-md-row text-center text-md-start">
+			<div class="col-12 col-md-4 mb-3 mb-md-0 d-flex flex-column align-items-center align-items-md-start">
+				<div class="footer-logo d-flex align-items-center justify-content-center justify-content-md-start mb-2">
+					<span class="footer-logo-icon me-2" style="font-size:2.2rem;color:#ab47bc;"><i class="bi bi-journal-bookmark-fill"></i></span>
+					<img src="logo.PNG" alt="Cherished Chapters Logo" style="height:48px;width:auto;">
+				</div>
+				<div class="footer-desc" style="color:#4f5d75;font-size:1rem;max-width:260px;">Where memories become gifts. Custom books, crafted with love in Mumbai.</div>
+			</div>
+			<div class="col-12 col-md-4 mb-3 mb-md-0 d-flex flex-column align-items-center">
+				<div class="footer-links mb-2 w-100">
+					<h6 class="fw-bold text-uppercase mb-2" style="letter-spacing:0.05em;color:#ffd166;">Quick Links</h6>
+					<ul class="list-unstyled mb-0 d-flex flex-wrap justify-content-center justify-content-md-start">
+						<li class="mb-2 me-3"><a href="#home" class="footer-link">Home</a></li>
+						<li class="mb-2 me-3"><a href="#features" class="footer-link">Products</a></li>
+						<li class="mb-2 me-3"><a href="#portfolio" class="footer-link">Portfolio</a></li>
+						<li class="mb-2 me-3"><a href="#process" class="footer-link">Process</a></li>
+						<li class="mb-2 me-3"><a href="#pricing" class="footer-link">Pricing</a></li>
+						<li class="mb-2"><a href="#contact" class="footer-link">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-12 col-md-4 d-flex flex-column align-items-center align-items-md-end">
+				<div class="footer-contact mb-2" style="color:#fff;font-size:1rem;">
+					<i class="bi bi-geo-alt me-1" style="color:#ffd166;"></i> Mumbai, India
+				</div>
+				<div class="footer-social mb-2">
+					<a href="#" class="footer-social-link mx-2" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+					<a href="#" class="footer-social-link mx-2" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+					<a href="mailto:hello@cherishedcapter.com" class="footer-social-link mx-2" aria-label="Email"><i class="bi bi-envelope"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col-12 col-md-4 offset-md-8">
+				<div class="footer-copyright text-end" style="color:#fff;font-size:0.95rem;">
+					&copy; 2025 <span style="color:#ffd166;">Cherished Chapters</span>. All rights reserved.
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
