@@ -777,24 +777,51 @@
       transform: rotateX(5deg) rotateY(-5deg) translateZ(20px);
     }
     
+    /* Crossfade + subtle zoom effect (replaces 3D flip) */
     .flip-card {
-      background-color: transparent;
-      width: 100%;
-      height: 300px;
-      perspective: 1000px;
-    }
-    
-    .flip-card-inner {
       position: relative;
       width: 100%;
       height: 100%;
-      text-align: center;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      cursor: pointer;
     }
-    
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      will-change: opacity, transform;
+      transition: opacity 0.5s ease, transform 0.6s cubic-bezier(.22,.9,.33,1);
+    }
+
+    .flip-card-front {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .flip-card-back {
+      opacity: 0;
+      transform: scale(1.06);
+    }
+
+    /* On hover or tapped (.flipped), crossfade and gently zoom */
+    .flip-card:hover .flip-card-front,
+    .flip-card.flipped .flip-card-front {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+
+    .flip-card:hover .flip-card-back,
+    .flip-card.flipped .flip-card-back {
+      opacity: 1;
+      transform: scale(1);
     }
     
     .flip-card-front, .flip-card-back {
@@ -1967,11 +1994,12 @@
   border: none !important;
   box-shadow: none !important;
   width: 100% !important;
-  height: 320px !important;
+  /* Increased height to support vertical/portrait images */
+  height: 520px !important;
   max-width: 100% !important;
-  aspect-ratio: 3/4 !important;
   padding: 0 !important;
   margin: 0 !important;
+  overflow: hidden !important;
 }
     /* Portfolio image hover effect */
     .portfolio-img-square img {
@@ -1979,11 +2007,10 @@
   width: 100% !important;
   height: 100% !important;
   max-width: 100% !important;
-  aspect-ratio: 3/4 !important;
   border-radius: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
-  object-fit: cover !important;
+  object-fit: cover !important; /* keeps vertical images centered and covered */
   transition: none !important;
   border: none !important;
   box-shadow: none !important;
@@ -3106,11 +3133,11 @@
       padding: 0.7rem 0.5rem;
     }
   }
-   /* Portfolio square image helper */
+   /* Portfolio image helper (allow taller / portrait images) */
     .portfolio-img-square {
   width: 100%;
-  max-width: 320px;
-  aspect-ratio: 1/1;
+  max-width: 360px;
+  height: 520px; /* taller container for vertical images */
   overflow: hidden;
   display: block;
   background: #fff;
@@ -3119,8 +3146,55 @@
   border: 2.5px solid #fdd46b;
   padding: 0;
     }
+    /* Flip card styles (front/back images) */
+    /* Crossfade + subtle zoom effect (replaces 3D flip) */
+    .flip-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      will-change: opacity, transform;
+      transition: opacity 0.5s ease, transform 0.6s cubic-bezier(.22,.9,.33,1);
+    }
+    .flip-card-front {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .flip-card-back {
+      opacity: 0;
+      transform: scale(1.06);
+    }
+    .flip-card:hover .flip-card-front,
+    .flip-card.flipped .flip-card-front {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    .flip-card:hover .flip-card-back,
+    .flip-card.flipped .flip-card-back {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .flip-card-front img,
+    .flip-card-back img {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      border-radius: 0 !important;
+    }
     @media (max-width: 991px) {
-      .portfolio-img-square { max-width: 220px; }
+      .portfolio-img-square { max-width: 260px; }
     }
     @media (max-width: 575px) {
       .portfolio-img-square { max-width: 90vw; }
@@ -3635,6 +3709,41 @@
     background: #0c3b2e !important;
     box-shadow: 0 2px 12px rgba(0,0,0,0.10);
   }
+    /* Set background for all <section> elements (exclude footer element) */
+    section { background: #faf3ff !important; }
+    /* Utility for full-width bands that should span edge-to-edge */
+    .full-band {
+      position: relative;
+      padding: 48px 0;
+      /* fallback/background in case pseudo-element is blocked */
+      background: #faf3ff !important;
+      overflow: visible;
+    }
+    /* Strong visible band behind content using a pseudo-element so it's not covered by child backgrounds */
+    .full-band::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      /* extend slightly to cover any thin gap between sections */
+      top: -24px;
+      bottom: -24px;
+      background: #faf3ff !important;
+      z-index: 0;
+      pointer-events: none;
+    }
+    /* Place inner content above the pseudo background */
+    .full-band > .container,
+    .full-band .cta-modern-card { position: relative; z-index: 1; }
+    /* Remove spacing between pricing and the CTA band */
+    #pricing { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+  /* Ensure pricing area and cards are not clipped by neighboring pseudo-elements */
+  #pricing { overflow: visible !important; }
+  .pricing-card { position: relative; z-index: 2; overflow: visible !important; }
+    .full-band { margin-top: 0 !important; }
+  /* Ensure FAQ top gap matches the full-band color and covers any thin stripe */
+  #faqs { background: #faf3ff !important; position: relative; z-index: 1; }
+  #faqs::before { content: ''; position: absolute; left: 0; right: 0; top: -24px; height: 24px; background: #faf3ff !important; pointer-events: none; z-index: 0; }
 </style>
 </head>
   <body style="background: linear-gradient(120deg, #e6e6fa 60%, #b8c1ec 100%) !important;">
@@ -3713,7 +3822,7 @@
 </style>
 
   <!-- Hero Section -->
-  <section class="hero-section py-5 position-relative overflow-hidden" id="home" style="background: none !important;">
+  <section class="hero-section py-5 position-relative overflow-hidden" id="home">
     <style>
       .hero-section .btn-primary,
       .hero-section .btn.btn-primary {
@@ -4112,7 +4221,7 @@
         margin: 0 auto 0.5rem auto !important;
         width: 100% !important;
         max-width: 100% !important;
-        height: 400px !important;
+        height: 520px !important; /* increased for vertical images */
         border-radius: 0 !important;
       }
       body.mobile-portfolio-override #portfolio .portfolio-img-square img {
@@ -4194,7 +4303,7 @@
         right: 0 !important;
       }
       body.mobile-portfolio-override #portfolio .portfolio-img-square {
-        height: 350px !important;
+        height: 480px !important; /* slightly taller on small phones */
         max-width: 100% !important;
         margin: 0 auto 0.8rem auto !important;
         border-radius: 0 !important;
@@ -4237,6 +4346,31 @@
         width: auto !important;
       }
     }
+    /* Larger laptop/desktop: allow portrait images to show full height */
+    @media screen and (min-width: 992px) {
+      .portfolio-slider-card {
+        /* Let the card grow to fit taller images */
+        min-height: 560px !important;
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      .portfolio-img-square {
+        /* Make image container fill the top of the card */
+        height: 100% !important;
+        max-width: 100% !important;
+        border-radius: 1.2rem !important;
+        overflow: hidden !important;
+      }
+      .portfolio-slider-outer {
+        min-height: 720px !important; /* ensure outer wrapper tall enough */
+        height: auto !important;
+      }
+      .portfolio-desc {
+        margin-top: 0.8rem !important;
+      }
+    }
     </style>
 
   </section>
@@ -4268,7 +4402,16 @@
           <div class="portfolio-slider-row" id="portfolioSliderRow">
             <div class="portfolio-slider-card">
               <div class="portfolio-img-square mb-2">
-                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 1" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="imgs/1.png" class="img-fluid" alt="Book Preview 1" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                    <div class="flip-card-back">
+                      <img src="imgs/2.png" class="img-fluid" alt="Book Preview 1 - back" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="portfolio-desc text-center mt-2">
                 <h6 class="fw-bold mb-1" style="color:#232946;">Milestone Birthday Book</h6>
@@ -4277,7 +4420,16 @@
             </div>
             <div class="portfolio-slider-card">
               <div class="portfolio-img-square mb-2">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 2" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="imgs/4.png" class="img-fluid" alt="Book Preview 2" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                    <div class="flip-card-back">
+                      <img src="imgs/5.png" class="img-fluid" alt="Book Preview 2 - back" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="portfolio-desc text-center mt-2">
                 <h6 class="fw-bold mb-1" style="color:#232946;">Anniversary Storybook</h6>
@@ -4286,7 +4438,16 @@
             </div>
             <div class="portfolio-slider-card">
               <div class="portfolio-img-square mb-2">
-                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 3" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="imgs/7.png" class="img-fluid" alt="Book Preview 3" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                    <div class="flip-card-back">
+                      <img src="imgs/8.png" class="img-fluid" alt="Book Preview 3 - back" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="portfolio-desc text-center mt-2">
                 <h6 class="fw-bold mb-1" style="color:#232946;">Achievement Keepsake</h6>
@@ -4295,7 +4456,16 @@
             </div>
             <div class="portfolio-slider-card">
               <div class="portfolio-img-square mb-2">
-                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 4" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="imgs/10.png" class="img-fluid" alt="Book Preview 4" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                    <div class="flip-card-back">
+                      <img src="imgs/11.png" class="img-fluid" alt="Book Preview 4 - back" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="portfolio-desc text-center mt-2">
                 <h6 class="fw-bold mb-1" style="color:#232946;">Wedding Memories</h6>
@@ -4304,7 +4474,16 @@
             </div>
             <div class="portfolio-slider-card">
               <div class="portfolio-img-square mb-2">
-                <img src="https://images.unsplash.com/photo-1468421870903-4df1664ac249?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 5" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="imgs/13.png" class="img-fluid" alt="Book Preview 5" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                    <div class="flip-card-back">
+                      <img src="imgs/14.png" class="img-fluid" alt="Book Preview 5 - back" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="portfolio-desc text-center mt-2">
                 <h6 class="fw-bold mb-1" style="color:#232946;">Travel Adventure Book</h6>
@@ -4313,7 +4492,16 @@
             </div>
             <div class="portfolio-slider-card">
               <div class="portfolio-img-square mb-2">
-                <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 6" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="imgs/16.png" class="img-fluid" alt="Book Preview 6" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                    <div class="flip-card-back">
+                      <img src="imgs/17.png" class="img-fluid" alt="Book Preview 6 - back" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="portfolio-desc text-center mt-2">
                 <h6 class="fw-bold mb-1" style="color:#232946;">Baby's First Year</h6>
@@ -4323,7 +4511,16 @@
             <!-- 7 more cards -->
             <div class="portfolio-slider-card">
               <div class="portfolio-img-square mb-2">
-                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 7" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="imgs/19.png" class="img-fluid" alt="Book Preview 7" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                    <div class="flip-card-back">
+                      <img src="imgs/20.png" class="img-fluid" alt="Book Preview 7 - back" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="portfolio-desc text-center mt-2">
                 <h6 class="fw-bold mb-1" style="color:#232946;">Graduation Tribute</h6>
@@ -4332,7 +4529,16 @@
             </div>
             <div class="portfolio-slider-card">
               <div class="portfolio-img-square mb-2">
-                <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd9?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 8" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="imgs/22.png" class="img-fluid" alt="Book Preview 8" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                    <div class="flip-card-back">
+                      <img src="imgs/23.png" class="img-fluid" alt="Book Preview 8 - back" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="portfolio-desc text-center mt-2">
                 <h6 class="fw-bold mb-1" style="color:#232946;">Pet Memory Album</h6>
@@ -4341,7 +4547,16 @@
             </div>
             <div class="portfolio-slider-card">
               <div class="portfolio-img-square mb-2">
-                <img src="https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 9" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="imgs/25.png" class="img-fluid" alt="Book Preview 9" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                    <div class="flip-card-back">
+                      <img src="imgs/26.png" class="img-fluid" alt="Book Preview 9 - back" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="portfolio-desc text-center mt-2">
                 <h6 class="fw-bold mb-1" style="color:#232946;">Retirement Reflections</h6>
@@ -4350,7 +4565,16 @@
             </div>
             <div class="portfolio-slider-card">
               <div class="portfolio-img-square mb-2">
-                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 10" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="imgs/28.png" class="img-fluid" alt="Book Preview 10" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                    <div class="flip-card-back">
+                      <img src="imgs/29.png" class="img-fluid" alt="Book Preview 10 - back" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="portfolio-desc text-center mt-2">
                 <h6 class="fw-bold mb-1" style="color:#232946;">Family Heritage Book</h6>
@@ -4359,7 +4583,16 @@
             </div>
             <div class="portfolio-slider-card">
               <div class="portfolio-img-square mb-2">
-                <img src="https://images.unsplash.com/photo-1468421870903-4df1664ac249?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 11" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="imgs/31.png" class="img-fluid" alt="Book Preview 11" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                    <div class="flip-card-back">
+                      <img src="imgs/32.png" class="img-fluid" alt="Book Preview 11 - back" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="portfolio-desc text-center mt-2">
                 <h6 class="fw-bold mb-1" style="color:#232946;">Recipe Collection</h6>
@@ -4368,7 +4601,16 @@
             </div>
             <div class="portfolio-slider-card">
               <div class="portfolio-img-square mb-2">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 12" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="imgs/34.png" class="img-fluid" alt="Book Preview 12" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                    <div class="flip-card-back">
+                      <img src="imgs/35.png" class="img-fluid" alt="Book Preview 12 - back" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="portfolio-desc text-center mt-2">
                 <h6 class="fw-bold mb-1" style="color:#232946;">Sports Team Yearbook</h6>
@@ -4377,7 +4619,16 @@
             </div>
             <div class="portfolio-slider-card">
               <div class="portfolio-img-square mb-2">
-                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=80" class="img-fluid" alt="Book Preview 13" style="aspect-ratio:1/1;object-fit:cover;width:100%;border:none!important;">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="imgs/37.png" class="img-fluid" alt="Book Preview 13" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                    <div class="flip-card-back">
+                      <img src="imgs/38.png" class="img-fluid" alt="Book Preview 13 - back" style="width:100%;height:100%;border:none!important;">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="portfolio-desc text-center mt-2">
                 <h6 class="fw-bold mb-1" style="color:#232946;">Art Portfolio</h6>
@@ -4762,7 +5013,8 @@
 
 
   <!-- Combined CTA Row: Still Not Sure? + Ready to Begin Your Journey? -->
-  <section class="container my-5 fade-in">
+  <section class="my-5 fade-in full-band" style="background:#faf3ff !important;">
+    <div class="container">
     <div class="row g-4 align-items-stretch justify-content-center">
       <!-- Still Not Sure? Card -->
       <div class="col-12 col-lg-5 d-flex">
@@ -4830,8 +5082,9 @@
           </div>
         </div>
       </div>
-    </div>
-    <style>
+  </div>
+  </div>
+  <style>
       @media (min-width: 992px) {
         .cta-modern-card {
           min-height: 420px;
@@ -5401,6 +5654,17 @@
       // Initialize
       updateCardWidth();
       updateSlider();
+      // Pointer/touch toggle for flip-cards: on touch devices tapping the image toggles the flip
+      if ('ontouchstart' in window || navigator.maxTouchPoints) {
+        const flipCards = sliderRow.querySelectorAll('.flip-card');
+        flipCards.forEach(card => {
+          let startX = 0;
+          let moved = false;
+          card.addEventListener('pointerdown', function(e) { startX = e.clientX || (e.touches && e.touches[0].clientX); moved = false; });
+          card.addEventListener('pointermove', function(e) { if (Math.abs((e.clientX || 0) - startX) > 10) moved = true; });
+          card.addEventListener('pointerup', function(e) { if (!moved) card.classList.toggle('flipped'); });
+        });
+      }
     });
   </script>
   <!-- Fade-in Animation Script -->

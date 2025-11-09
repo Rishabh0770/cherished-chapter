@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gift Portfolio Slider</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+      font-family: "Poppins", sans-serif;
+    }
+
+    .portfolio-slider {
+      max-width: 1350px;
+      margin: 70px auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .section-heading {
+      text-align: center;
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      background: linear-gradient(90deg, #a8edea, #fed6e3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.5px;
+    }
+
+    /* --- CARD STYLING --- */
+    .card {
+      border: 2px solid transparent;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #fff;
+      transition: all 0.4s ease;
+      height: 100%;
+      position: relative;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      margin: 10px;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: #fed6e3;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 380px;
+      object-fit: contain;
+      background: #f8f9fb;
+      transition: all 0.6s ease;
+      border-bottom: 2px solid #f1f1f1;
+    }
+
+    .card img.second {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    .card:hover img.first {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+
+    .card:hover img.second {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .card-body {
+      padding: 22px;
+      text-align: center;
+    }
+
+    .card-title {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .card-text {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
+      height: 140px;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent, rgba(255, 182, 193, 0.15));
+      opacity: 0;
+      transition: 0.4s ease;
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    /* --- CONTROLS --- */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      border-radius: 50%;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: 0.3s;
+    }
+
+    .carousel-control-prev-icon:hover,
+    .carousel-control-next-icon:hover {
+      background: linear-gradient(135deg, #ffd1ff, #a8edea);
+      transform: scale(1.1);
+    }
+
+    /* --- INDICATORS --- */
+    .carousel-indicators {
+      position: absolute;
+      bottom: -45px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      animation: fadeIn 1s ease;
+    }
+
+    .carousel-indicators [data-bs-target] {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #d6dbe0;
+      opacity: 0.6;
+      transition: all 0.4s ease;
+      border: none;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-indicators .active {
+      width: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      box-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .card img {
+        height: 340px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .card img {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="portfolio-slider">
+    <h2 class="section-heading">Our Gift Portfolio</h2>
+
+    <div id="giftCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#giftCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#giftCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#giftCarousel" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#giftCarousel" data-bs-slide-to="3"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <!-- SLIDE 1 -->
+        <div class="carousel-item active">
+          <div class="row g-3">
+            <div class="col-md-3">
+              <div class="card">
+                <img src="imgs/1.png" class="first" alt="">
+                <img src="imgs/2.png" class="second" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Gift Collection 1</h5>
+                  <p class="card-text">An elegant presentation of pastel-themed gifts crafted with love and minimalistic charm to bring delight in every moment.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <img src="imgs/4.png" class="first" alt="">
+                <img src="imgs/5.png" class="second" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Gift Collection 2</h5>
+                  <p class="card-text">A sophisticated set with timeless elegance, showcasing our refined craftsmanship and aesthetic sense of design.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <img src="imgs/7.png" class="first" alt="">
+                <img src="imgs/8.png" class="second" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Gift Collection 3</h5>
+                  <p class="card-text">A vibrant combination of colors and textures, ideal for gifting experiences that radiate warmth and happiness.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <img src="imgs/10.png" class="first" alt="">
+                <img src="imgs/11.png" class="second" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Gift Collection 4</h5>
+                  <p class="card-text">From intricate wrapping to stunning accessories, every detail reflects the joy of celebration and beauty.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="carousel-item">
+          <div class="row g-3">
+            <div class="col-md-3">
+              <div class="card">
+                <img src="imgs/13.png" class="first" alt="">
+                <img src="imgs/14.png" class="second" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Gift Collection 5</h5>
+                  <p class="card-text">Minimalist yet chic, this collection represents sophistication and subtle charm for every occasion.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <img src="imgs/16.png" class="first" alt="">
+                <img src="imgs/17.png" class="second" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Gift Collection 6</h5>
+                  <p class="card-text">Artisan designs paired with vibrant presentation create a luxurious visual appeal that stands out.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <img src="imgs/19.png" class="first" alt="">
+                <img src="imgs/20.png" class="second" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Gift Collection 7</h5>
+                  <p class="card-text">Perfectly curated combinations for loved ones, handcrafted with care and presented with finesse.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <img src="imgs/22.png" class="first" alt="">
+                <img src="imgs/23.png" class="second" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Gift Collection 8</h5>
+                  <p class="card-text">An eye-catching blend of soft colors and design elements that evoke elegance and serenity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="carousel-item">
+          <div class="row g-3">
+            <div class="col-md-3">
+              <div class="card">
+                <img src="imgs/25.png" class="first" alt="">
+                <img src="imgs/26.png" class="second" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Gift Collection 9</h5>
+                  <p class="card-text">Soft pastel hues meet modern gift design, ensuring a perfect blend of warmth and visual appeal.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <img src="imgs/28.png" class="first" alt="">
+                <img src="imgs/29.png" class="second" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Gift Collection 10</h5>
+                  <p class="card-text">This range embodies luxury and thoughtfulness, wrapped beautifully for timeless impressions.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <img src="imgs/31.png" class="first" alt="">
+                <img src="imgs/32.png" class="second" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Gift Collection 11</h5>
+                  <p class="card-text">A delicate collection that captures the essence of love, simplicity, and joy through visuals.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <img src="imgs/34.png" class="first" alt="">
+                <img src="imgs/35.png" class="second" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Gift Collection 12</h5>
+                  <p class="card-text">A radiant design with a modern touch, combining creativity with premium gift aesthetics.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="carousel-item">
+          <div class="row g-3 justify-content-center">
+            <div class="col-md-3">
+              <div class="card">
+                <img src="imgs/37.png" class="first" alt="">
+                <img src="imgs/38.png" class="second" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Gift Collection 13</h5>
+                  <p class="card-text">The perfect finale—elegant, creative, and emotionally resonant. A collection that defines perfection.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#giftCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#giftCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
